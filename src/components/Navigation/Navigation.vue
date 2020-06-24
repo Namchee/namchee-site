@@ -24,12 +24,12 @@ export default {
         href: '/',
       },
       {
-        name: 'Blog',
-        href: '/blog',
-      },
-      {
         name: 'Projects',
         href: '/projects',
+      },
+      {
+        name: 'Blog',
+        href: '/blog',
       },
       {
         name: 'About',
@@ -141,6 +141,7 @@ export default {
       <!-- start: mobile navigation burger -->
       <button
         class="nav__burger h-full md:mr-2"
+        aria-label="Menu"
         aria-controls="nav"
         :aria-expanded="isOpen"
         @click="isOpen = !isOpen"
@@ -416,7 +417,7 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-12;
+    @apply h-20 px-16;
   }
 
   .nav__elem {

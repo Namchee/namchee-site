@@ -26,7 +26,8 @@ export default {
 
 <template>
   <button
-    title="Toggle Site Theme"
+    title="Switch site theme"
+    aria-label="Switch site theme"
     role="button"
     class="lg:ml-4 p-2"
     @click="toggleTheme()"

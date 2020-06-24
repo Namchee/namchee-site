@@ -35,11 +35,13 @@ query {
 
 <template>
   <div
-    class="app bg-background-primary text-copy-primary text-justify antialiased"
+    class="app bg-background-primary text-copy-primary antialiased"
     :class="`theme-${theme === 'system' ? systemTheme : theme}`"
   >
     <navigation />
-    <section class="px-8 md:px-16 lg:px-20 lg:text-lg font-medium">
+    <section
+      class="pt-18 lg:pt-20 px-6 md:px-12 lg:px-16 lg:text-lg font-medium"
+    >
       <slot />
     </section>
   </div>
@@ -52,5 +54,8 @@ query {
     fill 300ms ease,
     stroke 300ms ease,
     border-color 300ms ease;
+
+  min-height: 100vh;
+  min-width: 100vw;
 }
 </style>
