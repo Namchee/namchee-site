@@ -1,6 +1,5 @@
 <script>
 import Dark from './../../assets/icons/dark.svg';
-import System from './../../assets/icons/system.svg';
 import Light from './../../assets/icons/light.svg';
 
 import { useGetters, useMutations } from 'vuex-composition-helpers';
@@ -8,7 +7,6 @@ import { useGetters, useMutations } from 'vuex-composition-helpers';
 export default {
   components: {
     Dark,
-    System,
     Light,
   },
 

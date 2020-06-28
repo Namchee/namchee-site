@@ -7,7 +7,7 @@ import Vuex from 'vuex';
 import store from '~/store';
 import '~/assets/styles/base.css';
 
-export default function(Vue, { appOptions }) {
+export default function(Vue, { head, appOptions }) {
   Vue.use(Vuex);
   Vue.use(CompositionAPI);
 

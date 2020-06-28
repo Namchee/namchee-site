@@ -1,7 +1,6 @@
 <script>
 import { useGetters } from 'vuex-composition-helpers';
-import { computed } from '@vue/composition-api';
-import Navigation from '~/components/Navigation';
+import { Navigation } from '~/components/Navigation';
 
 export default {
   components: {
@@ -11,15 +10,8 @@ export default {
   setup() {
     const { theme } = useGetters(['theme']);
 
-    const systemTheme = computed(() => {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ?
-        'dark' :
-        'light';
-    });
-
     return {
       theme,
-      systemTheme,
     };
   },
 };
@@ -36,7 +28,7 @@ query {
 <template>
   <div
     class="app bg-background-primary text-copy-primary antialiased"
-    :class="`theme-${theme === 'system' ? systemTheme : theme}`"
+    :class="`theme-${theme}`"
   >
     <navigation />
     <section

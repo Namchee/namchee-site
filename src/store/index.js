@@ -1,24 +1,27 @@
 // only for site's theme
 
-const themeList = ['dark', 'system', 'light'];
+const systemTheme = () => {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
 
 export default {
   state: {
-    themeIdx: localStorage.getItem('theme') === null ?
-      1 :
-      Number(localStorage.getItem('theme')),
+    darkMode: localStorage.getItem('theme') === null ?
+      systemTheme() :
+      localStorage.getItem('theme'),
   },
 
   getters: {
-    theme: state => themeList[state.themeIdx],
+    theme: state => state.darkMode ? 'dark' : 'light',
   },
 
   mutations: {
     toggleTheme: (state) => {
-      state.themeIdx = (state.themeIdx + 1) % themeList.length;
+      state.darkMode = !state.darkMode;
 
+      // store theme preference in local storage
       if (process.env.NODE_ENV === 'production') {
-        localStorage.setItem('theme', state.themeIdx);
+        localStorage.setItem('theme', state.darkMode);
       }
     },
   },
