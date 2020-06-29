@@ -131,7 +131,7 @@ export default {
         <!-- end: navigation links -->
 
         <!-- start: site options -->
-        <div class="nav__site-options z-10">
+        <div class="nav__site-options lg:ml-4 z-10">
           <theme-switch />
         </div>
         <!-- end: site options -->
@@ -167,12 +167,13 @@ export default {
     border-navigation-border
     fixed
     w-full
-    h-18;
+    h-18
+    z-10;
 
   backdrop-filter: blur(5px);
   transform: translateY(0);
-  transition: transform 400ms ease-out,
-    background-color 300ms ease-out;
+  transition: transform 500ms cubic-bezier(0.37, 0, 0.63, 1),
+    background-color 500ms cubic-bezier(0.61, 1, 0.88, 1);
 
   box-sizing: border-box;
 
@@ -295,7 +296,8 @@ export default {
       left-0
       p-8;
 
-    background-color: var(--bg-mobile-nav);
+    z-index: 998;
+    background-color: var(--primary);
     pointer-events: none;
 
     clip-path: polygon(90% 0, 90% 0, 10% 100%, 10% 100%);
@@ -417,7 +419,7 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-16;
+    @apply h-20 px-18;
   }
 
   .nav__elem {

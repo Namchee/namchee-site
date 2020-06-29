@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'prodcution') {
 }
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Namchee',
   plugins: [],
   css: {
     loaderOptions: {

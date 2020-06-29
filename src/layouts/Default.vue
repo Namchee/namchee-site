@@ -32,7 +32,7 @@ query {
   >
     <navigation />
     <section
-      class="pt-18 lg:pt-20 px-6 md:px-12 lg:px-16 lg:text-lg font-medium"
+      class="pt-18 lg:pt-20 px-6 md:px-12 lg:px-18 lg:text-lg font-medium"
     >
       <slot />
     </section>
@@ -48,6 +48,5 @@ query {
     border-color 300ms ease;
 
   min-height: 100vh;
-  min-width: 100vw;
 }
 </style>

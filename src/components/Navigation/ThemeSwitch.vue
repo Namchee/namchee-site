@@ -27,7 +27,7 @@ export default {
     title="Switch site theme"
     aria-label="Switch site theme"
     role="button"
-    class="lg:ml-4 p-2"
+    class="p-2"
     @click="toggleTheme()"
   >
     <component :is="theme" class="w-8 h-8 lg:w-6 lg:h-6" />

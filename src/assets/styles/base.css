@@ -13,8 +13,6 @@
   --text-copy-secondary: #363636;
 
   --primary: #42A6E8;
-
-  --bg-mobile-nav: var(--primary);
 }
 
 .theme-dark {
@@ -27,9 +25,7 @@
   --text-copy-primary: #FFFAFA;
   --text-copy-secondary: #FAFAFA;
 
-  --primary: #679ceb;
-
-  --bg-mobile-nav: var(--bg-background-primary);
+  --primary: #4366a9;
 }
 
 @supports (font-variation-settings: normal) {
