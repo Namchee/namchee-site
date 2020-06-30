@@ -2,17 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-.theme-light {
-  --bg-background-primary: #FFFFFF;
-  --bg-background-secondary: #FFFAFA;
+@media (prefers-reduced-motion) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
-  --navigation-bg: rgba(255, 255, 255, 0.8);
+:root {
+  --link: #2f89fc;
+}
+
+.theme-light {
+  --bg-background-primary: #FFFAFA;
+  --bg-background-secondary: #FFFFFF;
+
+  --navigation-bg: rgba(250, 250, 250, 0.8);
   --navigation-border: rgba(54, 54, 54, 0.1);
 
   --text-copy-primary: #212121;
   --text-copy-secondary: #363636;
 
   --primary: #42A6E8;
+
+  --primary-trans: rgba(66, 166, 232, .5);
+
+  --logo: rgba(54, 54, 54, .4);
 }
 
 .theme-dark {
@@ -26,6 +41,10 @@
   --text-copy-secondary: #FAFAFA;
 
   --primary: #4366a9;
+
+  --primary-trans: rgba(67, 102, 169, .5);
+
+  --logo: rgba(255, 255, 255, .4);
 }
 
 @supports (font-variation-settings: normal) {

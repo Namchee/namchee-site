@@ -28,10 +28,6 @@ export default {
         href: '/projects',
       },
       {
-        name: 'Blog',
-        href: '/blog',
-      },
-      {
         name: 'About',
         href: '/about',
       },
@@ -95,7 +91,7 @@ export default {
     <!-- start: logo -->
     <a
       href="/"
-      class="header__logo transform scale-90 scale-100 ml-6 md:ml-8 lg:ml-0"
+      class="header__logo transform scale-90 scale-100 ml-6 md:ml-12 lg:ml-0"
     >
       <logo />
     </a>

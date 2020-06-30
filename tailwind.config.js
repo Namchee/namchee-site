@@ -26,6 +26,8 @@ module.exports = {
           primary: 'var(--text-copy-primary)',
           secondary: 'var(--text-copy-secondary)',
         },
+
+        link: 'var(--link)',
       },
 
       spacing: {
