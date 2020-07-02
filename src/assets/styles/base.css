@@ -28,8 +28,8 @@
   --primary-trans: rgba(66, 166, 232, .4);
 
   --logo: rgba(54, 54, 54, .4);
-  --icon-bg: rgba(54, 54, 54, .15);
-  --icon-bg-click: rgba(54, 54, 54, 0.25);
+  --icon-bg: rgba(54, 54, 54, .1);
+  --icon-bg-click: rgba(54, 54, 54, 0.2);
 }
 
 .theme-dark {

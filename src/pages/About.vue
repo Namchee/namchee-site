@@ -10,7 +10,10 @@ export default {
 
 <template>
   <layout>
-    <div class="py-8">
+    <!-- start: about page -->
+    <div class="py-8 md:px-8 lg:px-12">
+
+      <!-- start: intro part -->
       <div class="flex flex-col lg:flex-row items-center">
         <div class="mb-8 lg:mb-0">
           <div class="person overflow-hidden">
@@ -42,6 +45,7 @@ export default {
           </p>
         </div>
       </div>
+      <!-- end: intro part -->
 
       <div class="my-16">
         <h2 class="text-4xl mb-4 font-semibold">
@@ -137,6 +141,7 @@ export default {
         </ul>
       </div>
     </div>
+    <!-- end: about page -->
   </layout>
 </template>
 
@@ -146,6 +151,10 @@ export default {
   animation: morphing 15s infinite forwards;
   border-radius: 54% 46% 27% 73% / 71% 30% 70% 29%;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+
+  & .stroke path {
+    fill: black;
+  }
 }
 
 .contact-info {

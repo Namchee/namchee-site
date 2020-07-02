@@ -90,6 +90,7 @@ export default {
   >
     <!-- start: logo -->
     <a
+      id="logo"
       href="/"
       class="header__logo transform scale-90 scale-100 ml-6 md:ml-12 lg:ml-0"
     >
@@ -101,7 +102,7 @@ export default {
       id="nav"
       class="nav h-full"
       role="navigation"
-      aria-labelled
+      aria-labelledby="logo"
       :aria-hidden="!isOpen"
       :aria-expanded="isOpen"
     >
@@ -139,6 +140,7 @@ export default {
         class="nav__burger h-full md:mr-2"
         aria-label="Menu"
         aria-controls="nav"
+        aria-haspopup="true"
         :aria-expanded="isOpen"
         @click="isOpen = !isOpen"
       >
