@@ -5,11 +5,12 @@ import { throttle } from './../utils/lodash';
 export default {
   setup() {
     const text = [
-      'playing good old games',
-      'laughing at good meme',
-      'browsing for hardware news',
-      'reading shounen manga',
-      'trying out new programming tricks',
+      'play good old games',
+      'explore web technologies',
+      'laugh at good meme',
+      'browse for funky new tech',
+      'read various manga',
+      'try out new programming tricks',
     ];
 
     const idx = ref(0);
@@ -47,22 +48,22 @@ export default {
 <template>
   <layout>
     <div class="flex items-center flex-grow py-8">
-      <div class="md:text-xl">
-        <h1 class="text-4xl md:text-5xl">
+      <div class="intro md:text-xl">
+        <h1 class="text-4xl md:text-5xl overflow-y-hidden">
           Hello there 👋
         </h1>
-        <h1 class="text-4xl md:text-5xl">
+        <h1 class="text-4xl md:text-5xl overflow-y-hidden">
           My name is <span class="underline-reveal">Namchee</span>
         </h1>
-        <p class="mt-2 md:mt-0">
+        <p class="mt-2 md:mt-0 overflow-y-hidden">
           I do full-stack development with JavaScript based technologies
         </p>
-        <p>
+        <p class="overflow-y-hidden">
           Currently, I'm in love with Vue and NodeJS
         </p>
         <p
           class="hidden md:block text-base mt-20 overflow-y-hidden">
-          In my free time, I like
+          Namchee likes to
           <transition name="scroll">
             <template v-for="(item, i) in text">
               <span

@@ -26,11 +26,19 @@ export default {
       </p>
     </div>
     <div class="flex items-center">
-      <a href="https://twitter.com/lakban_hitam" rel="noreferrer" class="ml-0 md:mx-4">
-        <twitter class="w-6 h-6 brand-logo twitter" />
+      <a
+        href="https://twitter.com/lakban_hitam"
+        rel="noreferrer"
+        class="brand-logo p-2 ml-0 md:mx-3"
+      >
+        <twitter class="w-5 h-5 twitter" />
       </a>
-      <a href="https://github.com/Namchee" rel=”noreferrer” class="ml-4">
-        <github class="w-6 h-6 brand-logo github" />
+      <a
+        href="https://github.com/Namchee"
+        rel=”noreferrer”
+        class="brand-logo p-2 ml-3"
+      >
+        <github class="w-5 h-5 github" />
       </a>
     </div>
   </footer>
@@ -50,17 +58,30 @@ export default {
 }
 
 .brand-logo {
-  fill: var(--logo);
-  transition: fill 250ms ease-out;
+  border-radius: 9999px;
+  transition: background-color 250ms ease-out;
+  background-color: transparent;
+
+  & svg {
+    fill: var(--logo);
+    transition: fill 250ms ease-out;
+  }
 
   &:hover, &:focus {
-    &.twitter {
+    outline: none;
+    background-color: var(--icon-bg);
+
+    & svg.twitter {
       fill: #1DA1F2;
     }
 
-    &.github {
+    & svg.github {
       fill: var(--text-copy-primary);
     }
+  }
+
+  &:active {
+    background-color: var(--icon-bg-click);
   }
 }
 
@@ -72,7 +93,7 @@ export default {
 
 @screen lg {
   .footer {
-    @apply px-18;
+    @apply px-20;
   }
 }
 </style>

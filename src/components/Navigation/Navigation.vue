@@ -342,7 +342,7 @@ export default {
     }
   }
 
-  @for $i from 1 to 9 {
+  @for $i from 1 to 4 {
     .nav__menu-item:nth-child($(i)) {
       transition-delay: calc($(i) * 75ms);
     }
@@ -415,7 +415,7 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-18;
+    @apply h-20 px-20;
   }
 
   .nav__elem {

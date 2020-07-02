@@ -25,9 +25,11 @@
 
   --primary: #42A6E8;
 
-  --primary-trans: rgba(66, 166, 232, .5);
+  --primary-trans: rgba(66, 166, 232, .4);
 
   --logo: rgba(54, 54, 54, .4);
+  --icon-bg: rgba(54, 54, 54, .15);
+  --icon-bg-click: rgba(54, 54, 54, 0.25);
 }
 
 .theme-dark {
@@ -42,9 +44,11 @@
 
   --primary: #4366a9;
 
-  --primary-trans: rgba(67, 102, 169, .5);
+  --primary-trans: rgba(67, 102, 169, .4);
 
   --logo: rgba(255, 255, 255, .4);
+  --icon-bg: rgba(255, 255, 255, .1);
+  --icon-bg-click: rgba(255, 255, 255, 0.15);
 }
 
 @supports (font-variation-settings: normal) {
