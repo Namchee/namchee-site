@@ -1,9 +1,17 @@
 <script>
 import Person from './../assets/images/person.svg';
+import Mail from './../assets/icons/mail.svg';
+import Twitter from './../assets/icons/twitter.svg';
+import Github from './../assets/icons/github.svg';
+import Steam from './../assets/icons/steam.svg';
 
 export default {
   components: {
     Person,
+    Mail,
+    Twitter,
+    Github,
+    Steam,
   },
 };
 </script>
@@ -11,9 +19,9 @@ export default {
 <template>
   <layout>
     <!-- start: about page -->
-    <div class="py-8 md:px-8 lg:px-12">
+    <div class="py-8 md:px-8 lg:px-16">
 
-      <!-- start: intro part -->
+      <!-- start: introduction section -->
       <div class="flex flex-col lg:flex-row items-center">
         <div class="mb-8 lg:mb-0">
           <div class="person overflow-hidden">
@@ -31,11 +39,17 @@ export default {
             in my life.
           </p>
           <p class="mb-6">
-            I was born in Jakarta, but moved out from Bandung 8 years ago.
-            Currently, I'm pursuing my bachelor's degree in Informatics at
+            I was born in Jakarta, but moved out to Bandung 8 years ago.
+            Right now, I'm pursuing my bachelor's degree in Informatics at
             <a href="http://informatika.unpar.ac.id/" class="text-link" ref="noreferrer">
               Parahyangan Catholic University
             </a>
+          </p>
+          <p class="mb-6">
+            As for my skills, I'm pretty decent with HTML5, CSS3, and
+            JavaScript. I came from C / C++ and Java background, but I prefer
+            JavaScript for most of my work. I do most of my work using Visual
+            Studio Code and Git.
           </p>
           <p>
             Right now, I spent my time doing personal open source projects with
@@ -45,100 +59,52 @@ export default {
           </p>
         </div>
       </div>
-      <!-- end: intro part -->
+      <!-- end: introduction section -->
 
-      <div class="my-16">
-        <h2 class="text-4xl mb-4 font-semibold">
-          Skills
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div>
-            <h3 class="text-2xl mb-2">Language</h3>
-            <ul class="font-normal">
-              <li>Java</li>
-              <li>JavaScript <span class="font-semibold">(preferred)</span></li>
-              <li>TypeScript <span class="font-semibold">(preferred)</span></li>
-              <li>HTML5</li>
-              <li>Python 3</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-2xl mb-2">Front-End Stack</h3>
-            <ul class="font-normal">
-              <li>CSS3</li>
-              <li>SASS and PostCSS</li>
-              <li>Bulma</li>
-              <li>TailwindCSS</li>
-              <li>VueJS</li>
-              <li>Gridsome</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-2xl mb-2">Back-End Stack</h3>
-            <ul class="font-normal">
-              <li>NodeJS <span class="font-semibold">(preferred)</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-2xl mb-2">Database</h3>
-            <ul class="font-normal">
-              <li>MySQL</li>
-              <li>PostGre SQL</li>
-              <li>MongoDB</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-2xl mb-2">Other Tools and Services</h3>
-            <ul class="font-normal">
-              <li>Visual Studio Code</li>
-              <li>Git</li>
-              <li>Vercel</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-2xl mb-2">Currently Learning</h3>
-            <ul class="font-normal">
-              <li>Deno</li>
-              <li>Go</li>
-              <li>Dart (Flutter)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div>
+      <!-- start: contact section -->
+      <div class="mt-10">
         <h3 class="text-4xl mb-4 font-semibold">
-          Contact
+          Get In Touch
         </h3>
-        <ul>
-          <li>
-            <span
-              class="text-xl font-semibold contact-label"
-            >
-              E-mail
-            </span>
-            <a
-              class="text-link contact-info"
-              href="mailto:cristophernamchee12@gmail.com"
-            >
-              cristophernamchee12@gmail.com
-            </a>
-          </li>
-           <li>
-            <span
-              class="text-xl font-semibold contact-label"
-            >
-              GitHub
-            </span>
-            <a
-              class="text-link contact-info"
-              href="mailto:cristophernamchee12@gmail.com"
-              rel="noreferrer"
-            >
-              cristophernamchee12@gmail.com
-            </a>
-          </li>
-        </ul>
+        <div
+          class="contact-list"
+        >
+          <a
+            class="flex items-center brand-logo"
+            target="_blank"
+            href="mailto:cristophernamchee12@gmail.com"
+          >
+            <mail class="w-5 h-5" />
+            <span class="ml-3">cristophernamchee12@gmail.com</span>
+          </a>
+          <a
+            class="flex items-center brand-logo"
+            href="https://twitter.com/lakban_hitam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <twitter class="w-5 h-5 twitter" />
+            <span class="ml-3">@lakban_hitam</span>
+          </a>
+          <a
+            class="flex items-center brand-logo"
+            href="https://github.com/Namchee"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <github class="w-5 h-5" />
+            <span class="ml-3">Namchee</span>
+          </a>
+          <a
+            class="flex items-center brand-logo"
+            href="https://steamcommunity.com/id/namchee"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <steam class="w-5 h-5 steam" />
+            <span class="ml-3">namchee</span>
+          </a>
+        </div>
       </div>
     </div>
     <!-- end: about page -->
@@ -147,43 +113,69 @@ export default {
 
 <style lang="postcss" scoped>
 .person {
-  background-color: #FFFAFA;
-  animation: morphing 15s infinite forwards;
-  border-radius: 54% 46% 27% 73% / 71% 30% 70% 29%;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--about-bg);
+  border-radius: 32% 73% 70% 30% / 32% 30% 70% 70%;
+  animation: morph 20s infinite ease alternate;
 
-  & .stroke path {
-    fill: black;
+  & .person path {
+    fill: #212121;
   }
 }
 
-.contact-info {
-  display: block;
+.contact-list {
+  @apply grid grid-cols-1 grid-rows-3 gap-2 grid-flow-col text-base;
+}
+
+.brand-logo {
+  & svg {
+    fill: var(--logo);
+    transition: fill 250ms ease-out;
+  }
+
+  &:hover, &:focus {
+    & svg {
+      fill: var(--text-copy-primary);
+
+      &.twitter {
+        fill: #1DA1F2;
+      }
+
+      &.steam {
+        fill: #2a475e;
+      }
+    }
+  }
 }
 
 @screen md {
-  .contact-info {
-    display: inline-block;
-  }
-
-  .contact-label::after {
-    content: "—";
-    margin: 0 .5rem;
+  .contact-list {
+    @apply grid-cols-3;
   }
 }
 
-@keyframes morphing {
+@keyframes morph {
   0% {
-    border-radius: 54% 46% 27% 73% / 71% 30% 70% 29%;
+    border-radius: 32% 73% 70% 30% / 32% 30% 70% 70%;
   }
-  25% {
-    border-radius: 31% 69% 68% 32% / 62% 59% 41% 38%;
+
+  20% {
+    border-radius: 41% 59% 63% 37% / 33% 36% 64% 67%;
   }
-  50% {
-    border-radius: 75% 25% 75% 25% / 38% 39% 61% 62%;
+
+  40% {
+    border-radius: 48% 52% 56% 44% / 40% 42% 58% 60%;
   }
-  75% {
-    border-radius: 40% 60% 27% 73% / 23% 37% 63% 77%;
+
+  60% {
+    border-radius: 59% 41% 42% 58% / 42% 57% 43% 58%;
+  }
+
+  80% {
+    border-radius: 61% 39% 36% 64% / 67% 71% 29% 33%;
+  }
+
+  100% {
+    border-radius: 71% 29% 45% 55% / 61% 81% 19% 39%;
   }
 }
 </style>

@@ -181,8 +181,12 @@ export default {
     background-color: transparent;
   }
 
-  &.nav--hide:not(:focus-within) {
+  &.nav--hide {
     transform: translateY(-105%);
+  }
+
+  &:focus-within {
+    transform: translateY(0);
   }
 }
 
