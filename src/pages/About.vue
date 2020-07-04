@@ -141,7 +141,7 @@ export default {
 .avatar {
   background-color: var(--about-bg);
   border-radius: 32% 73% 70% 30% / 32% 30% 70% 70%;
-  animation: morph 20s infinite ease alternate;
+  animation: morph 18s infinite ease alternate;
 
   & .stroke path {
     fill: #212121;

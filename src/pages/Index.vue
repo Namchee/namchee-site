@@ -36,16 +36,16 @@ export default {
   <layout>
     <div class="flex items-center flex-grow py-8">
       <div class="intro md:text-xl">
-        <h1 class="text-4xl md:text-6xl header reveal">
-          Hello there 👋
+        <h1 class="heading">
+          Hello there <span class="wave">👋</span>
         </h1>
-        <h1 class="text-4xl md:text-6xl header reveal">
+        <h1 class="heading">
           My name is <span class="underline-reveal">Namchee</span>
         </h1>
-        <p class="mt-2 md:mt-0 reveal">
+        <p class="mt-2">
           I do full-stack development with JavaScript based technologies
         </p>
-        <p class="reveal">
+        <p>
           Currently, I'm in love with Vue and NodeJS
         </p>
         <p
@@ -67,6 +67,19 @@ export default {
 </template>
 
 <style lang="postcss" scoped>
+/* wave animation taken from https://jarv.is/notes/css-waving-hand-emoji/
+   with some modification
+*/
+.wave {
+  animation: wave 3.5s infinite ease;
+  transform-origin: 75% 75%;
+  display: inline-block;
+}
+
+.heading {
+  font-size: 2.5rem;
+}
+
 .underline-reveal {
   display: inline-block;
   z-index: 1;
@@ -118,5 +131,29 @@ export default {
   .underline-reveal {
     padding: 0 5px;
   }
+}
+
+@screen md {
+  .header {
+    font-size: 4rem;
+  }
+}
+
+@screen lg {
+  .heading {
+    font-size: 4.5rem;
+  }
+}
+
+@keyframes wave {
+    0% { transform: rotate(  0.0deg) }
+    5% { transform: translate(-3px, -3px)   }
+   10% { transform: rotate(-12.5deg) translate(-3px, -3px) }
+   15% { transform: rotate( 15.0deg) translate(-3px, -3px) }
+   20% { transform: rotate(-17.5deg) translate(-3px, -3px) }
+   25% { transform: rotate( 15.0deg) translate(-3px, -3px) }
+   30% { transform: rotate(-13.5deg) translate(-3px, -3px) }
+   40% { transform: rotate(  0.0deg) translate(0, 0) }
+  100% { transform: rotate(  0.0deg) }
 }
 </style>
