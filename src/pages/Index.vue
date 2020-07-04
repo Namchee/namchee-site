@@ -1,6 +1,5 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
-import { throttle } from './../utils/lodash';
 
 export default {
   setup() {
@@ -20,21 +19,9 @@ export default {
         idx.value = (idx.value + 1) % text.length;
       }
 
-      let id;
-
       if (window.innerWidth > 639) {
-        id = setInterval(scrollText, 5000);
+        setInterval(scrollText, 5000);
       }
-
-      window.addEventListener('resize', throttle(() => {
-        if (window.innerWidth > 639) {
-          id = setInterval(scrollText, 5000);
-        } else {
-          if (id) {
-            clearInterval(id);
-          }
-        }
-      }, 200), { passive: true });
     });
 
     return {
@@ -49,20 +36,20 @@ export default {
   <layout>
     <div class="flex items-center flex-grow py-8">
       <div class="intro md:text-xl">
-        <h1 class="text-4xl md:text-5xl overflow-y-hidden">
+        <h1 class="text-4xl md:text-6xl header reveal">
           Hello there 👋
         </h1>
-        <h1 class="text-4xl md:text-5xl overflow-y-hidden">
+        <h1 class="text-4xl md:text-6xl header reveal">
           My name is <span class="underline-reveal">Namchee</span>
         </h1>
-        <p class="mt-2 md:mt-0 overflow-y-hidden">
+        <p class="mt-2 md:mt-0 reveal">
           I do full-stack development with JavaScript based technologies
         </p>
-        <p class="overflow-y-hidden">
+        <p class="reveal">
           Currently, I'm in love with Vue and NodeJS
         </p>
         <p
-          class="hidden md:block text-base mt-20 overflow-y-hidden">
+          class="hidden md:block text-lg mt-20 overflow-y-hidden">
           Namchee likes to
           <transition name="scroll">
             <template v-for="(item, i) in text">
@@ -90,7 +77,7 @@ export default {
     pointer-events: none;
     position: absolute;
     content: "";
-    bottom: 1px;
+    bottom: 5px;
     left: 0;
     width: 100%;
     height: 100%;
