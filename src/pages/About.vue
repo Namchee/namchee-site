@@ -21,12 +21,12 @@ export default {
 <template>
   <layout>
     <!-- start: about page -->
-    <div class="flex-grow flex flex-col justify-center mx-auto max-w-5xl py-12">
+    <div class="about">
 
       <!-- start: introduction section -->
       <div class="flex flex-col lg:flex-row items-center">
         <div class="mb-8 lg:mb-0">
-          <div class="avatar overflow-hidden">
+          <div class="about__avatar">
             <person />
           </div>
         </div>
@@ -48,11 +48,10 @@ export default {
             </a>
           </p>
           <p class="mb-6">
-            As for my skills, I'm pretty decent with HTML5, CSS3, and
-            JavaScript. I came from C / C++ and Java background, but I prefer
-            JavaScript for most of my work. My current favorite stack is Vue,
-            TailwindCSS, and NodeJS. I do most of my work using
-            Visual Studio Code and Git.
+            The world of web has caught my interest since my high school days.
+            Since then, I started to explore the world of web from C and Java
+            background. Nowadays, I do most of my work using my current favorite
+            language, JavaScript.
           </p>
           <p>
             Right now, I spent my time doing personal open source projects with
@@ -64,72 +63,82 @@ export default {
       </div>
       <!-- end: introduction section -->
 
+      <!-- start: skills section -->
+      <div class="mt-8">
+        <h2 class="text-4xl mb-6 font-semibold">
+          Skills and Tools
+        </h2>
+        <ul class="about__skills">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript (ES6)</li>
+          <li>TypeScript</li>
+          <li>NodeJS</li>
+          <li>Java</li>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>Git</li>
+          <li>Visual Studio Code</li>
+        </ul>
+      </div>
+      <!-- end: skills section -->
+
       <!-- start: contact section -->
-      <div class="mt-10">
-        <h3 class="text-4xl mb-8 font-semibold">
+      <div class="mt-8">
+        <h2 class="text-4xl mb-6 font-semibold">
           Get In Touch
-        </h3>
+        </h2>
         <div
-          class="contact-list text-base"
+          class="about__contacts text-base"
         >
-          <div>
-            <a
-              class="inline-flex items-center brand-logo"
-              target="_blank"
-              href="mailto:cristophernamchee12@gmail.com"
-            >
-              <mail class="w-5 h-5" />
-              <span class="ml-3">cristophernamchee12@gmail.com</span>
-            </a>
-          </div>
+          <a
+            class="flex items-center brand-logo"
+            target="_blank"
+            href="mailto:cristophernamchee12@gmail.com"
+          >
+            <mail class="w-5 h-5" />
+            <span class="ml-3">cristophernamchee12@gmail.com</span>
+          </a>
 
-          <div>
-            <a
-              class="inline-flex items-center brand-logo"
-              href="https://twitter.com/lakban_hitam"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <twitter class="w-5 h-5 twitter" />
-              <span class="ml-3">@lakban_hitam</span>
-            </a>
-          </div>
+          <a
+            class="flex items-center brand-logo"
+            href="https://twitter.com/lakban_hitam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <twitter class="w-5 h-5 twitter" />
+            <span class="ml-3">@lakban_hitam</span>
+          </a>
 
-          <div>
-            <a
-              class="inline-flex items-center brand-logo"
-              href="https://github.com/Namchee"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <github class="w-5 h-5" />
-              <span class="ml-3">Namchee</span>
-            </a>
-          </div>
+          <a
+            class="flex items-center brand-logo"
+            href="https://github.com/Namchee"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <github class="w-5 h-5" />
+            <span class="ml-3">Namchee</span>
+          </a>
 
-          <div>
-            <a
-              class="inline-flex items-center brand-logo"
-              href="https://www.linkedin.com/in/cristopher-cristopher-8b88a81b1/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <linkedin class="w-5 h-5 linkedin" />
-              <span class="ml-3">Cristopher</span>
-            </a>
-          </div>
+          <a
+            class="flex items-center brand-logo"
+            href="https://www.linkedin.com/in/cristopher-cristopher-8b88a81b1/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <linkedin class="w-5 h-5 linkedin" />
+            <span class="ml-3">Cristopher</span>
+          </a>
 
-          <div>
-            <a
-              class="inline-flex items-center brand-logo"
-              href="https://steamcommunity.com/id/namchee"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <steam class="w-5 h-5 steam" />
-              <span class="ml-3">namchee</span>
-            </a>
-          </div>
+          <a
+            class="flex items-center brand-logo"
+            href="https://steamcommunity.com/id/namchee"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <steam class="w-5 h-5 steam" />
+            <span class="ml-3">namchee</span>
+          </a>
         </div>
       </div>
     </div>
@@ -138,7 +147,14 @@ export default {
 </template>
 
 <style lang="postcss" scoped>
-.avatar {
+.about {
+  @apply flex-grow flex flex-col justify-center mx-auto max-w-5xl py-12;
+}
+
+.about__avatar {
+  @apply overflow-hidden;
+
+  transform: scale(.85);
   background-color: var(--about-bg);
   border-radius: 32% 73% 70% 30% / 32% 30% 70% 70%;
   animation: morph 18s infinite ease alternate;
@@ -148,22 +164,34 @@ export default {
   }
 }
 
-#clip-path {
-  animation: morph 20s ease infinite alternate;
-}
+.about__contacts {
+  column-count: 1;
 
-.contact-list {
-  @apply flex flex-col;
-
-  & > a {
+  & > * {
     @apply my-2;
 
     &:first-child {
-      @apply mt-0 mb-2;
+      @apply mt-0;
     }
 
     &:last-child {
-      @apply mt-2 mb-0;
+      @apply mb-0;
+    }
+  }
+}
+
+.about__skills {
+  column-count: 1;
+
+  & > * {
+    @apply my-2;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:last-child {
+      @apply mb-0;
     }
   }
 }
@@ -193,13 +221,37 @@ export default {
   }
 }
 
-@screen lg {
-  .contact-list {
-    @apply grid grid-rows-3 grid-cols-3 grid-flow-col;
-    gap: .75rem 5rem;
+@screen md {
+  .about__avatar {
+    transform: scale(1);
+  }
 
-    & > a {
-      @apply m-0 !important;
+  .about__contacts {
+    column-count: 2;
+    column-gap: 4rem;
+
+    & > * {
+      @apply my-3;
+    }
+  }
+
+  .about__skills {
+    column-count: 3;
+    column-gap: 4rem;
+
+    & > * {
+      @apply my-2;
+    }
+  }
+}
+
+@screen lg {
+  .about__contacts {
+    column-count: 3;
+    column-gap: 5rem;
+
+    & > * {
+      @apply my-4;
     }
   }
 }

@@ -287,6 +287,10 @@ export default {
 }
 
 @media screen and (max-width: 1023px) {
+  .header {
+    @apply w-screen;
+  }
+
   .nav__elem {
     @apply fixed
       flex
@@ -421,7 +425,7 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-20;
+    @apply h-20 px-24;
   }
 
   .nav__elem {

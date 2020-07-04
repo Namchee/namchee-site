@@ -65,7 +65,7 @@ export default {};
 
 @screen lg {
   .footer {
-    @apply px-20;
+    @apply px-24;
   }
 }
 </style>
