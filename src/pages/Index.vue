@@ -71,7 +71,7 @@ export default {
    with some modification
 */
 .wave {
-  animation: wave 3.5s infinite ease;
+  animation: wave 3.5s 3.5s infinite ease;
   transform-origin: 75% 75%;
   display: inline-block;
 }

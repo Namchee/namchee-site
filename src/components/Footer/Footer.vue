@@ -8,6 +8,16 @@ export default {};
       <p class="text-center md:text-left">
         Made in 2020 with ❤️ by Namchee
       </p>
+      <p class="text-center md:text-left">
+        Source codes are
+        <a
+          class="text-link"
+          href="https://opensource.org/licenses/MIT"
+          target="_blank"
+          rel="noreferrer">
+          MIT licensed
+        </a>
+      </p>
     </div>
     <div class="flex items-center">
       <p class="text-center md:text-left">
