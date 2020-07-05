@@ -1,5 +1,4 @@
 <script>
-import Person from './../assets/images/person.svg';
 import Mail from './../assets/icons/mail.svg';
 import Twitter from './../assets/icons/twitter.svg';
 import Github from './../assets/icons/github.svg';
@@ -8,7 +7,6 @@ import Linkedin from './../assets/icons/linkedin.svg';
 
 export default {
   components: {
-    Person,
     Mail,
     Twitter,
     Github,
@@ -24,42 +22,35 @@ export default {
     <div class="about">
 
       <!-- start: introduction section -->
-      <div class="flex flex-col lg:flex-row items-center">
-        <div class="mb-8 lg:mb-0">
-          <div class="about__avatar">
-            <person />
-          </div>
-        </div>
-        <div class="flex-grow lg:pl-32 md:text-justify">
-          <h1 class="text-5xl font-semibold tracking-wide mb-8">
-            About Me
-          </h1>
-          <p class="mb-6">
-            Hey there! My name is Namchee. My full name is Cristopher,
-            but I prefer to be called Namchee since I'm acquaintanced
-            with too much 'Chris' &mdash; and its many variants &mdash;
-            in my life.
-          </p>
-          <p class="mb-6">
-            I was born in Jakarta, but moved out to Bandung 8 years ago.
-            Right now, I'm pursuing my bachelor's degree in Informatics at
-            <a href="http://informatika.unpar.ac.id/" class="text-link" ref="noreferrer">
-              Parahyangan Catholic University
-            </a>
-          </p>
-          <p class="mb-6">
-            The world of web has caught my interest since my high school days.
-            Since then, I started to explore the world of web from C and Java
-            background. Nowadays, I do most of my work using my current favorite
-            language, JavaScript.
-          </p>
-          <p>
-            Right now, I spent my time doing personal open source projects with
-            various interesting topics and hanging around on developer's server
-            on Discord. To this day, I'm still learning as much as I can
-            about the world of web as one of my passion.
-          </p>
-        </div>
+      <div class="md:text-justify">
+        <h1 class="text-5xl font-semibold tracking-wide mb-8">
+          About Me
+        </h1>
+        <p class="mb-6">
+          Hey there! My name is Namchee. My full name is Cristopher,
+          but I prefer to be called Namchee since I'm acquaintanced
+          with too much 'Chris' &mdash; and its many variants &mdash;
+          in my life.
+        </p>
+        <p class="mb-6">
+          I was born in Jakarta, but moved out to Bandung 8 years ago.
+          Right now, I'm pursuing my bachelor's degree in Informatics at
+          <a href="http://informatika.unpar.ac.id/" class="text-link" ref="noreferrer">
+            Parahyangan Catholic University
+          </a>
+        </p>
+        <p class="mb-6">
+          The world of web has caught my interest since my high school days.
+          Since then, I started to explore the world of web from C and Java
+          background. Nowadays, I do most of my work using my current favorite
+          language, JavaScript.
+        </p>
+        <p>
+          Right now, I spent my time doing personal open source projects with
+          various interesting topics and hanging around on developer's server
+          on Discord. To this day, I'm still learning as much as I can
+          about the world of web as one of my passion.
+        </p>
       </div>
       <!-- end: introduction section -->
 
@@ -96,7 +87,7 @@ export default {
             target="_blank"
             href="mailto:cristophernamchee12@gmail.com"
           >
-            <mail class="w-5 h-5" />
+            <mail class="w-4 h-4 md:w-5 md:h-5" />
             <span class="ml-3">cristophernamchee12@gmail.com</span>
           </a>
 
@@ -106,7 +97,7 @@ export default {
             target="_blank"
             rel="noreferrer"
           >
-            <twitter class="w-5 h-5 twitter" />
+            <twitter class="w-4 h-4 md:w-5 md:h-5 twitter" />
             <span class="ml-3">@lakban_hitam</span>
           </a>
 
@@ -116,7 +107,7 @@ export default {
             target="_blank"
             rel="noreferrer"
           >
-            <github class="w-5 h-5" />
+            <github class="w-4 h-4 md:w-5 md:h-5" />
             <span class="ml-3">Namchee</span>
           </a>
 
@@ -126,7 +117,7 @@ export default {
             target="_blank"
             rel="noreferrer"
           >
-            <linkedin class="w-5 h-5 linkedin" />
+            <linkedin class="w-4 h-4 md:w-5 md:h-5 linkedin" />
             <span class="ml-3">Cristopher</span>
           </a>
 
@@ -136,7 +127,7 @@ export default {
             target="_blank"
             rel="noreferrer"
           >
-            <steam class="w-5 h-5 steam" />
+            <steam class="w-4 h-4 md:w-5 md:h-5 steam" />
             <span class="ml-3">namchee</span>
           </a>
         </div>
@@ -154,7 +145,7 @@ export default {
 .about__avatar {
   @apply overflow-hidden;
 
-  transform: scale(.85);
+  transform: scale(.8);
   background-color: var(--about-bg);
   border-radius: 32% 73% 70% 30% / 32% 30% 70% 70%;
   animation: morph 18s infinite ease alternate;
@@ -165,6 +156,7 @@ export default {
 }
 
 .about__contacts {
+  @apply text-sm;
   column-count: 1;
 
   & > * {
@@ -227,6 +219,8 @@ export default {
   }
 
   .about__contacts {
+    @apply text-base;
+
     column-count: 2;
     column-gap: 4rem;
 

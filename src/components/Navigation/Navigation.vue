@@ -1,5 +1,5 @@
 <script>
-import { ref, onMounted, watch } from '@vue/composition-api';
+import { ref, onMounted, watchEffect } from '@vue/composition-api';
 import ThemeSwitch from './ThemeSwitch';
 import Logo from './../../assets/images/logo.svg';
 
@@ -56,13 +56,15 @@ export default {
         tick.value = false;
       };
 
-      watch(isOpen, (isOpen) => {
-        if (isOpen) {
+      watchEffect(() => {
+        const open = isOpen.value;
+
+        if (open) {
           document.body.style.height = '100vh';
           document.body.style.overflowY = 'hidden';
         } else {
-          document.body.style.height = '';
-          document.body.style.overflowY = '';
+          document.body.style.height = 'auto';
+          document.body.style.overflowY = 'unset';
         }
       });
 
@@ -425,7 +427,7 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-24;
+    @apply h-20 px-20;
   }
 
   .nav__elem {

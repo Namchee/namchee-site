@@ -1,7 +1,12 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
+import Avatar from './../assets/images/avatar.svg';
 
 export default {
+  components: {
+    Avatar,
+  },
+
   setup() {
     const text = [
       'play good old games',
@@ -19,7 +24,7 @@ export default {
         idx.value = (idx.value + 1) % text.length;
       }
 
-      if (window.innerWidth > 639) {
+      if (window.innerWidth > 1023) {
         setInterval(scrollText, 5000);
       }
     });
@@ -34,22 +39,25 @@ export default {
 
 <template>
   <layout>
-    <div class="flex items-center flex-grow py-8">
-      <div class="intro md:text-xl">
-        <h1 class="heading">
+    <div class="landing">
+      <div class="landing__avatar">
+        <avatar />
+      </div>
+      <div class="landing__content md:text-xl">
+        <h1 class="landing__title">
           Hello there <span class="wave">👋</span>
         </h1>
-        <h1 class="heading">
+        <h1 class="landing__title">
           My name is <span class="underline-reveal">Namchee</span>
         </h1>
         <p class="mt-2">
           I do full-stack development with JavaScript based technologies
         </p>
-        <p>
+        <p class="mt-1">
           Currently, I'm in love with Vue and NodeJS
         </p>
         <p
-          class="hidden md:block text-lg mt-20 overflow-y-hidden">
+          class="hidden md:block text-lg mt-18 overflow-y-hidden">
           Namchee likes to
           <transition name="scroll">
             <template v-for="(item, i) in text">
@@ -70,14 +78,30 @@ export default {
 /* wave animation taken from https://jarv.is/notes/css-waving-hand-emoji/
    with some modification
 */
+
+.landing {
+  @apply flex flex-col items-center justify-center flex-grow;
+}
+
 .wave {
   animation: wave 3.5s 3.5s infinite ease;
   transform-origin: 75% 75%;
   display: inline-block;
 }
 
-.heading {
+.landing__title {
   font-size: 2.5rem;
+}
+
+.landing__avatar {
+  display: block;
+  width: 75%;
+  height: auto;
+  margin-bottom: 2rem;
+
+  & > svg {
+    fill: currentColor;
+  }
 }
 
 .underline-reveal {
@@ -128,20 +152,39 @@ export default {
 }
 
 @screen md {
+  .landing__avatar {
+    width: 65%;
+  }
+
   .underline-reveal {
     padding: 0 5px;
   }
-}
 
-@screen md {
-  .header {
+  .landing__title {
     font-size: 4rem;
   }
 }
 
 @screen lg {
-  .heading {
-    font-size: 4.5rem;
+  .landing {
+    @apply flex-row items-center;
+  }
+
+  .landing__avatar {
+    margin: 0;
+    width: 25vw;
+    height: auto;
+
+    order: 2;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .landing__content {
+    order: 1;
   }
 }
 
