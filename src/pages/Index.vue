@@ -1,12 +1,7 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
-import Avatar from './../assets/images/avatar.svg';
 
 export default {
-  components: {
-    Avatar,
-  },
-
   setup() {
     const text = [
       'play good old games',
@@ -24,7 +19,7 @@ export default {
         idx.value = (idx.value + 1) % text.length;
       }
 
-      if (window.innerWidth > 1023) {
+      if (window.innerWidth > 767) {
         setInterval(scrollText, 5000);
       }
     });
@@ -39,26 +34,30 @@ export default {
 
 <template>
   <layout>
+    <!-- start: landing page -->
     <div class="landing">
-      <div class="landing__avatar">
-        <avatar />
-      </div>
-      <div class="landing__content md:text-xl">
+
+      <!-- start: landing hero -->
+      <div class="text-xl py-12">
         <h1 class="landing__title">
-          Hello there <span class="wave">👋</span>
+          <div>
+            <span>Hello there.</span>
+          </div>
+          <br />
+          <div>
+            <span>I'm Namchee.</span>
+          </div>
         </h1>
-        <h1 class="landing__title">
-          My name is <span class="underline-reveal">Namchee</span>
-        </h1>
-        <p class="mt-2">
+
+        <p class="mt-8 landing__subtitle tracking-wide slide-up">
           I do full-stack development with JavaScript based technologies
         </p>
-        <p class="mt-1">
+        <p class="mt-4 md:mt-0 landing__subtitle tracking-wide slide-up">
           Currently, I'm in love with Vue and NodeJS
         </p>
         <p
-          class="hidden md:block text-lg mt-18 overflow-y-hidden">
-          Namchee likes to
+          class="hidden md:block text-lg mt-12 overflow-y-hidden slide-up">
+          Other than code, Namchee likes to
           <transition name="scroll">
             <template v-for="(item, i) in text">
               <span
@@ -70,63 +69,80 @@ export default {
           </transition>
         </p>
       </div>
+      <!-- end: landing hero -->
+
+      <!-- start: contact list -->
+      <div class="contact__list py-12">
+        <h2
+          v-intersect
+          class="text-2xl md:text-4xl font-semibold title-accent">
+          Say Hello. I dare you <span class="fist">👊</span>
+        </h2>
+      </div>
+      <!-- end: contact list -->
     </div>
+    <!-- end: landing page -->
   </layout>
 </template>
 
 <style lang="postcss" scoped>
-/* wave animation taken from https://jarv.is/notes/css-waving-hand-emoji/
-   with some modification
-*/
-
-.landing {
-  @apply flex flex-col items-center justify-center flex-grow;
-}
-
-.wave {
-  animation: wave 3.5s 3.5s infinite ease;
-  transform-origin: 75% 75%;
-  display: inline-block;
-}
-
 .landing__title {
-  font-size: 2.5rem;
-}
+  line-height: 1.1em;
+  font-weight: 400;
+  font-size: 13.5vw;
 
-.landing__avatar {
-  display: block;
-  width: 75%;
-  height: auto;
-  margin-bottom: 2rem;
+  & > div {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
 
-  & > svg {
-    fill: currentColor;
-  }
-}
+    & > span {
+      opacity: 0;
+      animation: fade 50ms 500ms forwards;
+    }
 
-.underline-reveal {
-  display: inline-block;
-  z-index: 1;
-  position: relative;
-
-  &::after {
-    z-index: -1;
-    pointer-events: none;
-    position: absolute;
-    content: "";
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scaleY(.05);
-    transform-origin: bottom;
-    transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);
-    background-color: var(--primary-trans);
-  }
-
-  &:hover {
     &::after {
-      transform: scaleY(1);
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-101%);
+      background-color: var(--text-copy-primary);
+      animation: slideLeft 1200ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+
+    &:last-child {
+      & > span {
+        animation-delay: 900ms;
+      }
+
+      &::after {
+        animation: slideRight 1200ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        animation-delay: 300ms;
+      }
+    }
+  }
+}
+
+.fist {
+  display: inline-block;
+  animation: broFist 3s infinite;
+  transform: perspective(10px) translateZ(0);
+}
+
+.landing__subtitle {
+  font-size: 5vw;
+}
+
+.slide-up {
+  @for $i from 2 to 3 {
+    &:nth-child($(i)) {
+      animation: slideUp 500ms cubic-bezier(0.5, 1, 0.89, 1) forwards;
+      opacity: 0;
+      transform: translateY(2rem);
+      animation-delay: calc(800ms + (calc(150ms * $(i))));
     }
   }
 }
@@ -152,51 +168,109 @@ export default {
 }
 
 @screen md {
-  .landing__avatar {
-    width: 65%;
-  }
-
-  .underline-reveal {
-    padding: 0 5px;
-  }
-
   .landing__title {
-    font-size: 4rem;
+    font-size: 10vw;
+
+    & > div:not(:first-child) {
+      left: 20vw;
+    }
+  }
+
+  .landing__subtitle {
+    font-size: 2.5vw;
+  }
+
+  .slide-up {
+    @for $i from 2 to 4 {
+      &:nth-child($(i)) {
+        animation: slideUp 500ms cubic-bezier(0.5, 1, 0.89, 1) forwards;
+        opacity: 0;
+        transform: translateY(2rem);
+        animation-delay: calc(800ms + (calc(150ms * $(i))));
+      }
+    }
   }
 }
 
 @screen lg {
-  .landing {
-    @apply flex-row items-center;
-  }
+  .landing__title {
+    font-size: 8vw;
 
-  .landing__avatar {
-    margin: 0;
-    width: 25vw;
-    height: auto;
-
-    order: 2;
-
-    & > svg {
-      width: 100%;
-      height: 100%;
+    & > div:not(:first-child) {
+      left: 25vw;
     }
   }
 
-  .landing__content {
-    order: 1;
+  .landing__subtitle {
+    font-size: 2vw;
   }
 }
 
-@keyframes wave {
-    0% { transform: rotate(  0.0deg) }
-    5% { transform: translate(-3px, -3px)   }
-   10% { transform: rotate(-12.5deg) translate(-3px, -3px) }
-   15% { transform: rotate( 15.0deg) translate(-3px, -3px) }
-   20% { transform: rotate(-17.5deg) translate(-3px, -3px) }
-   25% { transform: rotate( 15.0deg) translate(-3px, -3px) }
-   30% { transform: rotate(-13.5deg) translate(-3px, -3px) }
-   40% { transform: rotate(  0.0deg) translate(0, 0) }
-  100% { transform: rotate(  0.0deg) }
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-101%);
+  }
+
+  50% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(101%);
+  }
+
+  50% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-101%);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes broFist {
+  0% {
+    transform: perspective(10px) translateZ(0);
+  }
+
+  10% {
+    transform: perspective(10px) translateZ(-10px);
+  }
+
+  15% {
+    transform: perspective(10px) translateZ(2px);
+  }
+
+  22.5% {
+    transform: perspective(10px) translateZ(0);
+  }
 }
 </style>

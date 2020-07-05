@@ -46,9 +46,6 @@ query {
 .app {
   @apply bg-background-primary text-copy-primary antialiased;
 
-  display: flex;
-  flex-flow: column wrap;
-
   transition: color 300ms ease,
     background-color 300ms ease,
     fill 300ms ease,
@@ -59,7 +56,7 @@ query {
 }
 
 .body {
-  @apply font-medium flex-grow flex flex-col pt-18 px-6 pb-8;
+  @apply font-medium pt-18 px-6;
 }
 
 @screen md {

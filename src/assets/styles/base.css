@@ -24,6 +24,7 @@
   --text-copy-secondary: #363636;
 
   --primary: #42A6E8;
+  --secondary: #E88442;
 
   --primary-trans: rgba(66, 166, 232, .4);
 
@@ -35,7 +36,7 @@
 }
 
 .theme-dark {
-  --bg-background-primary: #212121;
+  --bg-background-primary: #121212;
   --bg-background-secondary: #363636;
 
   --navigation-bg: rgba(50, 50, 50, .75);
