@@ -141,8 +141,8 @@ export default {
     &:nth-child($(i)) {
       animation: slideUp 500ms cubic-bezier(0.5, 1, 0.89, 1) forwards;
       opacity: 0;
-      transform: translateY(2rem);
-      animation-delay: calc(800ms + (calc(150ms * $(i))));
+      transform: translateY(1em);
+      animation-delay: calc(850ms + (calc(150ms * $(i))));
     }
   }
 }
@@ -185,7 +185,7 @@ export default {
       &:nth-child($(i)) {
         animation: slideUp 500ms cubic-bezier(0.5, 1, 0.89, 1) forwards;
         opacity: 0;
-        transform: translateY(2rem);
+        transform: translateY(1em);
         animation-delay: calc(800ms + (calc(150ms * $(i))));
       }
     }
@@ -244,25 +244,13 @@ export default {
   }
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes broFist {
   0% {
     transform: perspective(10px) translateZ(0);
   }
 
   10% {
-    transform: perspective(10px) translateZ(-10px);
+    transform: perspective(10px) translateZ(-8px);
   }
 
   15% {

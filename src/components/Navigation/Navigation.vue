@@ -305,7 +305,7 @@ export default {
       p-8;
 
     z-index: 998;
-    background-color: var(--primary);
+    background-color: var(--accent);
     pointer-events: none;
 
     clip-path: polygon(90% 0, 90% 0, 10% 100%, 10% 100%);
