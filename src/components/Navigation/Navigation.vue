@@ -169,7 +169,7 @@ export default {
 
   backdrop-filter: blur(5px);
   transform: translateY(0);
-  transition: transform 500ms cubic-bezier(0.37, 0, 0.63, 1),
+  transition: transform 500ms cubic-bezier(0.45, 0, 0.55, 1),
     background-color 500ms cubic-bezier(0.61, 1, 0.88, 1);
 
   box-sizing: border-box;

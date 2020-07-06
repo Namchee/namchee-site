@@ -1,5 +1,13 @@
 <script>
-export default {};
+import Twitter from './../../assets/icons/twitter.svg';
+import Github from './../../assets/icons/github.svg';
+
+export default {
+  components: {
+    Twitter,
+    Github,
+  },
+};
 </script>
 
 <template>
@@ -20,26 +28,23 @@ export default {};
       </p>
     </div>
     <div class="flex items-center">
-      <p class="text-center md:text-left">
-        Powered by
-        <a
-          class="text-link"
-          href="https://gridsome.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Gridsome
-        </a>
-        and
-        <a
-          class="text-link"
-          href="https://postcss.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          PostCSS
-        </a>
-      </p>
+      <a
+        href="https://twitter.com/lakban_hitam"
+        target="_blank"
+        class="p-2 mr-4 footer__icons"
+        rel="noreferrer"
+      >
+        <twitter class="w-5 h-5 twitter" />
+      </a>
+
+      <a
+        href="https://github.com/Namchee"
+        target="_blank"
+        class="p-2 footer__icons"
+        rel="noreferrer"
+      >
+        <github class="w-5 h-5" />
+      </a>
     </div>
   </footer>
 </template>
@@ -55,6 +60,36 @@ export default {};
     px-6
     border-t
     border-navigation-border;
+}
+
+.footer__icons {
+  border-radius: 9999px;
+  transition: background-color 250ms ease-out;
+  background-color: transparent;
+
+  & svg {
+    fill: var(--logo);
+    transition: fill 250ms ease-out;
+  }
+
+  &:hover, &:focus, &:active {
+    & svg {
+      fill: var(--text-copy-primary);
+
+      &.twitter {
+        fill: #1DA1F2;
+      }
+    }
+  }
+
+  &:hover, &:focus {
+    outline: none;
+    background-color: var(--icon-bg);
+  }
+
+  &:active {
+    background-color: var(--icon-bg-click);
+  }
 }
 
 @screen md {

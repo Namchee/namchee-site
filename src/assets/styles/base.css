@@ -20,6 +20,10 @@
   --navigation-bg: rgba(250, 250, 250, 0.8);
   --navigation-border: rgba(54, 54, 54, 0.1);
 
+  --logo: rgba(54, 54, 54, .4);
+  --icon-bg: rgba(54, 54, 54, .1);
+  --icon-bg-click: rgba(54, 54, 54, 0.2);
+
   --text-copy-primary: #212121;
 
   --accent: #42A6E8;
@@ -32,6 +36,10 @@
 
   --navigation-bg: rgba(20, 20, 20, .75);
   --navigation-border: rgba(255, 255, 255, .05);
+
+  --logo: rgba(255, 255, 255, .4);
+  --icon-bg: rgba(255, 255, 255, .1);
+  --icon-bg-click: rgba(255, 255, 255, 0.15);
 
   --text-copy-primary: #FFFAFA;
 
