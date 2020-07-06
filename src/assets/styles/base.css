@@ -21,22 +21,22 @@
   --navigation-border: rgba(54, 54, 54, 0.1);
 
   --text-copy-primary: #212121;
-  --text-copy-secondary: #363636;
 
   --accent: #42A6E8;
+  --accent-trans: rgba(66, 166, 232, .6);
 }
 
 .theme-dark {
   --bg-background-primary: #121212;
   --bg-background-secondary: #363636;
 
-  --navigation-bg: rgba(50, 50, 50, .75);
+  --navigation-bg: rgba(20, 20, 20, .75);
   --navigation-border: rgba(255, 255, 255, .05);
 
   --text-copy-primary: #FFFAFA;
-  --text-copy-secondary: #FAFAFA;
 
   --accent: #4366a9;
+  --accent-trans: rgba(67, 102, 169, .6);
 }
 
 @supports (font-variation-settings: normal) {
@@ -83,14 +83,45 @@ code, kbd {
   color: red;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(1em);
-    opacity: 0;
+.title-accent {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    z-index: -1;
+    height: .3em;
+    width: 40%;
+    bottom: .175em;
+    left: -.2em;
+    background-color: var(--accent-trans);
+    transition: transform .6s 150ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: left;
+    transform: scaleX(0);
   }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  &.in-view {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@screen md {
+  .title-accent {
+    &::after {
+      bottom: .65rem;
+      width: 25%;
+    }
+  }
+}
+
+@screen lg {
+  .title-accent {
+    &::after {
+      width: 20%;
+    }
   }
 }

@@ -53,10 +53,10 @@ export default {
           I do full-stack development with JavaScript based technologies
         </p>
         <p class="mt-4 md:mt-0 landing__subtitle tracking-wide slide-up">
-          Currently, I'm in love with Vue and NodeJS
+          Currently, I'm simping for Vue and NodeJS
         </p>
         <p
-          class="hidden md:block text-lg mt-12 overflow-y-hidden slide-up">
+          class="landing__scroller slide-up">
           Other than code, Namchee likes to
           <transition name="scroll">
             <template v-for="(item, i) in text">
@@ -70,16 +70,6 @@ export default {
         </p>
       </div>
       <!-- end: landing hero -->
-
-      <!-- start: contact list -->
-      <div class="contact__list py-12">
-        <h2
-          v-intersect
-          class="text-2xl md:text-4xl lg:text-5xl font-semibold title-accent">
-          Say Hello. I dare you <span class="fist">👊</span>
-        </h2>
-      </div>
-      <!-- end: contact list -->
     </div>
     <!-- end: landing page -->
   </layout>
@@ -125,14 +115,12 @@ export default {
   }
 }
 
-.fist {
-  display: inline-block;
-  animation: broFist 3s infinite;
-  transform: perspective(10px) translateZ(0);
-}
-
 .landing__subtitle {
   font-size: 5vw;
+}
+
+.landing__scroller {
+  @apply hidden text-lg mt-12 overflow-y-hidden;
 }
 
 .slide-up {
@@ -141,7 +129,7 @@ export default {
       animation: slideUp 500ms cubic-bezier(0.5, 1, 0.89, 1) forwards;
       opacity: 0;
       transform: translateY(1em);
-      animation-delay: calc(850ms + (calc(150ms * $(i))));
+      animation-delay: calc(850ms + (calc(200ms * $(i))));
     }
   }
 }
@@ -179,13 +167,17 @@ export default {
     font-size: 2.5vw;
   }
 
+  .landing__scroller {
+    @apply block;
+  }
+
   .slide-up {
     @for $i from 2 to 4 {
       &:nth-child($(i)) {
         animation: slideUp 500ms cubic-bezier(0.5, 1, 0.89, 1) forwards;
         opacity: 0;
         transform: translateY(1em);
-        animation-delay: calc(800ms + (calc(150ms * $(i))));
+        animation-delay: calc(800ms + (calc(200ms * $(i))));
       }
     }
   }
@@ -202,6 +194,10 @@ export default {
 
   .landing__subtitle {
     font-size: 2vw;
+  }
+
+  .landing__scroller {
+    @apply text-xl;
   }
 }
 
@@ -243,21 +239,16 @@ export default {
   }
 }
 
-@keyframes broFist {
-  0% {
-    transform: perspective(10px) translateZ(0);
+@keyframes slideUp {
+  from {
+    transform: translateY(1em);
+    opacity: 0;
   }
 
-  10% {
-    transform: perspective(10px) translateZ(-8px);
-  }
-
-  15% {
-    transform: perspective(10px) translateZ(2px);
-  }
-
-  22.5% {
-    transform: perspective(10px) translateZ(0);
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
 </style>

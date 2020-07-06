@@ -10,11 +10,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: 'var(--primary)',
+        accent: 'var(--accent)',
 
         background: {
           primary: 'var(--bg-background-primary)',
-          secondary: 'var(--bg-background-secondary)',
         },
 
         navigation: {
@@ -24,7 +23,6 @@ module.exports = {
 
         copy: {
           primary: 'var(--text-copy-primary)',
-          secondary: 'var(--text-copy-secondary)',
         },
 
         link: 'var(--link)',

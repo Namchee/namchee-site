@@ -24,10 +24,6 @@ export default {
         href: '/',
       },
       {
-        name: 'Projects',
-        href: '/projects',
-      },
-      {
         name: 'About',
         href: '/about',
       },
