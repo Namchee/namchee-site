@@ -75,7 +75,7 @@ export default {
       <div class="contact__list py-12">
         <h2
           v-intersect
-          class="text-2xl md:text-4xl font-semibold title-accent">
+          class="text-2xl md:text-4xl lg:text-5xl font-semibold title-accent">
           Say Hello. I dare you <span class="fist">👊</span>
         </h2>
       </div>
@@ -88,7 +88,6 @@ export default {
 <style lang="postcss" scoped>
 .landing__title {
   line-height: 1.1em;
-  font-weight: 400;
   font-size: 13.5vw;
 
   & > div {

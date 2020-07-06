@@ -95,8 +95,9 @@ export default {
       id="logo"
       href="/"
       class="header__logo transform scale-90 scale-100 ml-6 md:ml-12 lg:ml-0"
+      aria-label="Namchee"
     >
-      <logo />
+      <logo alt="Namchee" role="banner" />
     </a>
     <!-- end: logo -->
 
