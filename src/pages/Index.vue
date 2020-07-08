@@ -1,7 +1,12 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
+import { ProjectCard } from '~/components/ProjectCard';
 
 export default {
+  components: {
+    ProjectCard,
+  },
+
   setup() {
     const text = [
       'play good old games',
@@ -35,10 +40,10 @@ export default {
 <template>
   <layout>
     <!-- start: landing page -->
-    <div class="landing">
+    <section class="landing">
 
       <!-- start: landing hero -->
-      <div class="text-xl py-12">
+      <section class="text-xl py-16">
         <h1 class="landing__title">
           <div>
             <span>Hello there.</span>
@@ -68,10 +73,35 @@ export default {
             </template>
           </transition>
         </p>
-      </div>
+      </section>
       <!-- end: landing hero -->
-    </div>
+
+      <!-- start: featured projects -->
+      <section class="landing__projects py-12">
+        <h2
+          v-intersect.once
+          class="text-3xl md:text-5xl tracking-wide title-accent mb-8"
+        >
+          Featured Projects
+        </h2>
+
+        <section class="landing__project__list">
+          <article class="landing__project__item">
+            COVID-19 LINE BOT
+          </article>
+          <article class="landing__project__item">
+            Wombatik
+          </article>
+          <article class="landing__project__item">
+            Absentor
+          </article>
+        </section>
+      </section>
+      <!-- end: featured projects -->
+
+    </section>
     <!-- end: landing page -->
+
   </layout>
 </template>
 
@@ -121,6 +151,14 @@ export default {
 
 .landing__scroller {
   @apply hidden text-lg mt-12 overflow-y-hidden;
+}
+
+.landing__project__list {
+  @apply grid grid-cols-1;
+}
+
+.landing__project__item {
+  @apply px-8 py-12 border border-white;
 }
 
 .slide-up {
@@ -181,6 +219,10 @@ export default {
       }
     }
   }
+
+  .landing__project__list {
+    @apply grid-cols-2;
+  }
 }
 
 @screen lg {
@@ -198,6 +240,10 @@ export default {
 
   .landing__scroller {
     @apply text-xl;
+  }
+
+  .landing__project__list {
+    @apply grid-cols-3;
   }
 }
 

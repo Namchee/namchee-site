@@ -1,9 +1,32 @@
 <script>
 export default {
   setup() {
+    const skills = [
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'TypeScript',
+      'NodeJS',
+      'Java',
+      'MySQL',
+      'PostgreSQL',
+      'Git',
+      'Visual Studio Code',
+      'Webpack',
+      'Google!',
+    ];
+
+    const education = [
+      {
+        yearStart: '2017',
+        yearEnd: '',
+        place: 'Parahyangan Catholic University',
+      },
+    ];
+
     const links = [
       {
-        name: 'cristophernamchee12@gmail.com',
+        name: 'Email',
         href: 'mailto:cristophernamchee12@gmail.com',
       },
       {
@@ -25,6 +48,8 @@ export default {
     ];
 
     return {
+      skills,
+      education,
       links,
     };
   },
@@ -34,99 +59,91 @@ export default {
 <template>
   <layout>
     <!-- start: about page -->
-    <div class="about">
+    <section class="about">
 
       <!-- start: introduction section -->
-      <div class="md:text-justify py-8 lg:py-12">
+      <article class="md:text-justify py-8 lg:py-12">
         <h1
           v-intersect.once
           class="about__title title-accent"
         >
-          Call Me Namchee 😃
+          Call Me Namchee
         </h1>
-        <p class="mb-6 md:text-xl">
+        <p class="mb-6 md:text-xl lg:text-2xl">
           Hey, Namchee here. My full name is Cristopher &mdash; without Namchee
           on it. But, I prefer to be called Namchee since I'm acquaintanced
           with too much 'Chris' &mdash; and its many variants &mdash;
-          in my life. Right now, I'm pursuing my bachelor's degree in
-          Informatics at
-          <a href="http://informatika.unpar.ac.id/" class="text-link" ref="noreferrer">
-            Parahyangan Catholic University
-          </a>
+          in my life.
         </p>
-        <p class="mb-6 md:text-xl">
+        <p class="mb-6 md:text-xl lg:text-2xl">
           The world of web has caught my interest since my high school days.
           Since then, I started to explore the world of web from C and Java
           background. Nowadays, I do most of my work using my current favorite
           language, JavaScript.
         </p>
-        <p class="md:text-xl">
-          Right now, I spent my time doing personal open source projects with
+        <p class="md:text-xl lg:text-2xl">
+          Right now, I spend my time doing personal open source projects with
           various interesting topics and hanging around on developer's server
           on Discord. To this day, I'm still learning as much as I can
           about the world of web as one of my passion.
         </p>
-      </div>
+      </article>
       <!-- end: introduction section -->
 
       <!-- start: tools and education section -->
-      <div class="flex flex-col lg:flex-row py-8 lg:py-12">
+      <section class="flex flex-col lg:flex-row py-8 lg:py-12">
 
         <!-- start: tools of trade section -->
-        <div class="w-full lg:w-7/12 lg:mr-2">
+        <article class="w-full lg:w-7/12 lg:mr-2">
           <h2
             v-intersect.once
-            class="text-3xl md:text-5xl mb-6 font-semibold title-accent">
-            Tools of Trade 🛠️
+            class="about__subtitle title-accent">
+            Tools of Trade
           </h2>
           <ul
             v-intersect.once
             class="about__skills md:text-xl">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>NodeJS</li>
-            <li>Java</li>
-            <li>MySQL</li>
-            <li>PostgreSQL</li>
-            <li>Git</li>
-            <li>Visual Studio Code</li>
-            <li>Webpack</li>
+            <li v-for="(skill, i) in skills" :key="i">
+              <span>{{ skill }}</span>
+            </li>
           </ul>
-        </div>
+        </article>
         <!-- end: tools of trade section -->
 
         <!-- start: education section -->
-        <div class="w-full mt-8 lg:mt-0 lg:w-5/12 lg:ml-2">
+        <article class="w-full mt-8 lg:mt-0 lg:w-5/12 lg:ml-2">
           <h2
             v-intersect.once
-            class="text-3xl md:text-5xl mb-6 font-semibold title-accent"
+            class="about__subtitle title-accent"
           >
-            Education 🎓
+            Education
           </h2>
 
           <ul
             v-intersect.once
             class="about__education">
-            <li class="tracking-wide">
-              <span class="block uppercase text-sm">
-                2017 &mdash; Present
-              </span>
-              <span class="md:text-xl">
-                Parahyangan Catholic University
+            <li v-for="(edu, i) in education" :key="i" class="tracking-wide">
+              <span>
+                <span class="block uppercase text-sm">
+                  {{ edu.yearStart }}
+                  &mdash;
+                  {{ edu.yearEnd || 'Present' }}
+                </span>
+                <span class="md:text-xl">
+                  {{ edu.place }}
+                </span>
               </span>
             </li>
           </ul>
-        </div>
-      </div>
+        </article>
+        <!-- end: education section -->
+
+      </section>
       <!-- end: tools and education section -->
 
       <!-- start: contact list -->
-      <div class="py-8 lg:py-12">
-        <h2
-          v-intersect.once
-          class="text-3xl md:text-5xl font-semibold title-accent mb-6">
+      <article class="py-8 lg:py-12">
+        <h2 class="about__subtitle">
           Let's be pals <span class="fist">👊</span>
         </h2>
 
@@ -139,14 +156,14 @@ export default {
               :href="link.href"
               rel="noreferrer"
             >
-              {{ link.name }}
+              {{ link.name }} ->
             </a>
           </li>
         </ul>
-      </div>
+      </article>
       <!-- end: contact list -->
 
-    </div>
+    </section>
     <!-- end: about page -->
   </layout>
 </template>
@@ -156,27 +173,21 @@ export default {
   @apply flex-grow flex flex-col justify-center mx-auto max-w-5xl;
 }
 
-.about__title {
-  @apply text-3xl font-semibold tracking-wide mb-8;
+.about__title, .about__subtitle {
+  @apply text-4xl tracking-wide inline-block mb-6;
 }
 
 .about__contact {
-  @apply font-normal grid grid-cols-1 gap-3 text-base;
+  @apply font-normal text-base flex flex-col flex-wrap text-2xl;
 
   & > li {
-    opacity: 0;
-    transform: translateY(1em);
-    transition: all 350ms cubic-bezier(0.33, 1, 0.68, 1);
-
-    @for $i from 1 to 99 {
-      &:nth-child($(i)) {
-        transition-delay: calc($(i) * 50ms);
-      }
-    }
+    @apply mb-2 overflow-hidden;
   }
 
   & > li > a {
     position: relative;
+    display: inline-block;
+    transform: translateY(200%) rotateZ(30deg);
 
     &::after {
       position: absolute;
@@ -200,8 +211,15 @@ export default {
 
   &.in-view {
     & > li {
-      opacity: 1;
-      transform: translateY(0);
+      & > a {
+        animation: skewReveal .6s cubic-bezier(0.61, 1, 0.88, 1) forwards;
+      }
+
+      @for $i from 1 to 99 {
+        &:nth-child($(i)) > a {
+          animation-delay: calc($(i) * 75ms);
+        }
+      }
     }
   }
 }
@@ -210,21 +228,26 @@ export default {
   @apply grid grid-cols-2 gap-2;
 
   & > li {
-    transition: all 350ms cubic-bezier(0.33, 1, 0.68, 1);
-    opacity: 0;
-    transform: translateY(1rem);
+    @apply overflow-hidden;
 
-    @for $i from 1 to 99 {
-      &:nth-child($(i)) {
-        transition-delay: calc($(i) * 75ms);
-      }
+    & > span {
+      display: inline-block;
+      transform: translateY(101%);
+      opacity: .2;
     }
   }
 
   &.in-view {
     & > li {
-      opacity: 1;
-      transform: translateY(0);
+      & > span {
+        animation: yReveal 400ms cubic-bezier(0.61, 1, 0.88, 1) forwards;
+      }
+
+      @for $i from 1 to 99 {
+        &:nth-child($(i)) > span {
+          animation-delay: calc(25ms + calc($(i) * 50ms));
+        }
+      }
     }
   }
 }
@@ -244,14 +267,24 @@ export default {
     gap: .5rem 2rem;
   }
 
+  .about__title, .about__subtitle {
+    @apply font-medium mb-8;
+  }
+
   .about__title {
     @apply text-6xl;
   }
 
-  .about__contact {
-    @apply text-xl grid-cols-2;
+  .about__subtitle {
+    @apply text-5xl;
+  }
 
-    gap: 1rem 5rem;
+  .about__contact {
+    @apply flex-row mb-0;
+
+    & > li {
+      @apply mr-8;
+    }
   }
 }
 
@@ -261,7 +294,11 @@ export default {
   }
 
   .about__contact {
-    @apply text-2xl;
+    @apply text-3xl;
+
+    & > li {
+      @apply mr-16;
+    }
   }
 }
 
@@ -280,6 +317,28 @@ export default {
 
   22.5% {
     transform: perspective(10px) translateZ(0);
+  }
+}
+
+@keyframes skewReveal {
+  0% {
+    transform: translateY(200%) rotateZ(30deg);
+  }
+
+  100% {
+    transform: translateY(0%) rotateZ(0deg);
+  }
+}
+
+@keyframes yReveal {
+  0% {
+    opacity: .2;
+    transform: translateY(101%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
 </style>

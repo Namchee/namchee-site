@@ -92,6 +92,7 @@ code, kbd {
 }
 
 .title-accent {
+  display: inline-block;
   position: relative;
   z-index: 1;
 
@@ -100,12 +101,12 @@ code, kbd {
     position: absolute;
     content: '';
     z-index: -1;
-    height: .3em;
-    width: 40%;
-    bottom: .175em;
-    left: -.2em;
-    background-color: var(--accent-trans);
-    transition: transform .6s 150ms cubic-bezier(0.22, 1, 0.36, 1);
+    height: 2px;
+    width: 2rem;
+    top: calc(50% + 2px);
+    left: calc(100% + .5rem);
+    background-color: var(--text-copy-primary);
+    transition: transform .75s 200ms cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: left;
     transform: scaleX(0);
   }
@@ -118,18 +119,7 @@ code, kbd {
 }
 
 @screen md {
-  .title-accent {
-    &::after {
-      bottom: .65rem;
-      width: 25%;
-    }
-  }
-}
-
-@screen lg {
-  .title-accent {
-    &::after {
-      width: 20%;
-    }
+  .title-accent::after {
+    width: 2em;
   }
 }
