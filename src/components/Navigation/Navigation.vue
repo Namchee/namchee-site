@@ -90,7 +90,7 @@ export default {
     <a
       id="logo"
       href="/"
-      class="header__logo transform scale-90 scale-100 ml-6 md:ml-12 lg:ml-0"
+      class="header__logo"
       aria-label="Namchee"
     >
       <logo alt="Namchee" role="banner" />
@@ -110,24 +110,24 @@ export default {
         class="nav__elem"
       >
         <!-- start: navigation links -->
-        <ul class="nav__menu flex items-center font-semibold">
+        <ul class="nav__menu">
           <li
             class="nav__menu-item"
             v-for="link in links"
             :key="link.href"
           >
-            <a
-              :href="link.href"
-              class="nav__menu-link lg:mx-8"
+            <g-link
+              :to="link.href"
+              class="nav__menu-link"
             >
               {{ link.name }}
-            </a>
+            </g-link>
           </li>
         </ul>
         <!-- end: navigation links -->
 
         <!-- start: site options -->
-        <div class="nav__site-options lg:ml-4 z-10">
+        <div class="nav__site-options">
           <theme-switch />
         </div>
         <!-- end: site options -->
@@ -136,7 +136,7 @@ export default {
 
       <!-- start: mobile navigation burger -->
       <button
-        class="nav__burger h-full md:mr-2"
+        class="nav__burger"
         aria-label="Menu"
         aria-controls="nav"
         aria-haspopup="true"
@@ -190,6 +190,8 @@ export default {
 }
 
 .header__logo {
+  @apply transform scale-90 scale-100 ml-6;
+
   z-index: 999;
 
   & svg {
@@ -211,6 +213,10 @@ export default {
 
 .nav__elem {
   @apply flex;
+}
+
+.nav__menu {
+  @apply flex items-center font-semibold;
 }
 
 .nav__menu-link {
@@ -235,8 +241,12 @@ export default {
   }
 }
 
+.nav__site-options {
+  @apply z-10;
+}
+
 .nav__burger {
-  @apply flex flex-col justify-center items-center w-16;
+  @apply flex flex-col justify-center items-center w-16 h-full;
 
   & span {
     position: ;
@@ -423,11 +433,25 @@ export default {
   }
 }
 
+@screen md {
+  .header__logo {
+    @apply ml-12;
+  }
+
+  .nav__burger {
+    @apply mr-2;
+  }
+}
+
 @screen lg {
   .header {
     @apply h-20;
 
     padding: 0 7.5vw;
+  }
+
+  .header__logo {
+    @apply ml-0;
   }
 
   .nav__elem {
@@ -436,6 +460,14 @@ export default {
 
   .nav__burger {
     @apply hidden;
+  }
+
+  .nav__menu-link {
+    @apply mx-8;
+  }
+
+  .nav__site-options {
+    @apply ml-4;
   }
 }
 

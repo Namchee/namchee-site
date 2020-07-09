@@ -27,7 +27,7 @@ export default {
     title="Switch site theme"
     aria-label="Switch site theme"
     role="button"
-    class="theme-switcher p-2"
+    class="theme-switcher"
     @click="toggleTheme()"
   >
     <component :is="theme" class="w-8 h-8 lg:w-6 lg:h-6" />
@@ -36,6 +36,8 @@ export default {
 
 <style lang="postcss" scoped>
 .theme-switcher {
+  @apply p-2;
+
   border-radius: 9999px;
   transition: background-color 250ms ease-out;
   background-color: transparent;
