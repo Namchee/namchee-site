@@ -67,7 +67,10 @@ query {
 
 @screen lg {
   .body {
-    @apply pt-20 px-24 text-lg;
+    @apply pt-20 text-lg;
+
+    padding-left: 7.5vw;
+    padding-right: 7.5vw;
   }
 }
 </style>

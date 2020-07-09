@@ -127,7 +127,7 @@ export default {
             class="about__education">
             <li v-for="(edu, i) in education" :key="i" class="tracking-wide">
               <span>
-                <span class="block uppercase text-sm lg:text-base">
+                <span class="about__edu__timeline">
                   {{ edu.yearStart }}
                   &mdash;
                   {{ edu.yearEnd || 'Present' }}
@@ -239,6 +239,10 @@ export default {
       }
     }
   }
+}
+
+.about__edu__timeline {
+  @apply block uppercase text-sm;
 }
 
 .about__contact {
@@ -403,7 +407,7 @@ export default {
   }
 
   .about__intro__text {
-    font-size: 2vw;
+    font-size: 1.9vw;
     margin-right: 2.25vw;
 
     & > p {
@@ -419,6 +423,10 @@ export default {
         margin-bottom: 4rem;
       }
     }
+  }
+
+  .about__edu__timeline {
+    font-size: 1vw;
   }
 }
 

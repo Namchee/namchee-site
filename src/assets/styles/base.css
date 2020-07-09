@@ -32,7 +32,7 @@
 
 .theme-dark {
   --bg-background-primary: #121212;
-  --bg-background-secondary: #363636;
+  --bg-background-secondary: #212121;
 
   --navigation-bg: rgba(20, 20, 20, .75);
   --navigation-border: rgba(255, 255, 255, .05);
@@ -41,7 +41,7 @@
   --icon-bg: rgba(255, 255, 255, .1);
   --icon-bg-click: rgba(255, 255, 255, 0.15);
 
-  --text-copy-primary: #FFFAFA;
+  --text-copy-primary: #EAEAEA;
 
   --accent: #4366a9;
   --accent-trans: rgba(67, 102, 169, .6);

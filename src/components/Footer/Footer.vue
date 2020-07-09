@@ -100,7 +100,8 @@ export default {
 
 @screen lg {
   .footer {
-    @apply px-24;
+    padding-left: 7.5vw;
+    padding-right: 7.5vw;
   }
 }
 </style>

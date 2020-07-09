@@ -409,6 +409,7 @@ export default {
 
   .nav__menu-item {
     @apply my-2;
+
     left: 1rem;
 
     &::before {
@@ -424,7 +425,9 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-24;
+    @apply h-20;
+
+    padding: 0 7.5vw;
   }
 
   .nav__elem {
