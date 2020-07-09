@@ -424,7 +424,7 @@ export default {
 
 @screen lg {
   .header {
-    @apply h-20 px-20;
+    @apply h-20 px-24;
   }
 
   .nav__elem {

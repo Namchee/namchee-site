@@ -13,7 +13,8 @@ export default {
       'Git',
       'Visual Studio Code',
       'Webpack',
-      'Google!',
+      'Google',
+      'StackOverflow',
     ];
 
     const education = [
@@ -62,31 +63,33 @@ export default {
     <section class="about">
 
       <!-- start: introduction section -->
-      <article class="md:text-justify py-8 lg:py-12">
-        <h1
-          v-intersect.once
-          class="about__title title-accent"
-        >
-          Call Me Namchee
+      <article class="about__intro">
+        <h1 class="about__title">
+          <span>
+            6C?
+          </span>
         </h1>
-        <p class="mb-6 md:text-xl lg:text-2xl">
-          Hey, Namchee here. My full name is Cristopher &mdash; without Namchee
-          on it. But, I prefer to be called Namchee since I'm acquaintanced
-          with too much 'Chris' &mdash; and its many variants &mdash;
-          in my life.
-        </p>
-        <p class="mb-6 md:text-xl lg:text-2xl">
-          The world of web has caught my interest since my high school days.
-          Since then, I started to explore the world of web from C and Java
-          background. Nowadays, I do most of my work using my current favorite
-          language, JavaScript.
-        </p>
-        <p class="md:text-xl lg:text-2xl">
-          Right now, I spend my time doing personal open source projects with
-          various interesting topics and hanging around on developer's server
-          on Discord. To this day, I'm still learning as much as I can
-          about the world of web as one of my passion.
-        </p>
+
+        <div class="about__intro__text">
+          <p>
+            Hey, <span class="underline__reveal">Namchee</span> here.
+            My full name is Cristopher.
+            But, I prefer to be called Namchee since I'm
+            acquaintanced with too much
+            <span class="underline__reveal">Chris</span> in my life.
+          </p>
+          <p>
+            The world of web has caught my interest since my high school days.
+            Since then, I do most of my work using my current favorite
+            language, <span class="underline__reveal">JavaScript</span>.
+          </p>
+          <p>
+            Right now, I spend my time doing personal open source projects
+            with various topics and hanging around with fellow developers.
+            To this day, I'm still learning as much as I can
+            about the world of web as one of my passion.
+          </p>
+        </div>
       </article>
       <!-- end: introduction section -->
 
@@ -111,7 +114,7 @@ export default {
         <!-- end: tools of trade section -->
 
         <!-- start: education section -->
-        <article class="w-full mt-8 lg:mt-0 lg:w-5/12 lg:ml-2">
+        <article class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
           <h2
             v-intersect.once
             class="about__subtitle title-accent"
@@ -124,12 +127,12 @@ export default {
             class="about__education">
             <li v-for="(edu, i) in education" :key="i" class="tracking-wide">
               <span>
-                <span class="block uppercase text-sm">
+                <span class="block uppercase text-sm lg:text-base">
                   {{ edu.yearStart }}
                   &mdash;
                   {{ edu.yearEnd || 'Present' }}
                 </span>
-                <span class="md:text-xl">
+                <span>
                   {{ edu.place }}
                 </span>
               </span>
@@ -169,16 +172,77 @@ export default {
 </template>
 
 <style lang="postcss" scoped>
-.about {
-  @apply flex-grow flex flex-col justify-center mx-auto max-w-5xl;
+.about__intro {
+  @apply py-6;
 }
 
-.about__title, .about__subtitle {
-  @apply text-4xl tracking-wide inline-block mb-6;
+.about__title {
+  @apply tracking-wider mb-6;
+
+  font-size: 13.5vw;
+}
+
+.about__intro__text {
+  @apply leading-relaxed tracking-wide;
+
+  & > p:not(:last-child) {
+    @apply mb-8;
+  }
+}
+
+.about__subtitle {
+  @apply tracking-wider inline-block mb-6;
+
+  font-size: 10vw;
+}
+
+.underline__reveal {
+  position: relative;
+  display: inline-block;
+  backface-visibility: hidden;
+  z-index: 0;
+
+  &::after,
+  &::before {
+    position: absolute;
+    display: block;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: scaleY(.05);
+    transform-origin: bottom;
+    transition: transform 200ms cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  &::before {
+    @supports (mix-blend-mode: difference) {
+      background-color: var(--text-copy-primary);
+      mix-blend-mode: difference;
+    }
+
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::after {
+    background-color: var(--bg-background-primary);
+    z-index: -1;
+  }
+
+  &:hover {
+    @supports (mix-blend-mode: difference) {
+      &::before, &::after {
+        transform: scaleY(1);
+      }
+    }
+  }
 }
 
 .about__contact {
-  @apply font-normal text-base flex flex-col flex-wrap text-2xl;
+  @apply font-normal text-base grid grid-cols-1 text-2xl;
 
   & > li {
     @apply mb-2 overflow-hidden;
@@ -263,41 +327,97 @@ export default {
 }
 
 @screen md {
+  .about__intro {
+    @apply flex flex-row-reverse py-16;
+  }
+
+  .about__title {
+    position: relative;
+    margin-bottom: 0;
+    font-size: 12.5vw;
+    writing-mode: vertical-lr;
+
+    & > span {
+      position: sticky;
+      top: 6rem;
+    }
+  }
+
+  .about__intro__text {
+    font-size: 2.75vw;
+    margin-right: 2vw;
+
+    & > p {
+      &:nth-child(2) {
+        margin-left: 10vw;
+      }
+
+      &:last-child {
+        margin-left: 3vw;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
   .about__skills, .about__contact {
     gap: .5rem 2rem;
   }
 
-  .about__title, .about__subtitle {
-    @apply font-medium mb-8;
-  }
-
-  .about__title {
-    @apply text-6xl;
-  }
-
   .about__subtitle {
-    @apply text-5xl;
+    @apply mb-8;
+
+    font-size: 7vw;
   }
 
   .about__contact {
-    @apply flex-row mb-0;
+    @apply grid grid-cols-2;
 
     & > li {
-      @apply mr-8;
+      @apply mr-6;
     }
   }
 }
 
 @screen lg {
-  .about__skills {
-    @apply text-xl;
+  .about__skills, .about__education {
+    font-size: 1.75vw;
   }
 
   .about__contact {
-    @apply text-3xl;
+    @apply flex flex-row flex-wrap;
+
+    font-size: 2vw;
 
     & > li {
-      @apply mr-16;
+      @apply mr-20;
+    }
+  }
+
+  .about__subtitle {
+    @apply mb-10;
+
+    font-size: 3.5vw;
+  }
+
+  .about__intro__text {
+    font-size: 2vw;
+    margin-right: 2.25vw;
+
+    & > p {
+      &:nth-child(2) {
+        margin-left: 12.5vw;
+      }
+
+      &:last-child {
+        margin-left: 2vw;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 4rem;
+      }
     }
   }
 }
