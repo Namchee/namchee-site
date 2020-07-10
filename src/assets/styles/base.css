@@ -41,7 +41,7 @@
   --icon-bg: rgba(255, 255, 255, .1);
   --icon-bg-click: rgba(255, 255, 255, 0.15);
 
-  --text-copy-primary: #EAEAEA;
+  --text-copy-primary: #E0E0E0;
 
   --accent: #4366a9;
   --accent-trans: rgba(67, 102, 169, .6);
@@ -89,37 +89,4 @@ code, kbd {
   padding: .2rem .4rem;
   border-radius: 2px;
   color: red;
-}
-
-.title-accent {
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-
-  &::after {
-    display: block;
-    position: absolute;
-    content: '';
-    z-index: -1;
-    height: 2px;
-    width: 2rem;
-    top: calc(50% + 2px);
-    left: calc(100% + .5rem);
-    background-color: var(--text-copy-primary);
-    transition: transform .75s 200ms cubic-bezier(0.22, 1, 0.36, 1);
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-
-  &.in-view {
-    &::after {
-      transform: scaleX(1);
-    }
-  }
-}
-
-@screen md {
-  .title-accent::after {
-    width: 2em;
-  }
 }

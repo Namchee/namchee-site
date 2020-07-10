@@ -1,10 +1,12 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
+import ArrowLink from './../assets/icons/arrow-link.svg';
 import { ProjectCard } from '~/components/ProjectCard';
 
 export default {
   components: {
     ProjectCard,
+    ArrowLink,
   },
 
   setup() {
@@ -43,7 +45,7 @@ export default {
     <section class="landing">
 
       <!-- start: landing hero -->
-      <section class="text-xl py-16">
+      <section class="text-xl py-12 md:py-16">
         <h1 class="landing__title">
           <div>
             <span>Hello there.</span>
@@ -77,24 +79,114 @@ export default {
       <!-- end: landing hero -->
 
       <!-- start: featured projects -->
-      <section class="landing__projects py-12">
+      <section class="landing__project">
         <h2
           v-intersect.once
-          class="text-3xl md:text-5xl tracking-wide title-accent mb-8"
-        >
-          Featured Projects
+          class="landing__project__title">
+          <span>
+            Selected
+          </span>
+
+          <span>
+            Works
+          </span>
         </h2>
 
         <section class="landing__project__list">
-          <article class="landing__project__item">
-            COVID-19 LINE BOT
-          </article>
-          <article class="landing__project__item">
-            Wombatik
-          </article>
-          <article class="landing__project__item">
-            Absentor
-          </article>
+
+          <!-- start: covid-19 project -->
+          <project-card>
+            <template v-slot:timeline>
+              2020
+            </template>
+
+            <template v-slot:technologies>
+              NodeJS
+            </template>
+
+            <template v-slot:title>
+              COVID-19 LINE Bot
+            </template>
+
+            <template v-slot:description>
+              A simple chatbot for LINE that provides
+              accurate data and educational information
+              related with COVID-19 pandemic in Indonesia.
+            </template>
+
+            <template v-slot:link>
+              <a class="project__link" href="#">
+                GitHub <arrow-link class="inline-block" />
+              </a>
+            </template>
+          </project-card>
+          <!-- end: covid-19 project -->
+
+          <!-- start: wombatik project -->
+          <project-card>
+            <template v-slot:timeline>
+              2019
+            </template>
+
+            <template v-slot:technologies>
+              Java
+            </template>
+
+            <template v-slot:title>
+              Wombatik
+            </template>
+
+            <template v-slot:description>
+              Digital watermarking app that provides data integrity
+              and copyright on an image. Specifically made for preserving
+              batik heritage.
+            </template>
+
+            <template v-slot:link>
+              <a class="project__link" href="#">
+                GitHub <arrow-link class="inline-block" />
+              </a>
+            </template>
+          </project-card>
+          <!-- end: wombatik project -->
+
+          <!-- start: absentor project -->
+          <project-card>
+            <template v-slot:timeline>
+              2020
+            </template>
+
+            <template v-slot:technologies>
+              Python
+            </template>
+
+            <template v-slot:title>
+              Absentor
+            </template>
+
+            <template v-slot:description>
+              <del>Failed</del> Experimental Discord bot that provides
+              automatic recording of attendance and attendance history
+              management on Google Sheet.
+            </template>
+
+            <template v-slot:link>
+              <a class="project__link" href="#">
+                GitHub <arrow-link class="inline-block" />
+              </a>
+            </template>
+          </project-card>
+          <!-- end: absentor project -->
+
+          <div class="text-xl md:text-2xl text-center md:text-right py-8">
+            <a
+              class="project__link"
+              target="_blank"
+              href="https://github.com/Namchee">
+              View More on GitHub ->
+            </a>
+          </div>
+
         </section>
       </section>
       <!-- end: featured projects -->
@@ -153,12 +245,36 @@ export default {
   @apply hidden text-lg mt-12 overflow-y-hidden;
 }
 
-.landing__project__list {
-  @apply grid grid-cols-1;
+.landing__project {
+  @apply flex flex-col py-12;
 }
 
-.landing__project__item {
-  @apply px-8 py-12 border border-white;
+.landing__project__title {
+  @apply text-4xl tracking-wide mb-10;
+}
+
+.project__link {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-copy-primary);
+    transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  &:hover, &:focus, &:active {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 }
 
 .slide-up {
@@ -220,8 +336,8 @@ export default {
     }
   }
 
-  .landing__project__list {
-    @apply grid-cols-2;
+  .landing__project__title {
+    @apply text-5xl;
   }
 }
 
@@ -242,8 +358,22 @@ export default {
     @apply text-xl;
   }
 
+  .landing__project {
+    @apply flex-row py-16;
+  }
+
   .landing__project__list {
-    @apply grid-cols-3;
+    @apply pl-16 flex-grow;
+
+    margin-top: 1.5vw;
+  }
+
+  .landing__project__title {
+    & > span {
+      font-size: 3.5vw;
+      display: block;
+      text-align: right;
+    }
   }
 }
 
@@ -296,5 +426,4 @@ export default {
     opacity: 1;
   }
 }
-
 </style>

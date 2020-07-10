@@ -234,7 +234,7 @@ export default {
     transform: scaleX(0);
   }
 
-  &:hover, &:focus {
+  &:hover, &:focus, &:active, &.active--exact {
     &::after {
       transform: scaleX(1.1);
     }
@@ -335,7 +335,7 @@ export default {
     left: 1rem;
     display: block;
     opacity: 0;
-    transform: translateY(2.5rem);
+    transform: translateY(3rem);
     transition: opacity 500ms cubic-bezier(0.33, 1, 0.68, 1),
       transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
 
@@ -347,16 +347,18 @@ export default {
       content: counter(link-list, decimal-leading-zero);
       font-size: 1rem;
     }
+  }
 
+  .nav__menu-link {
     &::after {
-      bottom: 5px;
-      height: 3px;
+      bottom: 0;
+      height: 5px;
       transform-origin: left;
     }
 
-    &:hover {
+    &:hover, &:focus, &:active, &.active--exact {
       &::after {
-        transform: scaleX(1.25);
+        transform: scaleX(1.1);
       }
     }
   }

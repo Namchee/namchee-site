@@ -1,5 +1,11 @@
 <script>
+import ArrowLink from './../assets/icons/arrow-link.svg';
+
 export default {
+  components: {
+    ArrowLink,
+  },
+
   setup() {
     const skills = [
       'HTML5',
@@ -97,7 +103,7 @@ export default {
       <section class="flex flex-col lg:flex-row py-8 lg:py-12">
 
         <!-- start: tools of trade section -->
-        <article class="w-full lg:w-7/12 lg:mr-2">
+        <section class="w-full lg:w-7/12 lg:mr-2">
           <h2
             v-intersect.once
             class="about__subtitle title-accent">
@@ -110,11 +116,11 @@ export default {
               <span>{{ skill }}</span>
             </li>
           </ul>
-        </article>
+        </section>
         <!-- end: tools of trade section -->
 
         <!-- start: education section -->
-        <article class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
+        <section class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
           <h2
             v-intersect.once
             class="about__subtitle title-accent"
@@ -138,14 +144,14 @@ export default {
               </span>
             </li>
           </ul>
-        </article>
+        </section>
         <!-- end: education section -->
 
       </section>
       <!-- end: tools and education section -->
 
       <!-- start: contact list -->
-      <article class="py-8 lg:py-12">
+      <section class="py-8 lg:py-12">
         <h2 class="about__subtitle">
           Let's be pals <span class="fist">👊</span>
         </h2>
@@ -159,11 +165,11 @@ export default {
               :href="link.href"
               rel="noreferrer"
             >
-              {{ link.name }} ->
+              {{ link.name }} <arrow-link class="inline-block" />
             </a>
           </li>
         </ul>
-      </article>
+      </section>
       <!-- end: contact list -->
 
     </section>
@@ -292,6 +298,33 @@ export default {
   }
 }
 
+.title-accent {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    z-index: -1;
+    height: 2px;
+    width: 2rem;
+    top: calc(50% + 2px);
+    left: calc(100% + 1rem);
+    background-color: var(--text-copy-primary);
+    transition: transform .75s 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  &.in-view {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
 .about__skills, .about__education {
   @apply grid grid-cols-2 gap-2;
 
@@ -383,11 +416,15 @@ export default {
       @apply mr-6;
     }
   }
+
+  .title-accent::after {
+    width: 2em;
+  }
 }
 
 @screen lg {
   .about__skills, .about__education {
-    font-size: 1.75vw;
+    font-size: 1.55vw;
   }
 
   .about__contact {
@@ -407,7 +444,7 @@ export default {
   }
 
   .about__intro__text {
-    font-size: 1.9vw;
+    font-size: 1.85vw;
     margin-right: 2.25vw;
 
     & > p {

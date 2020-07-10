@@ -3,65 +3,117 @@ export default {};
 </script>
 
 <template>
-  <div class="project-card">
-    <figure class="project-card__image">
-      <slot name="image"></slot>
-    </figure>
+  <div class="project__card">
+    <div class="project__card__info">
+      <div class="project__card__timeline">
+        <slot name="timeline"></slot>
+      </div>
 
-    <div class="project-card__content">
-      <div class="project-card__technologies">
+      <div class="project__card__technologies">
         <slot name="technologies"></slot>
       </div>
+    </div>
 
-      <div class="project-card__description">
-        <h3 class="mb-8 mt-4 text-3xl tracking-wide">
-          <slot name="title"></slot>
-        </h3>
+    <div class="project__card__description">
+      <h3 class="project__card__title">
+        <slot name="title"></slot>
+      </h3>
 
-        <div class="text-justify">
-          <slot name="description"></slot>
-        </div>
+      <div>
+        <slot name="description"></slot>
       </div>
+    </div>
 
-      <div class="project-card__link">
-        <slot name="link"></slot>
-      </div>
+    <div class="project__card__link">
+      <slot name="link"></slot>
     </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
-.project-card {
-  @apply flex flex-col py-4;
+.project__card {
+  @apply relative grid py-10 px-2 grid-cols-2;
+
+  grid-template-rows: auto 1fr;
+
+  &::before, &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-copy-primary);
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
 }
 
-.project-card__image {
-  @apply w-full;
+.project__card__info {
+  @apply uppercase tracking-widest text-sm;
+
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
-.project-card__content {
-  @apply py-8 w-full max-w-4xl;
+.project__card__link {
+  @apply text-right text-base;
+
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 }
 
-.project-card__technologies {
-  @apply uppercase text-sm tracking-widest opacity-75;
+.project__card__description {
+  @apply py-6;
+
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
 }
 
-.project-card__link {
-  @apply flex items-center;
+.project__card__title {
+  @apply text-2xl mb-4 leading-none;
+}
+
+@screen md {
+  .project__card {
+    @apply flex flex-row leading-relaxed;
+  }
+
+  .project__card__description {
+    @apply flex-grow px-8 py-0;
+  }
+
+  .project__card__info {
+    @apply py-0 text-right;
+
+    min-width: 4rem;
+  }
+
+  .project__card__link {
+    min-width: 7rem;
+  }
+
+  .project__card__title {
+    @apply text-3xl;
+  }
 }
 
 @screen lg {
-  .project-card {
-    @apply flex-row;
+  .project__card__title {
+    @apply tracking-wide font-semibold;
+
+    font-size: 2vw;
   }
 
-  .project-card__image {
-    @apply w-1/2;
-  }
-
-  .project-card__content {
-    @apply px-20 py-8 w-1/2;
+  .project__card__description {
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 }
 </style>
