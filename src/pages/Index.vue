@@ -2,11 +2,13 @@
 import { ref, onMounted } from '@vue/composition-api';
 import ArrowLink from './../assets/icons/arrow-link.svg';
 import { ProjectCard } from '~/components/ProjectCard';
+import { Pill } from '~/components/Pill';
 
 export default {
   components: {
     ProjectCard,
     ArrowLink,
+    Pill,
   },
 
   setup() {
@@ -161,7 +163,19 @@ export default {
             </template>
 
             <template v-slot:title>
-              Absentor
+              <div class="flex items-center">
+                Absentor
+                <pill
+                  class="ml-4"
+                  :color="{ bg: 'accent-trans', text: 'accent' }"
+                >
+                  <template v-slot:text>
+                    <span class="uppercase font-bold text-xs tracking-wider">
+                      Team
+                    </span>
+                  </template>
+                </pill>
+              </div>
             </template>
 
             <template v-slot:description>
@@ -275,6 +289,10 @@ export default {
       transform: scaleX(1);
     }
   }
+}
+
+.project__card:not(:first-child)::before {
+  opacity: 0;
 }
 
 .slide-up {

@@ -42,7 +42,7 @@ export default {};
     position: absolute;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 1.5px;
     background-color: var(--text-copy-primary);
   }
 

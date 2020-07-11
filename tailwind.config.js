@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, quote-props */
 
 module.exports = {
   purge: [],
@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         accent: 'var(--accent)',
+        'accent-trans': 'var(--accent-trans)',
 
         background: {
           primary: 'var(--bg-background-primary)',
