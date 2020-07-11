@@ -47,7 +47,7 @@ export default {
     <section class="landing">
 
       <!-- start: landing hero -->
-      <section class="text-xl py-12 md:py-16">
+      <section class="text-xl py-16 md:py-20">
         <h1 class="landing__title">
           <div>
             <span>Hello there.</span>
@@ -85,13 +85,17 @@ export default {
         <h2
           v-intersect.once
           class="landing__project__title">
-          <span>
-            Selected
-          </span>
+          <div>
+            <span>
+              Selected
+            </span>
+          </div>
 
-          <span>
-            Works
-          </span>
+          <div>
+            <span>
+              Works
+            </span>
+          </div>
         </h2>
 
         <section class="landing__project__list">
@@ -264,7 +268,15 @@ export default {
 }
 
 .landing__project__title {
-  @apply text-4xl tracking-wide mb-10;
+  @apply text-4xl tracking-wide mb-8;
+
+  & > div {
+    @apply inline-block overflow-hidden;
+
+    &:last-child {
+      margin-left: .5ch;
+    }
+  }
 }
 
 .project__link {
@@ -280,13 +292,14 @@ export default {
     height: 1px;
     background-color: var(--text-copy-primary);
     transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
-    transform-origin: left;
+    transform-origin: right;
     transform: scaleX(0);
   }
 
   &:hover, &:focus, &:active {
     &::after {
       transform: scaleX(1);
+      transform-origin: left;
     }
   }
 }
@@ -387,10 +400,30 @@ export default {
   }
 
   .landing__project__title {
-    & > span {
+    & div {
       font-size: 3.5vw;
       display: block;
       text-align: right;
+
+      &:last-child {
+        margin-left: 0;
+      }
+
+      & > span {
+        @apply inline-block;
+
+        transform: translateY(2em);
+      }
+    }
+
+    &.in-view {
+      & span {
+        animation: yReveal 600ms 100ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+
+      & > div:last-child > span {
+        animation-delay: 200ms;
+      }
     }
   }
 }
@@ -442,6 +475,16 @@ export default {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes yReveal {
+  from {
+    transform: translateY(2em);
+  }
+
+  to {
+    transform: translateY(0);
   }
 }
 </style>

@@ -44,7 +44,7 @@ query {
 
 <style lang="postcss" scoped>
 .app {
-  @apply bg-background-primary text-copy-primary antialiased;
+  @apply flex flex-col bg-background-primary text-copy-primary antialiased;
 
   transition: color 300ms ease,
     background-color 300ms ease,
@@ -56,7 +56,7 @@ query {
 }
 
 .body {
-  @apply font-medium pt-18 px-6;
+  @apply flex flex-col flex-grow font-medium pt-18 px-6;
 }
 
 @screen md {

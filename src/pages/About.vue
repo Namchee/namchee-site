@@ -252,7 +252,7 @@ export default {
 }
 
 .about__contact {
-  @apply font-normal text-base grid grid-cols-1 text-2xl;
+  @apply font-normal grid grid-cols-1 text-2xl;
 
   & > li {
     @apply mb-2 overflow-hidden;
@@ -272,13 +272,14 @@ export default {
       height: 1px;
       background-color: var(--text-copy-primary);
       transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
-      transform-origin: left;
+      transform-origin: right;
       transform: scaleX(0);
     }
 
     &:hover, &:focus, &:active {
       &::after {
         transform: scaleX(1);
+        transform-origin: left;
       }
     }
   }
@@ -291,7 +292,7 @@ export default {
 
       @for $i from 1 to 99 {
         &:nth-child($(i)) > a {
-          animation-delay: calc($(i) * 75ms);
+          animation-delay: calc($(i) * 50ms);
         }
       }
     }
@@ -313,7 +314,7 @@ export default {
     top: calc(50% + 2px);
     left: calc(100% + 1rem);
     background-color: var(--text-copy-primary);
-    transition: transform .75s 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform .75s 150ms cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: left;
     transform: scaleX(0);
   }
@@ -341,12 +342,12 @@ export default {
   &.in-view {
     & > li {
       & > span {
-        animation: yReveal 400ms cubic-bezier(0.61, 1, 0.88, 1) forwards;
+        animation: yReveal 350ms cubic-bezier(0.61, 1, 0.88, 1) forwards;
       }
 
       @for $i from 1 to 99 {
         &:nth-child($(i)) > span {
-          animation-delay: calc(25ms + calc($(i) * 50ms));
+          animation-delay: calc($(i) * 50ms);
         }
       }
     }
