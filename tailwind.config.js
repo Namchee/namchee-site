@@ -1,7 +1,9 @@
 /* eslint-disable max-len, quote-props */
 
 module.exports = {
-  purge: [],
+  purge: [
+    './src/**/*.vue',
+  ],
   theme: {
     fontFamily: {
       'sans': 'Manrope Var, Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
