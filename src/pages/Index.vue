@@ -125,7 +125,10 @@ export default {
           </template>
 
           <template v-slot:link>
-            <a class="project__link" href="#">
+            <a
+              rel="noreferrer"
+              class="project__link"
+              href="https://github.com/Namchee/COVID-19-LINE-Bot">
               GitHub
               <arrow-link class="inline-block" />
             </a>
@@ -148,7 +151,7 @@ export default {
           </template>
 
           <template v-slot:link>
-            <a class="project__link" href="#">
+            <a class="project__link" href="https://github.com/Namchee/wombatik" rel="noreferrer">
               GitHub
               <arrow-link class="inline-block" />
             </a>
@@ -185,7 +188,7 @@ export default {
           </template>
 
           <template v-slot:link>
-            <a class="project__link" href="#">
+            <a class="project__link" href="https://github.com/Namchee/absentor" rel="noreferrer">
               GitHub
               <arrow-link class="inline-block" />
             </a>
