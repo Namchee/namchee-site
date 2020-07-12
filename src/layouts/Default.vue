@@ -1,5 +1,5 @@
 <script>
-import { useGetters } from 'vuex-composition-helpers';
+import { useGetters } from 'vuex-composition-helpers/dist';
 import { Navigation } from '~/components/Navigation';
 import { Footer } from '~/components/Footer';
 

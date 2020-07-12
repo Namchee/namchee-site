@@ -3,7 +3,7 @@ import Dark from './../../assets/icons/dark.svg';
 import Light from './../../assets/icons/light.svg';
 
 import { onMounted } from '@vue/composition-api';
-import { useGetters, useMutations } from 'vuex-composition-helpers';
+import { useGetters, useMutations } from 'vuex-composition-helpers/dist';
 
 export default {
   components: {

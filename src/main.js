@@ -14,6 +14,24 @@ export default function(Vue, { head, appOptions }) {
 
   Vue.directive('intersect', intersect);
 
+  head.meta.push({
+    key: 'og:image',
+    name: 'og:image',
+    content: 'https://namchee.netlify.app/static/og-banner.png',
+  });
+
+  head.meta.push({
+    key: 'og:title',
+    name: 'og:title',
+    content: 'Namchee',
+  });
+
+  head.meta.push({
+    key: 'og:description',
+    name: 'og:description',
+    content: 'Hey! This is Namchee\'s personal site!',
+  });
+
   appOptions.store = new Vuex.Store(store);
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);

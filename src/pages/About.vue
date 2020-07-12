@@ -8,7 +8,17 @@ export default {
       /* eslint-disable max-len */
       {
         name: 'description',
-        content: 'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make a web a better place',
+        content: 'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
+      },
+      {
+        key: 'og:title',
+        name: 'og:title',
+        content: 'About Namchee',
+      },
+      {
+        key: 'og:description',
+        name: 'og:description',
+        content: 'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
       },
       /* eslint-enable max-len */
     ],
