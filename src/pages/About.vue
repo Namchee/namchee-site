@@ -2,6 +2,18 @@
 import ArrowLink from './../assets/icons/arrow-link.svg';
 
 export default {
+  metaInfo: {
+    title: 'About Me',
+    meta: [
+      /* eslint-disable max-len */
+      {
+        name: 'description',
+        content: 'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make a web a better place',
+      },
+      /* eslint-enable max-len */
+    ],
+  },
+
   components: {
     ArrowLink,
   },

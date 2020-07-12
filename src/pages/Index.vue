@@ -11,6 +11,18 @@ export default {
     Pill,
   },
 
+  metaInfo: {
+    title: 'Welcome!',
+    meta: [
+      /* eslint-disable max-len */
+      {
+        name: 'description',
+        content: 'Namchee is an aspiring web developer based in Bandung, Indonesia',
+      },
+      /* eslint-enable max-len */
+    ],
+  },
+
   setup() {
     const text = [
       'play good old games',

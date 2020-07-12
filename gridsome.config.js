@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'prodcution') {
 
 module.exports = {
   siteName: 'Namchee',
+  siteDescription: 'Welcome to Namchee\'s site!',
   plugins: [],
   css: {
     loaderOptions: {

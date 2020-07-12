@@ -2,6 +2,10 @@
 import NotFound from './../assets/images/404.svg';
 
 export default {
+  metaInfo: {
+    title: 'Not Found 😕',
+  },
+
   components: {
     NotFound,
   },
