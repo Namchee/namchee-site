@@ -9,6 +9,10 @@
   }
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 :root {
   --link: #2f89fc;
 
