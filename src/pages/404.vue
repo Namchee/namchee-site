@@ -13,29 +13,23 @@ export default {
 </script>
 
 <template>
-  <layout>
-    <div class="not__found">
-      <not-found class="not__found__illustration" />
+  <div class="not__found">
+    <not-found class="not__found__illustration" />
 
-      <div class="text-center leading-relaxed">
-        <h1 class="text-4xl md:text-5xl tracking-wide font-semibold mb-2">
-          That's... 404
-        </h1>
+    <div class="text-center leading-relaxed">
+      <h1 class="text-4xl md:text-5xl tracking-wide font-semibold mb-2">
+        That's... 404
+      </h1>
 
-        <p>
-          Whoa! It's seems that the page you requested doesn't exist!
-        </p>
+      <p>Whoa! It's seems that the page you requested doesn't exist!</p>
 
-        <p class="mt-8">
-          <g-link
-            class="tracking-wide font-semibold text-2xl underline"
-            to="/">
-            Take Me Home
-          </g-link>
-        </p>
-      </div>
+      <p class="mt-8">
+        <g-link class="tracking-wide font-semibold text-2xl underline" to="/">
+          Take Me Home
+        </g-link>
+      </p>
     </div>
-  </layout>
+  </div>
 </template>
 
 <style lang="postcss" scoped>

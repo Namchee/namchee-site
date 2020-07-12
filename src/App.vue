@@ -19,14 +19,6 @@ export default {
 };
 </script>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <template>
   <div
     class="app"
@@ -34,7 +26,7 @@ query {
   >
     <navigation />
     <main class="body">
-      <slot />
+      <router-view />
     </main>
     <Footer />
   </div>

@@ -17,12 +17,14 @@ export default {
       /* eslint-disable max-len */
       {
         name: 'description',
-        content: 'Namchee is an aspiring web developer based in Bandung, Indonesia',
+        content:
+          'Namchee is an aspiring web developer based in Bandung, Indonesia',
       },
       {
         key: 'og:description',
         name: 'og:description',
-        content: 'Namchee is an aspiring web developer based in Bandung, Indonesia',
+        content:
+          'Namchee is an aspiring web developer based in Bandung, Indonesia',
       },
       /* eslint-enable max-len */
     ],
@@ -59,177 +61,150 @@ export default {
 </script>
 
 <template>
-  <layout>
-    <!-- start: landing page -->
-    <section class="landing">
+  <!-- start: landing page -->
+  <section class="landing">
+    <!-- start: landing hero -->
+    <section class="text-xl py-16 md:py-20">
+      <h1 class="landing__title">
+        <div>
+          <span>Hello there.</span>
+        </div>
+        <br />
+        <div>
+          <span>I'm Namchee.</span>
+        </div>
+      </h1>
 
-      <!-- start: landing hero -->
-      <section class="text-xl py-16 md:py-20">
-        <h1 class="landing__title">
-          <div>
-            <span>Hello there.</span>
-          </div>
-          <br />
-          <div>
-            <span>I'm Namchee.</span>
-          </div>
-        </h1>
-
-        <p class="mt-8 landing__subtitle tracking-wide slide-up">
-          I do full-stack development with JavaScript based technologies
-        </p>
-        <p class="mt-4 md:mt-0 landing__subtitle tracking-wide slide-up">
-          Currently, I'm simping for Vue and NodeJS
-        </p>
-        <p
-          class="landing__scroller slide-up">
-          Other than code, Namchee likes to
-          <transition name="scroll">
-            <template v-for="(item, i) in text">
-              <span
-                class="ml-1 absolute inline-block" :key="i" v-if="idx === i"
-              >
-                {{ item }}
-              </span>
-            </template>
-          </transition>
-        </p>
-      </section>
-      <!-- end: landing hero -->
-
-      <!-- start: featured projects -->
-      <section class="landing__project">
-        <h2
-          v-intersect.once
-          class="landing__project__title">
-          <div>
-            <span>
-              Selected
+      <p
+        class="mt-8 landing__subtitle tracking-wide slide-up"
+      >I do full-stack development with JavaScript based technologies</p>
+      <p
+        class="mt-4 md:mt-0 landing__subtitle tracking-wide slide-up"
+      >Currently, I'm simping for Vue and NodeJS</p>
+      <p class="landing__scroller slide-up">
+        Other than code, Namchee likes to
+        <transition name="scroll">
+          <template v-for="(item, i) in text">
+            <span
+              class="ml-1 absolute inline-block"
+              :key="i" v-if="idx === i"
+            >
+              {{ item }}
             </span>
-          </div>
-
-          <div>
-            <span>
-              Works
-            </span>
-          </div>
-        </h2>
-
-        <section class="landing__project__list">
-
-          <!-- start: covid-19 project -->
-          <project-card>
-            <template v-slot:timeline>
-              2020
-            </template>
-
-            <template v-slot:technologies>
-              NodeJS
-            </template>
-
-            <template v-slot:title>
-              COVID-19 LINE Bot
-            </template>
-
-            <template v-slot:description>
-              A simple chatbot for LINE that provides
-              accurate data and educational information
-              related with COVID-19 pandemic in Indonesia.
-            </template>
-
-            <template v-slot:link>
-              <a class="project__link" href="#">
-                GitHub <arrow-link class="inline-block" />
-              </a>
-            </template>
-          </project-card>
-          <!-- end: covid-19 project -->
-
-          <!-- start: wombatik project -->
-          <project-card>
-            <template v-slot:timeline>
-              2019
-            </template>
-
-            <template v-slot:technologies>
-              Java
-            </template>
-
-            <template v-slot:title>
-              Wombatik
-            </template>
-
-            <template v-slot:description>
-              Digital watermarking app that provides data integrity
-              and copyright on an image. Specifically made for preserving
-              batik heritage.
-            </template>
-
-            <template v-slot:link>
-              <a class="project__link" href="#">
-                GitHub <arrow-link class="inline-block" />
-              </a>
-            </template>
-          </project-card>
-          <!-- end: wombatik project -->
-
-          <!-- start: absentor project -->
-          <project-card>
-            <template v-slot:timeline>
-              2020
-            </template>
-
-            <template v-slot:technologies>
-              Python
-            </template>
-
-            <template v-slot:title>
-              <div class="flex items-center">
-                Absentor
-                <pill
-                  class="ml-4"
-                  :color="{ bg: 'accent-trans', text: 'accent' }"
-                >
-                  <template v-slot:text>
-                    <span class="uppercase font-bold text-xs tracking-wider">
-                      Team
-                    </span>
-                  </template>
-                </pill>
-              </div>
-            </template>
-
-            <template v-slot:description>
-              <del>Failed</del> Experimental Discord bot that provides
-              automatic recording of attendance and attendance history
-              management on Google Sheet.
-            </template>
-
-            <template v-slot:link>
-              <a class="project__link" href="#">
-                GitHub <arrow-link class="inline-block" />
-              </a>
-            </template>
-          </project-card>
-          <!-- end: absentor project -->
-
-          <div class="text-xl md:text-2xl text-center md:text-right py-8">
-            <a
-              class="project__link"
-              target="_blank"
-              href="https://github.com/Namchee">
-              View More on GitHub ->
-            </a>
-          </div>
-
-        </section>
-      </section>
-      <!-- end: featured projects -->
-
+          </template>
+        </transition>
+      </p>
     </section>
-    <!-- end: landing page -->
+    <!-- end: landing hero -->
 
-  </layout>
+    <!-- start: featured projects -->
+    <section class="landing__project">
+      <h2 v-intersect.once class="landing__project__title">
+        <div>
+          <span>Selected</span>
+        </div>
+
+        <div>
+          <span>Works</span>
+        </div>
+      </h2>
+
+      <section class="landing__project__list">
+        <!-- start: covid-19 project -->
+        <project-card>
+          <template v-slot:timeline>2020</template>
+
+          <template v-slot:technologies>NodeJS</template>
+
+          <template v-slot:title>COVID-19 LINE Bot</template>
+
+          <template v-slot:description>
+            A simple chatbot for LINE that provides
+            accurate data and educational information
+            related with COVID-19 pandemic in Indonesia.
+          </template>
+
+          <template v-slot:link>
+            <a class="project__link" href="#">
+              GitHub
+              <arrow-link class="inline-block" />
+            </a>
+          </template>
+        </project-card>
+        <!-- end: covid-19 project -->
+
+        <!-- start: wombatik project -->
+        <project-card>
+          <template v-slot:timeline>2019</template>
+
+          <template v-slot:technologies>Java</template>
+
+          <template v-slot:title>Wombatik</template>
+
+          <template v-slot:description>
+            Digital watermarking app that provides data integrity
+            and copyright on an image. Specifically made for preserving
+            batik heritage.
+          </template>
+
+          <template v-slot:link>
+            <a class="project__link" href="#">
+              GitHub
+              <arrow-link class="inline-block" />
+            </a>
+          </template>
+        </project-card>
+        <!-- end: wombatik project -->
+
+        <!-- start: absentor project -->
+        <project-card>
+          <template v-slot:timeline>2020</template>
+
+          <template v-slot:technologies>Python</template>
+
+          <template v-slot:title>
+            <div class="flex items-center">
+              Absentor
+              <pill
+                class="ml-4"
+                :color="{ bg: 'accent-trans', text: 'accent' }"
+              >
+                <template v-slot:text>
+                  <span class="uppercase font-bold text-xs tracking-wider">
+                    Team
+                  </span>
+                </template>
+              </pill>
+            </div>
+          </template>
+
+          <template v-slot:description>
+            <del>Failed</del> Experimental Discord bot that provides
+            automatic recording of attendance and attendance history
+            management on Google Sheet.
+          </template>
+
+          <template v-slot:link>
+            <a class="project__link" href="#">
+              GitHub
+              <arrow-link class="inline-block" />
+            </a>
+          </template>
+        </project-card>
+        <!-- end: absentor project -->
+
+        <div class="text-xl md:text-2xl text-center md:text-right py-8">
+          <a
+            class="project__link"
+            target="_blank"
+            href="https://github.com/Namchee"
+          >View More on GitHub -></a>
+        </div>
+      </section>
+    </section>
+    <!-- end: featured projects -->
+  </section>
+  <!-- end: landing page -->
 </template>
 
 <style lang="postcss" scoped>
@@ -249,13 +224,13 @@ export default {
 
     &::after {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       transform: translateX(-101%);
-      background-color: #FFFAFA; /* IE 11 fallback */
+      background-color: #fffafa; /* IE 11 fallback */
       background-color: var(--text-copy-primary);
       animation: slideLeft 1200ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
     }
@@ -292,7 +267,7 @@ export default {
     @apply inline-block overflow-hidden;
 
     &:last-child {
-      margin-left: .5ch;
+      margin-left: 0.5ch;
     }
   }
 }
@@ -308,14 +283,16 @@ export default {
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: #FFFAFA; /* IE 11 fallback */
+    background-color: #fffafa; /* IE 11 fallback */
     background-color: var(--text-copy-primary);
     transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
     transform-origin: right;
     transform: scaleX(0);
   }
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     &::after {
       transform: scaleX(1);
       transform-origin: left;
@@ -343,12 +320,14 @@ export default {
   transform: translateY(100%);
 }
 
-.scroll-enter-active, .scroll-leave-active {
+.scroll-enter-active,
+.scroll-leave-active {
   transition: transform 300ms cubic-bezier(0.33, 1, 0.68, 1),
     opacity 150ms cubic-bezier(0.61, 1, 0.88, 1);
 }
 
-.scroll-leave, .scroll-enter-to {
+.scroll-leave,
+.scroll-enter-to {
   transform: translateY(0%);
   opacity: 1;
 }

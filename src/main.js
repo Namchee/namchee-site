@@ -2,7 +2,6 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import CompositionAPI from '@vue/composition-api';
-import DefaultLayout from '~/layouts/Default.vue';
 import Vuex from 'vuex';
 import store from '~/store';
 import { intersect } from './utils/directives';
@@ -33,6 +32,4 @@ export default function(Vue, { head, appOptions }) {
   });
 
   appOptions.store = new Vuex.Store(store);
-  // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout);
 }

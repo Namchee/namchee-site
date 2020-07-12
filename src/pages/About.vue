@@ -8,7 +8,8 @@ export default {
       /* eslint-disable max-len */
       {
         name: 'description',
-        content: 'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
+        content:
+          'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
       },
       {
         key: 'og:title',
@@ -18,7 +19,8 @@ export default {
       {
         key: 'og:description',
         name: 'og:description',
-        content: 'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
+        content:
+          'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
       },
       /* eslint-enable max-len */
     ],
@@ -86,117 +88,97 @@ export default {
 </script>
 
 <template>
-  <layout>
-    <!-- start: about page -->
-    <section class="about">
+  <!-- start: about page -->
+  <section class="about">
+    <!-- start: introduction section -->
+    <article class="about__intro">
+      <h1 class="about__title">
+        <span>6C?</span>
+      </h1>
 
-      <!-- start: introduction section -->
-      <article class="about__intro">
-        <h1 class="about__title">
-          <span>
-            6C?
-          </span>
-        </h1>
+      <div class="about__intro__text">
+        <p>
+          Hey,
+          <span class="underline__reveal">Namchee</span> here.
+          My full name is Cristopher.
+          But, I prefer to be called Namchee since I'm
+          acquaintanced with too much
+          <span
+            class="underline__reveal"
+          >Chris</span> in my life.
+        </p>
+        <p>
+          The world of web has caught my interest since my high school days.
+          Since then, I do most of my work using my current favorite
+          language,
+          <span class="underline__reveal">JavaScript</span>.
+        </p>
+        <p>
+          Right now, I spend my time doing personal open source projects
+          with various topics and hanging around with fellow developers.
+          To this day, I'm still learning as much as I can
+          about the world of web as one of my passion.
+        </p>
+      </div>
+    </article>
+    <!-- end: introduction section -->
 
-        <div class="about__intro__text">
-          <p>
-            Hey, <span class="underline__reveal">Namchee</span> here.
-            My full name is Cristopher.
-            But, I prefer to be called Namchee since I'm
-            acquaintanced with too much
-            <span class="underline__reveal">Chris</span> in my life.
-          </p>
-          <p>
-            The world of web has caught my interest since my high school days.
-            Since then, I do most of my work using my current favorite
-            language, <span class="underline__reveal">JavaScript</span>.
-          </p>
-          <p>
-            Right now, I spend my time doing personal open source projects
-            with various topics and hanging around with fellow developers.
-            To this day, I'm still learning as much as I can
-            about the world of web as one of my passion.
-          </p>
-        </div>
-      </article>
-      <!-- end: introduction section -->
-
-      <!-- start: tools and education section -->
-      <section class="flex flex-col lg:flex-row py-8 lg:py-12">
-
-        <!-- start: tools of trade section -->
-        <section class="w-full lg:w-7/12 lg:mr-2">
-          <h2
-            v-intersect.once
-            class="about__subtitle title-accent">
-            Tools of Trade
-          </h2>
-          <ul
-            v-intersect.once
-            class="about__skills md:text-xl">
-            <li v-for="(skill, i) in skills" :key="i">
-              <span>{{ skill }}</span>
-            </li>
-          </ul>
-        </section>
-        <!-- end: tools of trade section -->
-
-        <!-- start: education section -->
-        <section class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
-          <h2
-            v-intersect.once
-            class="about__subtitle title-accent"
-          >
-            Education
-          </h2>
-
-          <ul
-            v-intersect.once
-            class="about__education">
-            <li v-for="(edu, i) in education" :key="i" class="tracking-wide">
-              <span>
-                <span class="about__edu__timeline">
-                  {{ edu.yearStart }}
-                  &mdash;
-                  {{ edu.yearEnd || 'Present' }}
-                </span>
-                <span>
-                  {{ edu.place }}
-                </span>
-              </span>
-            </li>
-          </ul>
-        </section>
-        <!-- end: education section -->
-
-      </section>
-      <!-- end: tools and education section -->
-
-      <!-- start: contact list -->
-      <section class="py-8 lg:py-12">
-        <h2 class="about__subtitle">
-          Let's be pals <span class="fist">👊</span>
+    <!-- start: tools and education section -->
+    <section class="flex flex-col lg:flex-row py-8 lg:py-12">
+      <!-- start: tools of trade section -->
+      <section class="w-full lg:w-7/12 lg:mr-2">
+        <h2 v-intersect.once class="about__subtitle title-accent">
+          Tools of Trade
         </h2>
 
-        <ul
-          v-intersect.once
-          class="about__contact">
-          <li v-for="link in links" :key="link.href">
-            <a
-              target="_blank"
-              :href="link.href"
-              rel="noreferrer"
-            >
-              {{ link.name }} <arrow-link class="inline-block" />
-            </a>
+        <ul v-intersect.once class="about__skills md:text-xl">
+          <li v-for="(skill, i) in skills" :key="i">
+            <span>{{ skill }}</span>
           </li>
         </ul>
       </section>
-      <!-- end: contact list -->
+      <!-- end: tools of trade section -->
 
+      <!-- start: education section -->
+      <section class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
+        <h2 v-intersect.once class="about__subtitle title-accent">Education</h2>
+
+        <ul v-intersect.once class="about__education">
+          <li v-for="(edu, i) in education" :key="i" class="tracking-wide">
+            <span>
+              <span class="about__edu__timeline">
+                {{ edu.yearStart }}
+                &mdash;
+                {{ edu.yearEnd || 'Present' }}
+              </span>
+              <span>{{ edu.place }}</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <!-- end: education section -->
     </section>
-    <!-- end: about page -->
-  </layout>
+    <!-- end: tools and education section -->
+
+    <!-- start: contact list -->
+    <section class="py-8 lg:py-12">
+      <h2 class="about__subtitle">
+        Let's be pals
+        <span class="fist">👊</span>
+      </h2>
+
+      <ul v-intersect.once class="about__contact">
+        <li v-for="link in links" :key="link.href">
+          <a target="_blank" :href="link.href" rel="noreferrer">
+            {{ link.name }}
+            <arrow-link class="inline-block" />
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- end: contact list -->
+  </section>
+  <!-- end: about page -->
 </template>
 
 <style lang="postcss" scoped>
@@ -240,14 +222,14 @@ export default {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    transform: scaleY(.05);
+    transform: scaleY(0.05);
     transform-origin: bottom;
     transition: transform 200ms cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   &::before {
     @supports (mix-blend-mode: difference) {
-      background-color: #FFFAFA; /* IE 11 Fallback */
+      background-color: #fffafa; /* IE 11 Fallback */
       background-color: var(--text-copy-primary);
       mix-blend-mode: difference;
     }
@@ -264,7 +246,8 @@ export default {
 
   &:hover {
     @supports (mix-blend-mode: difference) {
-      &::before, &::after {
+      &::before,
+      &::after {
         transform: scaleY(1);
       }
     }
@@ -294,14 +277,16 @@ export default {
       left: 0;
       width: 100%;
       height: 1px;
-      background-color: #FFFAFA;
+      background-color: #fffafa;
       background-color: var(--text-copy-primary);
       transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
       transform-origin: right;
       transform: scaleX(0);
     }
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       &::after {
         transform: scaleX(1);
         transform-origin: left;
@@ -312,7 +297,7 @@ export default {
   &.in-view {
     & > li {
       & > a {
-        animation: skewReveal .6s cubic-bezier(0.61, 1, 0.88, 1) forwards;
+        animation: skewReveal 0.6s cubic-bezier(0.61, 1, 0.88, 1) forwards;
       }
 
       @for $i from 1 to 99 {
@@ -338,9 +323,9 @@ export default {
     width: 2rem;
     top: calc(50% + 2px);
     left: calc(100% + 1rem);
-    background-color: #FFFAFA;
+    background-color: #fffafa;
     background-color: var(--text-copy-primary);
-    transition: transform .75s 150ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.75s 150ms cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: left;
     transform: scaleX(0);
   }
@@ -352,7 +337,8 @@ export default {
   }
 }
 
-.about__skills, .about__education {
+.about__skills,
+.about__education {
   @apply grid grid-cols-2 gap-2;
 
   & > li {
@@ -361,7 +347,7 @@ export default {
     & > span {
       display: inline-block;
       transform: translateY(101%);
-      opacity: .2;
+      opacity: 0.2;
     }
   }
 
@@ -426,8 +412,9 @@ export default {
     }
   }
 
-  .about__skills, .about__contact {
-    gap: .5rem 2rem;
+  .about__skills,
+  .about__contact {
+    gap: 0.5rem 2rem;
   }
 
   .about__subtitle {
@@ -450,7 +437,8 @@ export default {
 }
 
 @screen lg {
-  .about__skills, .about__education {
+  .about__skills,
+  .about__education {
     font-size: 1.55vw;
   }
 
@@ -524,7 +512,7 @@ export default {
 
 @keyframes yReveal {
   0% {
-    opacity: .2;
+    opacity: 0.2;
     transform: translateY(101%);
   }
 
