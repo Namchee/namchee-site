@@ -33,9 +33,7 @@ query {
     :class="`theme-${theme}`"
   >
     <navigation />
-    <main
-      class="body"
-    >
+    <main class="body">
       <slot />
     </main>
     <Footer />
@@ -72,5 +70,13 @@ query {
     padding-left: 7.5vw;
     padding-right: 7.5vw;
   }
+}
+
+.fade-enter-active {
+  transition: opacity .5s ease-out;
+}
+
+.fade-enter {
+  opacity: 0;
 }
 </style>
