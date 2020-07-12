@@ -26,7 +26,9 @@ export default {
   >
     <navigation />
     <main class="body">
-      <router-view />
+      <transition name="fade-page" mode="out-in">
+        <router-view />
+      </transition>
     </main>
     <Footer />
   </div>
@@ -62,5 +64,13 @@ export default {
     padding-left: 7.5vw;
     padding-right: 7.5vw;
   }
+}
+
+.fade-page-enter-active, .fade-page-leave-active {
+  transition: opacity 350ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.fade-page-enter, .fade-page-leave-to {
+  opacity: 0;
 }
 </style>
