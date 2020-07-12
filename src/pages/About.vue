@@ -225,6 +225,7 @@ export default {
 
   &::before {
     @supports (mix-blend-mode: difference) {
+      background-color: #FFFAFA; /* IE 11 Fallback */
       background-color: var(--text-copy-primary);
       mix-blend-mode: difference;
     }
@@ -234,6 +235,7 @@ export default {
   }
 
   &::after {
+    background-color: #121212; /* IE 11 Fallback */
     background-color: var(--bg-background-primary);
     z-index: -1;
   }
@@ -270,6 +272,7 @@ export default {
       left: 0;
       width: 100%;
       height: 1px;
+      background-color: #FFFAFA;
       background-color: var(--text-copy-primary);
       transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
       transform-origin: right;
@@ -313,6 +316,7 @@ export default {
     width: 2rem;
     top: calc(50% + 2px);
     left: calc(100% + 1rem);
+    background-color: #FFFAFA;
     background-color: var(--text-copy-primary);
     transition: transform .75s 150ms cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: left;

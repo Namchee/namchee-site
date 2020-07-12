@@ -86,7 +86,7 @@ export default {
       "nav--hide": hideMenu,
     }'
   >
-    <!-- start: logo -->
+    <!-- start: banner logo -->
     <a
       id="logo"
       href="/"
@@ -95,7 +95,7 @@ export default {
     >
       <logo alt="Namchee" role="banner" />
     </a>
-    <!-- end: logo -->
+    <!-- end: banner logo -->
 
     <nav
       id="nav"
@@ -190,7 +190,7 @@ export default {
 }
 
 .header__logo {
-  @apply transform scale-90 scale-100 ml-6;
+  @apply transform scale-90 ml-6;
 
   z-index: 999;
 
@@ -198,6 +198,7 @@ export default {
     animation: fill 1s ease-out forwards 1.6s;
 
     & path {
+      stroke: #FFFAFA; /* IE 11 Fallback */
       stroke: var(--text-copy-primary);
       stroke-width: .65px;
       stroke-dasharray: 140;
@@ -223,6 +224,7 @@ export default {
   @apply relative;
 
   &::after {
+    background-color: #FFFAFA; /* IE 11 Fallback */
     background-color: var(--text-copy-primary);
     content: "";
     position: absolute;
@@ -254,6 +256,7 @@ export default {
     border-radius: 9999px;
     content: "";
     width: 1.65rem;
+    border-color: #FFFAFA; /* IE 11 Fallback */
     border: 1.5px solid var(--text-copy-primary);
     transform-origin: right;
     transition: transform 300ms ease;
@@ -312,6 +315,7 @@ export default {
       p-8;
 
     z-index: 998;
+    background-color: #4366a9; /* IE 11 Fallback */
     background-color: var(--accent);
     pointer-events: none;
 
@@ -453,7 +457,7 @@ export default {
   }
 
   .header__logo {
-    @apply ml-0;
+    @apply scale-100 ml-0;
   }
 
   .nav__elem {
@@ -485,6 +489,7 @@ export default {
   }
 
   100% {
+    fill: #FFFAFA; /* IE 11 Fallback */
     fill: var(--text-copy-primary);
   }
 }

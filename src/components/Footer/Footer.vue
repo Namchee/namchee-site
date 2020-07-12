@@ -12,6 +12,8 @@ export default {
 
 <template>
   <footer class="footer text-sm md:text-base">
+
+    <!-- start: disclaimer banner -->
     <div class="font-medium mb-4 md:mb-0">
       <p class="text-center md:text-left">
         Made in 2020 with ❤️ by Namchee
@@ -27,6 +29,9 @@ export default {
         </a>
       </p>
     </div>
+    <!-- end: disclaimer banner -->
+
+    <!-- start: quick contact links -->
     <div class="flex items-center">
       <a
         href="https://twitter.com/lakban_hitam"
@@ -46,6 +51,8 @@ export default {
         <github class="w-5 h-5" />
       </a>
     </div>
+    <!-- end: quick contact links -->
+
   </footer>
 </template>
 
@@ -68,12 +75,14 @@ export default {
   background-color: transparent;
 
   & svg {
+    fill: rgba(255, 255, 255, .4); /* IE 11 Fallback */
     fill: var(--logo);
     transition: fill 250ms ease-out;
   }
 
   &:hover, &:focus, &:active {
     & svg {
+      fill: #FFFAFA; /* IE 11 Fallback */
       fill: var(--text-copy-primary);
 
       &.twitter {
@@ -84,10 +93,12 @@ export default {
 
   &:hover, &:focus {
     outline: none;
+    background-color: rgba(255, 255, 255, .1); /* IE 11 Fallback */
     background-color: var(--icon-bg);
   }
 
   &:active {
+    background-color: rgba(255, 255, 255, .15); /* IE 11 Fallback */
     background-color: var(--icon-bg-click);
   }
 }

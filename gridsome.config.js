@@ -9,11 +9,13 @@ const purgecss = require('@fullhuman/postcss-purgecss');
 const precss = require('precss');
 const cssnano = require('cssnano');
 const loop = require('postcss-for');
+const varPolyfill = require('postcss-custom-properties');
 
 const cssPlugins = [
   precss(),
   loop(),
   tailwind(),
+  varPolyfill(),
   cssnano(),
 ];
 

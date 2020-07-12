@@ -20,6 +20,7 @@
     "eslint": "^7.2.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-vue": "^6.2.2",
+    "postcss-custom-properties": "^9.1.1",
     "postcss-for": "^2.1.1",
     "precss": "^4.0.0",
     "vue-svg-loader": "^0.16.0"

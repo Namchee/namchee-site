@@ -71,12 +71,4 @@ query {
     padding-right: 7.5vw;
   }
 }
-
-.fade-enter-active {
-  transition: opacity .5s ease-out;
-}
-
-.fade-enter {
-  opacity: 0;
-}
 </style>

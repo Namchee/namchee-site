@@ -4,6 +4,7 @@ export default {};
 
 <template>
   <div class="project__card">
+    <!-- start: project tech and timelines -->
     <div class="project__card__info">
       <div class="project__card__timeline">
         <slot name="timeline"></slot>
@@ -13,7 +14,9 @@ export default {};
         <slot name="technologies"></slot>
       </div>
     </div>
+    <!-- end: project tech and timelines -->
 
+    <!-- start: project title and description -->
     <div class="project__card__description">
       <h3 class="project__card__title">
         <slot name="title"></slot>
@@ -23,10 +26,14 @@ export default {};
         <slot name="description"></slot>
       </div>
     </div>
+    <!-- end: project title and description -->
 
+    <!-- start: project links -->
     <div class="project__card__link">
       <slot name="link"></slot>
     </div>
+    <!-- end: project links -->
+
   </div>
 </template>
 
@@ -43,6 +50,7 @@ export default {};
     left: 0;
     width: 100%;
     height: 1.5px;
+    background-color: #FFFAFA; /* IE 11 Fallback */
     background-color: var(--text-copy-primary);
   }
 

@@ -11,28 +11,7 @@
 
 :root {
   --link: #2f89fc;
-}
 
-.theme-light {
-  --bg-background-primary: #FFFAFA;
-  --bg-background-secondary: #FFFFFF;
-
-  --navigation-bg: rgba(255, 250, 250, 0.8);
-  --navigation-border: rgba(54, 54, 54, 0.1);
-
-  --logo: rgba(54, 54, 54, .4);
-  --icon-bg: rgba(54, 54, 54, .1);
-  --icon-bg-click: rgba(54, 54, 54, 0.2);
-
-  --text-copy-primary: #212121;
-
-  --accent: #42A6E8;
-  --accent-trans: rgba(66, 166, 232, .3);
-
-  --opacity: .5;
-}
-
-.theme-dark {
   --bg-background-primary: #121212;
   --bg-background-secondary: #212121;
 
@@ -47,8 +26,25 @@
 
   --accent: #4366a9;
   --accent-trans: rgba(67, 102, 169, .25);
+}
 
-  --opacity: .25;
+.theme-light {
+  --link: #1b6ca8;
+
+  --bg-background-primary: #FFFAFA;
+  --bg-background-secondary: #FFFFFF;
+
+  --navigation-bg: rgba(255, 250, 250, 0.8);
+  --navigation-border: rgba(54, 54, 54, 0.1);
+
+  --logo: rgba(54, 54, 54, .4);
+  --icon-bg: rgba(54, 54, 54, .1);
+  --icon-bg-click: rgba(54, 54, 54, 0.2);
+
+  --text-copy-primary: #212121;
+
+  --accent: #42A6E8;
+  --accent-trans: rgba(66, 166, 232, .3);
 }
 
 @supports (font-variation-settings: normal) {

@@ -2,6 +2,7 @@
 import Dark from './../../assets/icons/dark.svg';
 import Light from './../../assets/icons/light.svg';
 
+import { onMounted } from '@vue/composition-api';
 import { useGetters, useMutations } from 'vuex-composition-helpers';
 
 export default {
@@ -13,6 +14,16 @@ export default {
   setup() {
     const { theme } = useGetters(['theme']);
     const { toggleTheme } = useMutations(['toggleTheme']);
+
+    onMounted(() => {
+      // hide theme switch button if css variables are not supported
+      // yes, curse you IE!
+      const themeSwitcher = document.querySelector('.theme-switcher');
+
+      if (!window.CSS || !CSS.supports('color', 'var(--fake-var)')) {
+        themeSwitcher.classList.add('hidden');
+      }
+    });
 
     return {
       theme,
@@ -44,10 +55,12 @@ export default {
 
   &:hover, &:focus {
     outline: none;
+    background-color: rgba(255, 255, 255, .1); /* IE 11 Fallback */
     background-color: var(--icon-bg);
   }
 
   &:active {
+    background-color: rgba(255, 255, 255, .15); /* IE 11 Fallback */
     background-color: var(--icon-bg-click);
   }
 }
