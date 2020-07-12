@@ -36,7 +36,7 @@ export default {
       <a
         href="https://twitter.com/lakban_hitam"
         target="_blank"
-        class="p-2 mr-4 footer__icons"
+        class="footer__icons"
         rel="noreferrer"
       >
         <twitter class="w-5 h-5 twitter" />
@@ -45,7 +45,7 @@ export default {
       <a
         href="https://github.com/Namchee"
         target="_blank"
-        class="p-2 footer__icons"
+        class="footer__icons"
         rel="noreferrer"
       >
         <github class="w-5 h-5" />
@@ -70,9 +70,15 @@ export default {
 }
 
 .footer__icons {
+  @apply p-2;
+
   border-radius: 9999px;
   transition: background-color 250ms ease-out;
   background-color: transparent;
+
+  &:first-child {
+    @apply mr-4;
+  }
 
   & svg {
     fill: rgba(255, 255, 255, .4); /* IE 11 Fallback */

@@ -200,6 +200,7 @@ export default {
           <a
             class="project__link"
             target="_blank"
+            rel="noreferrer"
             href="https://github.com/Namchee"
           >View More on GitHub -></a>
         </div>
