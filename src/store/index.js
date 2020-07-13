@@ -27,7 +27,7 @@ export default {
       if (
         process.isClient &&
         window.localStorage &&
-        process.env.NODE_ENV === 'production'
+        process.env.NODE_ENV !== 'production'
       ) {
         localStorage.setItem('theme', state.darkMode);
       }
