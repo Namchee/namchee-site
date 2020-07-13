@@ -1,14 +1,15 @@
 // only for site's theme
 
 const systemTheme = () => {
-  return process.isClient ?
+  return window.matchMedia ?
     window.matchMedia('(prefers-color-scheme: dark)').matches :
     true;
 };
 
 export default {
   state: {
-    darkMode: (process.isClient && localStorage.getItem('theme')) ||
+    darkMode: window.localStorage ?
+      localStorage.getItem('theme') || systemTheme() :
       systemTheme(),
   },
 
@@ -20,10 +21,8 @@ export default {
     toggleTheme: (state) => {
       state.darkMode = !state.darkMode;
 
-      console.log(process.env.NODE_ENV);
-
       // store theme preference in local storage
-      if (process.isClient && process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV === 'production' && window.localStorage) {
         localStorage.setItem('theme', state.darkMode);
       }
     },
