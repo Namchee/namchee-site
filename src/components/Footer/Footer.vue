@@ -24,7 +24,8 @@ export default {
           class="text-link"
           href="https://opensource.org/licenses/MIT"
           target="_blank"
-          rel="noreferrer">
+          rel="noreferrer"
+        >
           MIT licensed
         </a>
       </p>
@@ -37,6 +38,7 @@ export default {
         href="https://twitter.com/lakban_hitam"
         target="_blank"
         class="footer__icons"
+        aria-label="Twitter"
         rel="noreferrer"
       >
         <twitter class="w-5 h-5 twitter" />
@@ -46,6 +48,7 @@ export default {
         href="https://github.com/Namchee"
         target="_blank"
         class="footer__icons"
+        aria-label="GitHub"
         rel="noreferrer"
       >
         <github class="w-5 h-5" />
