@@ -173,10 +173,7 @@ export default {
           <template v-slot:title>
             <div class="flex items-center">
               Absentor
-              <pill
-                class="ml-4"
-                :color="{ bg: 'accent-trans', text: 'accent' }"
-              >
+              <pill class="ml-4">
                 <template v-slot:text>
                   <span class="uppercase font-bold text-xs tracking-wider">
                     Team
