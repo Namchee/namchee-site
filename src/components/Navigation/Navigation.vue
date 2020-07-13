@@ -115,6 +115,7 @@ export default {
             class="nav__menu-item"
             v-for="link in links"
             :key="link.href"
+            @click="isOpen = false"
           >
             <g-link
               :to="link.href"
