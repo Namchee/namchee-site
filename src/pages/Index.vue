@@ -21,6 +21,11 @@ export default {
           'Namchee is an aspiring web developer based in Bandung, Indonesia',
       },
       {
+        key: 'og:title',
+        name: 'og:title',
+        content: 'Namchee',
+      },
+      {
         key: 'og:description',
         name: 'og:description',
         content:
