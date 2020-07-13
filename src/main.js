@@ -13,6 +13,7 @@ export default function(Vue, { head, appOptions }) {
 
   Vue.directive('intersect', intersect);
 
+  // common open graph information
   head.meta.push({
     key: 'og:image',
     name: 'og:image',
@@ -25,10 +26,29 @@ export default function(Vue, { head, appOptions }) {
     content: 'Namchee',
   });
 
+  // twitter card
   head.meta.push({
-    key: 'og:description',
-    name: 'og:description',
-    content: 'Hey! This is Namchee\'s personal site!',
+    key: 'twitter:card',
+    name: 'twitter:card',
+    content: 'summary_large_image',
+  });
+
+  head.meta.push({
+    key: 'twitter:site',
+    name: 'twitter:site',
+    content: '@lakban_hitam',
+  });
+
+  head.meta.push({
+    key: 'twitter:title',
+    name: 'twitter:title',
+    content: 'Namchee',
+  });
+
+  head.meta.push({
+    key: 'twitter:image',
+    name: 'twitter:image',
+    content: 'https://namchee.netlify.app/og-banner.png',
   });
 
   appOptions.store = new Vuex.Store(store);

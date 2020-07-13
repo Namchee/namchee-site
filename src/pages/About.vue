@@ -22,6 +22,17 @@ export default {
         content:
           'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
       },
+      {
+        key: 'twitter:title',
+        name: 'twitter:title',
+        content: 'About Namchee',
+      },
+      {
+        key: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
+      },
       /* eslint-enable max-len */
     ],
   },

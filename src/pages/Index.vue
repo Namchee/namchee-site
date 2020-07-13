@@ -31,6 +31,17 @@ export default {
         content:
           'Namchee is an aspiring web developer based in Bandung, Indonesia',
       },
+      {
+        key: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Namchee',
+      },
+      {
+        key: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          'Namchee is an aspiring web developer based in Bandung, Indonesia',
+      },
       /* eslint-enable max-len */
     ],
   },
