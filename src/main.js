@@ -16,7 +16,7 @@ export default function(Vue, { head, appOptions }) {
   head.meta.push({
     key: 'og:image',
     name: 'og:image',
-    content: 'https://namchee.netlify.app/static/og-banner.png',
+    content: 'https://namchee.netlify.app/assets/images/og-banner.png',
   });
 
   head.meta.push({
