@@ -22,7 +22,7 @@ export default {
       state.darkMode = !state.darkMode;
 
       // store theme preference in local storage
-      if (process.env.NODE_ENV === 'production' && window.localStorage) {
+      if (window.localStorage) {
         localStorage.setItem('theme', state.darkMode);
       }
     },
