@@ -193,7 +193,7 @@ export default {
 .header__logo {
   @apply transform scale-90 ml-6;
 
-  z-index: 999;
+  z-index: 10;
 
   & svg {
     animation: fill 1s ease-out forwards 1.6s;
@@ -253,7 +253,7 @@ export default {
 
   & span {
     position: ;
-    z-index: 999;
+    z-index: 10;
     border-radius: 9999px;
     content: "";
     width: 1.65rem;
@@ -315,13 +315,13 @@ export default {
       left-0
       p-8;
 
-    z-index: 998;
     background-color: #4366a9; /* IE 11 Fallback */
     background-color: var(--accent);
     pointer-events: none;
 
     clip-path: polygon(90% 0, 90% 0, 10% 100%, 10% 100%);
     transition: clip-path 750ms cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: clip-path;
   }
 
   .nav__menu {
@@ -360,7 +360,7 @@ export default {
   .nav__menu-link {
     &::after {
       bottom: 0;
-      height: 5px;
+      height: 3.5px;
       transform-origin: left;
     }
 
