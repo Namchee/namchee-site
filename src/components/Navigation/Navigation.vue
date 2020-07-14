@@ -331,6 +331,9 @@ export default {
   }
 
   .nav__site-options {
+    position: relative;
+    bottom: 5vh;
+    left: -5vw;
     opacity: 0;
     transition: opacity 600ms ease-out;
   }
