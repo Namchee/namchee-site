@@ -29,8 +29,8 @@ html, body {
 
   --text-copy-primary: #E0E0E0;
 
-  --accent: #4366a9;
-  --accent-trans: rgba(67, 102, 169, .25);
+  --accent: #2F4775;
+  --accent-trans: rgba(64, 98, 160, .25);
 }
 
 .theme-light {

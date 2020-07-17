@@ -2,13 +2,10 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import CompositionAPI from '@vue/composition-api';
-import Vuex from 'vuex';
-import store from '~/store';
 import { intersect } from './utils/directives';
 import '~/assets/styles/base.css';
 
-export default function(Vue, { head, appOptions }) {
-  Vue.use(Vuex);
+export default function(Vue, { head }) {
   Vue.use(CompositionAPI);
 
   Vue.directive('intersect', intersect);
@@ -50,6 +47,4 @@ export default function(Vue, { head, appOptions }) {
     name: 'twitter:image',
     content: 'https://namchee.netlify.app/og-banner.png',
   });
-
-  appOptions.store = new Vuex.Store(store);
 }

@@ -2,8 +2,8 @@
 import Dark from './../../assets/icons/dark.svg';
 import Light from './../../assets/icons/light.svg';
 
-import { onMounted } from '@vue/composition-api';
-import { useGetters, useMutations } from 'vuex-composition-helpers/dist';
+import { inject, onMounted } from '@vue/composition-api';
+import { THEME, TOGGLE_THEME } from '~/utils/symbols.js';
 
 export default {
   components: {
@@ -12,8 +12,8 @@ export default {
   },
 
   setup() {
-    const { theme } = useGetters(['theme']);
-    const { toggleTheme } = useMutations(['toggleTheme']);
+    const theme = inject(THEME);
+    const toggleTheme = inject(TOGGLE_THEME);
 
     onMounted(() => {
       // hide theme switch button if css variables are not supported

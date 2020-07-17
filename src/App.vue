@@ -1,7 +1,9 @@
 <script>
-import { useGetters } from 'vuex-composition-helpers/dist';
+import { ref, onMounted, computed, provide } from '@vue/composition-api';
 import { Navigation } from '~/components/Navigation';
 import { Footer } from '~/components/Footer';
+
+import { THEME, TOGGLE_THEME } from '~/utils/symbols.js';
 
 export default {
   components: {
@@ -10,7 +12,35 @@ export default {
   },
 
   setup() {
-    const { theme } = useGetters(['theme']);
+    const darkMode = ref(true);
+    const theme = computed(() => darkMode.value ? 'dark' : 'light');
+
+    const toggleTheme = () => {
+      darkMode.value = !darkMode.value;
+
+      if (
+        process.isClient &&
+        window.localStorage &&
+        process.env.NODE_ENV === 'production'
+      ) {
+        localStorage.setItem('theme', darkMode.value);
+      }
+    };
+
+    provide(THEME, theme);
+    provide(TOGGLE_THEME, toggleTheme);
+
+    onMounted(() => {
+      const systemTheme = window.matchMedia ?
+        window.matchMedia('(prefers-color-scheme: dark)').matches :
+        true;
+
+      darkMode.value = systemTheme;
+
+      if (window.localStorage && localStorage.getItem('theme') !== null) {
+        darkMode.value = localStorage.getItem('theme') === 'true';
+      }
+    });
 
     return {
       theme,
