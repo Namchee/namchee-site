@@ -438,6 +438,10 @@ export default {
   .nav__burger {
     @apply mr-2;
   }
+
+  .nav__theme {
+    @apply mr-4;
+  }
 }
 
 @screen lg {
