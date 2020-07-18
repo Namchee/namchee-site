@@ -41,7 +41,7 @@ export default {
     class="theme__switcher"
     @click="toggleTheme()"
   >
-    <component :is="theme" class="w-6 h-6" />
+    <component :is="theme" class="theme__switcher__icon" />
   </button>
 </template>
 
@@ -65,9 +65,18 @@ export default {
   }
 }
 
+.theme__switcher__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
 @screen lg {
   .theme__switcher {
     @apply p-2;
+  }
+
+  .theme__switcher__icon {
+    @apply w-6 h-6;
   }
 }
 </style>
