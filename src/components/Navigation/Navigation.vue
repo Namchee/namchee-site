@@ -126,14 +126,12 @@ export default {
           </li>
         </ul>
         <!-- end: navigation links -->
-
-        <!-- start: site options -->
-        <div class="nav__site-options">
-          <theme-switch />
-        </div>
-        <!-- end: site options -->
       </div>
       <!-- end: navigation elements -->
+
+      <!-- start: theme switcher -->
+      <theme-switch class="nav__theme" />
+      <!-- end: theme switcher -->
 
       <!-- start: mobile navigation burger -->
       <button
@@ -191,7 +189,7 @@ export default {
 }
 
 .header__logo {
-  @apply transform scale-90 ml-6;
+  @apply transform scale-90 ml-4;
 
   z-index: 10;
 
@@ -244,8 +242,8 @@ export default {
   }
 }
 
-.nav__site-options {
-  @apply z-10;
+.nav__theme {
+  @apply z-10 mr-1;
 }
 
 .nav__burger {
@@ -330,20 +328,13 @@ export default {
     counter-reset: link-list;
   }
 
-  .nav__site-options {
-    position: relative;
-    bottom: 5vh;
-    left: -5vw;
-    opacity: 0;
-    transition: opacity 600ms ease-out;
-  }
-
   .nav__menu-item {
     @apply my-2;
     left: 1rem;
     display: block;
     opacity: 0;
-    transform: translateY(3rem);
+
+    transform: translateY(1em);
     transition: opacity 500ms cubic-bezier(0.33, 1, 0.68, 1),
       transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
 
@@ -401,10 +392,6 @@ export default {
       pointer-events: all;
     }
 
-    & .nav__site-options {
-      opacity: 1;
-    }
-
     & .nav__menu-item {
       opacity: 1;
       transform: translateY(0);
@@ -445,7 +432,7 @@ export default {
 
 @screen md {
   .header__logo {
-    @apply ml-12;
+    @apply ml-10;
   }
 
   .nav__burger {
@@ -476,8 +463,8 @@ export default {
     @apply mx-8;
   }
 
-  .nav__site-options {
-    @apply ml-4;
+  .nav__theme {
+    @apply mr-0 ml-4;
   }
 }
 

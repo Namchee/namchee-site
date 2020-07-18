@@ -32,7 +32,7 @@ html, body {
   --text-copy-primary: #E0E0E0;
 
   --accent: #2F4775;
-  --accent-trans: rgba(64, 98, 160, .25);
+  --accent-trans: rgba(64, 98, 160, .2);
 }
 
 .theme-light {

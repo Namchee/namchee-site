@@ -38,16 +38,16 @@ export default {
     title="Switch site theme"
     aria-label="Switch site theme"
     role="button"
-    class="theme-switcher"
+    class="theme__switcher"
     @click="toggleTheme()"
   >
-    <component :is="theme" class="w-8 h-8 lg:w-6 lg:h-6" />
+    <component :is="theme" class="w-6 h-6" />
   </button>
 </template>
 
 <style lang="postcss" scoped>
-.theme-switcher {
-  @apply p-2;
+.theme__switcher {
+  @apply p-3;
 
   border-radius: 9999px;
   transition: background-color 250ms ease-out;
@@ -62,6 +62,12 @@ export default {
   &:active {
     background-color: rgba(255, 255, 255, .15); /* IE 11 Fallback */
     background-color: var(--icon-bg-click);
+  }
+}
+
+@screen lg {
+  .theme__switcher {
+    @apply p-2;
   }
 }
 </style>
