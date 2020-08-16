@@ -2,13 +2,11 @@
 import { ref, onMounted } from '@vue/composition-api';
 import ArrowLink from './../assets/icons/arrow-link.svg';
 import { ProjectCard } from '~/components/ProjectCard';
-import { Pill } from '~/components/Pill';
 
 export default {
   components: {
     ProjectCard,
     ArrowLink,
-    Pill,
   },
 
   metaInfo: {
@@ -80,7 +78,7 @@ export default {
   <!-- start: landing page -->
   <section class="landing">
     <!-- start: landing hero -->
-    <section class="text-xl py-16 md:py-20">
+    <section class="landing__hero text-xl py-16 md:py-20">
       <h1 class="landing__title">
         <div>
           <span>Hello there.</span>
@@ -115,15 +113,11 @@ export default {
 
     <!-- start: featured projects -->
     <section class="landing__project">
-      <h2 v-intersect.once class="landing__project__title">
-        <div>
-          <span>Selected</span>
-        </div>
-
-        <div>
-          <span>Works</span>
-        </div>
-      </h2>
+      <div class="landing__project__title">
+        <h2>
+          Selected Works
+        </h2>
+      </div>
 
       <section class="landing__project__list">
         <!-- start: covid-19 project -->
@@ -135,9 +129,11 @@ export default {
           <template v-slot:title>COVID-19 LINE Bot</template>
 
           <template v-slot:description>
-            A simple chatbot for LINE that provides
-            accurate data and educational information
-            related with COVID-19 pandemic in Indonesia.
+            <p>
+              A simple chatbot for LINE that provides
+              accurate data and educational information
+              related with COVID-19 pandemic in Indonesia.
+            </p>
           </template>
 
           <template v-slot:link>
@@ -161,9 +157,15 @@ export default {
           <template v-slot:title>Wombatik</template>
 
           <template v-slot:description>
-            Digital watermarking app that provides data integrity
-            and copyright on an image. Specifically made for preserving
-            batik heritage.
+            <p class="mb-4">
+              Digital watermarking app that provides data integrity
+              and copyright protection on an image.
+            </p>
+
+            <p>
+              Specifically made for preserving
+              batik heritage.
+            </p>
           </template>
 
           <template v-slot:link>
@@ -184,20 +186,19 @@ export default {
           <template v-slot:title>
             <div class="flex items-center">
               Absentor
-              <pill class="ml-4">
-                <template v-slot:text>
-                  <span class="uppercase font-bold text-xs tracking-wider">
-                    Team
-                  </span>
-                </template>
-              </pill>
             </div>
           </template>
 
           <template v-slot:description>
-            <del>Failed</del> Experimental Discord bot that provides
-            automatic recording of attendance and attendance history
-            management on Google Sheet.
+            <p class="mb-4">
+              Experimental Discord bot that provides
+              automatic recording of attendance and attendance history
+              management on Google Sheet.
+            </p>
+
+            <p>
+              Developed with friends as a part of team project.
+            </p>
           </template>
 
           <template v-slot:link>
@@ -265,6 +266,12 @@ export default {
   }
 }
 
+.landing__hero {
+  @apply flex flex-col justify-center;
+
+  min-height: calc(100vh - 8rem);
+}
+
 .landing__subtitle {
   font-size: 5vw;
 }
@@ -279,14 +286,6 @@ export default {
 
 .landing__project__title {
   @apply text-4xl tracking-wide mb-8;
-
-  & > div {
-    @apply inline-block overflow-hidden;
-
-    &:last-child {
-      margin-left: 0.5ch;
-    }
-  }
 }
 
 .project__link {
@@ -396,6 +395,10 @@ export default {
     }
   }
 
+  .landing__hero {
+    min-height: calc(100vh - 10rem);
+  }
+
   .landing__subtitle {
     font-size: 2vw;
   }
@@ -415,30 +418,11 @@ export default {
   }
 
   .landing__project__title {
-    & div {
-      font-size: 3.5vw;
-      display: block;
+    @apply mb-0;
+
+    & h2 {
+      font-size: 4vw;
       text-align: right;
-
-      &:last-child {
-        margin-left: 0;
-      }
-
-      & > span {
-        @apply inline-block;
-
-        transform: translateY(2em);
-      }
-    }
-
-    &.in-view {
-      & span {
-        animation: yReveal 600ms 100ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
-      }
-
-      & > div:last-child > span {
-        animation-delay: 200ms;
-      }
     }
   }
 }
