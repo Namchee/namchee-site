@@ -313,7 +313,7 @@ export default {
       left-0
       p-8;
 
-    background-color: #4366a9; /* IE 11 Fallback */
+    background-color: #143246; /* IE 11 Fallback */
     background-color: var(--accent);
     pointer-events: none;
 

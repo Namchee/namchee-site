@@ -31,8 +31,7 @@ html, body {
 
   --text-copy-primary: #E0E0E0;
 
-  --accent: #3A5992;
-  --accent-trans: rgba(58, 89, 146, .2);
+  --accent: #143246;
 }
 
 .theme-light {
@@ -51,7 +50,6 @@ html, body {
   --text-copy-primary: #212121;
 
   --accent: #42A6E8;
-  --accent-trans: rgba(66, 166, 232, .3);
 }
 
 @supports (font-variation-settings: normal) {
