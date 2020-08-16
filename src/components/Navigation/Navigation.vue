@@ -317,9 +317,8 @@ export default {
     background-color: var(--accent);
     pointer-events: none;
 
-    clip-path: polygon(90% 0, 90% 0, 10% 100%, 10% 100%);
-    transition: clip-path 750ms cubic-bezier(0.65, 0, 0.35, 1);
-    will-change: clip-path;
+    clip-path: polygon(0 60%, 100% 40%, 100% 40%, 0 60%);
+    transition: clip-path 800ms cubic-bezier(0.65, 0, 0.35, 1);
   }
 
   .nav__menu {
@@ -329,14 +328,7 @@ export default {
   }
 
   .nav__menu-item {
-    @apply my-2;
-    left: 1rem;
-    display: block;
-    opacity: 0;
-
-    transform: translateY(1em);
-    transition: opacity 500ms cubic-bezier(0.33, 1, 0.68, 1),
-      transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
+    @apply my-2 block relative;
 
     &::before {
       position: absolute;
@@ -351,7 +343,7 @@ export default {
   .nav__menu-link {
     &::after {
       bottom: 0;
-      height: 3.5px;
+      height: 3px;
       transform-origin: left;
     }
 
@@ -359,12 +351,6 @@ export default {
       &::after {
         transform: scaleX(1.1);
       }
-    }
-  }
-
-  @for $i from 1 to 4 {
-    .nav__menu-item:nth-child($(i)) {
-      transition-delay: calc($(i) * 75ms);
     }
   }
 
@@ -388,14 +374,11 @@ export default {
     }
 
     & .nav__elem {
-      clip-path: polygon(-10% 0, 190% 0, 110% 100%, -110% 100%);
+      clip-path: polygon(0 -40%, 100% -60%, 100% 140%, 0% 160%);
       pointer-events: all;
     }
 
     & .nav__menu-item {
-      opacity: 1;
-      transform: translateY(0);
-
       &::after {
         transform-origin: left;
       }
