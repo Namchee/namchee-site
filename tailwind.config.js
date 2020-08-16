@@ -17,6 +17,7 @@ module.exports = {
 
         background: {
           primary: 'var(--bg-background-primary)',
+          secondary: 'var(--bg-background-secondary)',
         },
 
         navigation: {
@@ -24,10 +25,7 @@ module.exports = {
           border: 'var(--navigation-border)',
         },
 
-        copy: {
-          primary: 'var(--text-copy-primary)',
-        },
-
+        copy: 'var(--text-copy)',
         link: 'var(--link)',
       },
 

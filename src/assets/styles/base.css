@@ -29,7 +29,7 @@ html, body {
   --icon-bg: rgba(255, 255, 255, .1);
   --icon-bg-click: rgba(255, 255, 255, 0.15);
 
-  --text-copy-primary: #E0E0E0;
+  --text-copy: #E0E0E0;
 
   --accent: #143246;
 }
@@ -47,7 +47,7 @@ html, body {
   --icon-bg: rgba(54, 54, 54, .1);
   --icon-bg-click: rgba(54, 54, 54, 0.2);
 
-  --text-copy-primary: #212121;
+  --text-copy: #212121;
 
   --accent: #42A6E8;
 }

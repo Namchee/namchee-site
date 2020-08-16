@@ -91,8 +91,8 @@ export default {
 
   &:hover, &:focus, &:active {
     & svg {
-      fill: #FFFAFA; /* IE 11 Fallback */
-      fill: var(--text-copy-primary);
+      fill: #E0E0E0; /* IE 11 Fallback */
+      fill: var(--text-copy);
 
       &.twitter {
         fill: #1DA1F2;

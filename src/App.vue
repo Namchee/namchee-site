@@ -66,7 +66,7 @@ export default {
 
 <style lang="postcss" scoped>
 .app {
-  @apply flex flex-col bg-background-primary text-copy-primary antialiased;
+  @apply flex flex-col bg-background-primary text-copy antialiased;
 
   transition: color 300ms ease,
     background-color 300ms ease,

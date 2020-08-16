@@ -197,8 +197,8 @@ export default {
     animation: fill 1s ease-out forwards 1.6s;
 
     & path {
-      stroke: #FFFAFA; /* IE 11 Fallback */
-      stroke: var(--text-copy-primary);
+      stroke: #E0E0E0; /* IE 11 Fallback */
+      stroke: var(--text-copy);
       stroke-width: .65px;
       stroke-dasharray: 140;
       stroke-dashoffset: 140;
@@ -223,8 +223,8 @@ export default {
   @apply relative;
 
   &::after {
-    background-color: #FFFAFA; /* IE 11 Fallback */
-    background-color: var(--text-copy-primary);
+    background-color: #E0E0E0; /* IE 11 Fallback */
+    background-color: var(--text-copy);
     content: "";
     position: absolute;
     bottom: -5px;
@@ -255,8 +255,8 @@ export default {
     border-radius: 9999px;
     content: "";
     width: 1.65rem;
-    border-color: #FFFAFA; /* IE 11 Fallback */
-    border: 1.5px solid var(--text-copy-primary);
+    border-color: #E0E0E0; /* IE 11 Fallback */
+    border: 1.5px solid var(--text-copy);
     transform-origin: right;
     transition: transform 300ms ease;
 
@@ -467,8 +467,8 @@ export default {
   }
 
   100% {
-    fill: #FFFAFA; /* IE 11 Fallback */
-    fill: var(--text-copy-primary);
+    fill: #E0E0E0; /* IE 11 Fallback */
+    fill: var(--text-copy);
   }
 }
 </style>
