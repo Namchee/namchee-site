@@ -290,7 +290,7 @@ export default {
       height: 1px;
       background-color: #E0E0E0;
       background-color: var(--text-copy);
-      transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
       transform-origin: right;
       transform: scaleX(0);
     }
@@ -336,7 +336,7 @@ export default {
     left: calc(100% + 1rem);
     background-color: #E0E0E0;
     background-color: var(--text-copy);
-    transition: transform 0.75s 150ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 750ms 100ms cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: left;
     transform: scaleX(0);
   }

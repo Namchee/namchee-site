@@ -243,7 +243,7 @@ export default {
 }
 
 .nav__theme {
-  @apply z-10 mr-1;
+  @apply z-10;
 }
 
 .nav__burger {

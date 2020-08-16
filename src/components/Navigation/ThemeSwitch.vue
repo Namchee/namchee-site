@@ -47,32 +47,32 @@ export default {
 
 <style lang="postcss" scoped>
 .theme__switcher {
-  @apply p-3;
-
-  border-radius: 9999px;
-  transition: background-color 250ms ease-out;
-  background-color: transparent;
-
-  &:hover, &:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, .1); /* IE 11 Fallback */
-    background-color: var(--icon-bg);
-  }
-
-  &:active {
-    background-color: rgba(255, 255, 255, .15); /* IE 11 Fallback */
-    background-color: var(--icon-bg-click);
-  }
+  @apply h-full w-16 flex justify-center items-center;
 }
 
 .theme__switcher__icon {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.65rem;
+  height: 1.65rem;
 }
 
 @screen lg {
   .theme__switcher {
-    @apply p-2;
+    @apply p-3 h-auto w-auto;
+
+    border-radius: 9999px;
+    transition: background-color 250ms ease-out;
+    background-color: transparent;
+
+    &:hover, &:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, .1); /* IE 11 Fallback */
+      background-color: var(--icon-bg);
+    }
+
+    &:active {
+      background-color: rgba(255, 255, 255, .15); /* IE 11 Fallback */
+      background-color: var(--icon-bg-click);
+    }
   }
 
   .theme__switcher__icon {
