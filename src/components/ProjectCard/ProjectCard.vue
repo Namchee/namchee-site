@@ -2,7 +2,7 @@
 export default {};
 </script>
 
-<template>
+<template functional>
   <div class="project__card">
     <!-- start: project tech and timelines -->
     <div class="project__card__info">

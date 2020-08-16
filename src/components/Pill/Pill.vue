@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<template>
+<template functional>
   <div
     class="inline-flex items-center justify-center rounded-full py-2 px-3"
     :class='colorClass'
