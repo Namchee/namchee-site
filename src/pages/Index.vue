@@ -1,7 +1,7 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
-import ArrowLink from './../assets/icons/arrow-link.svg';
-import { ProjectCard } from '~/components/ProjectCard';
+import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
+import { ProjectCard } from '~/components/ui/ProjectCard';
 
 export default {
   components: {
@@ -9,8 +9,8 @@ export default {
     ArrowLink,
   },
 
-  metaInfo: {
-    title: 'Welcome!',
+  head: {
+    title: 'Welcome! - Namchee',
     meta: [
       /* eslint-disable max-len */
       {
@@ -19,23 +19,23 @@ export default {
           'Namchee is an aspiring web developer based in Bandung, Indonesia',
       },
       {
-        key: 'og:title',
+        hid: 'og:title',
         name: 'og:title',
         content: 'Namchee',
       },
       {
-        key: 'og:description',
+        hid: 'og:description',
         name: 'og:description',
         content:
           'Namchee is an aspiring web developer based in Bandung, Indonesia',
       },
       {
-        key: 'twitter:title',
+        hid: 'twitter:title',
         name: 'twitter:title',
         content: 'Namchee',
       },
       {
-        key: 'twitter:description',
+        hid: 'twitter:description',
         name: 'twitter:description',
         content:
           'Namchee is an aspiring web developer based in Bandung, Indonesia',
@@ -78,7 +78,11 @@ export default {
   <!-- start: landing page -->
   <section class="landing">
     <!-- start: landing hero -->
-    <section class="landing__hero text-xl py-16 md:py-20">
+    <section class="flex flex-col justify-center
+      text-xl
+      py-16
+      md:py-20
+      landing__hero">
       <h1 class="landing__title">
         <div>
           <span>Hello there.</span>
@@ -90,12 +94,18 @@ export default {
       </h1>
 
       <p
-        class="mt-8 landing__subtitle tracking-wide slide-up"
+        class="mt-8 landing__subtitle slide-up"
       >I do full-stack development with JavaScript based technologies</p>
       <p
-        class="mt-4 md:mt-0 landing__subtitle tracking-wide slide-up"
+        class="mt-4 md:mt-0 landing__subtitle slide-up"
       >Currently, I'm simping for Vue and NodeJS</p>
-      <p class="landing__scroller slide-up">
+      <p class="hidden
+        text-lg
+        mt-12
+        overflow-y-hidden
+        md:block
+        lg:text-xl
+        slide-up">
         Other than code, Namchee likes to
         <transition name="scroll">
           <template v-for="(item, i) in text">
@@ -112,14 +122,22 @@ export default {
     <!-- end: landing hero -->
 
     <!-- start: featured projects -->
-    <section class="landing__project">
-      <div class="landing__project__title">
+    <section class="flex flex-col
+      py-12
+      lg:flex-row
+      lg:py-16">
+      <div class="
+        text-4xl
+        mb-8
+        lg:text-5xl
+        lg:mb-0
+        landing__project__title">
         <h2>
           Selected Works
         </h2>
       </div>
 
-      <section class="landing__project__list">
+      <section class="lg:pl-16 lg:flex-grow landing__project__list">
         <!-- start: covid-19 project -->
         <project-card>
           <template v-slot:timeline>2020</template>
@@ -210,7 +228,7 @@ export default {
         </project-card>
         <!-- end: absentor project -->
 
-        <div class="text-xl md:text-2xl text-center md:text-right py-8">
+        <div class="text-xl text-center md:text-2xl md:text-right py-8">
           <a
             class="project__link"
             target="_blank"
@@ -267,25 +285,11 @@ export default {
 }
 
 .landing__hero {
-  @apply flex flex-col justify-center;
-
   min-height: calc(100vh - 8rem);
 }
 
 .landing__subtitle {
   font-size: 5vw;
-}
-
-.landing__scroller {
-  @apply hidden text-lg mt-12 overflow-y-hidden;
-}
-
-.landing__project {
-  @apply flex flex-col py-12;
-}
-
-.landing__project__title {
-  @apply text-4xl tracking-wide mb-8;
 }
 
 .project__link {
@@ -366,10 +370,6 @@ export default {
     font-size: 2.5vw;
   }
 
-  .landing__scroller {
-    @apply block;
-  }
-
   .slide-up {
     @for $i from 2 to 4 {
       &:nth-child($(i)) {
@@ -379,10 +379,6 @@ export default {
         animation-delay: calc(800ms + (calc(200ms * $(i))));
       }
     }
-  }
-
-  .landing__project__title {
-    @apply text-5xl;
   }
 }
 
@@ -403,23 +399,11 @@ export default {
     font-size: 2vw;
   }
 
-  .landing__scroller {
-    @apply text-xl;
-  }
-
-  .landing__project {
-    @apply flex-row py-16;
-  }
-
   .landing__project__list {
-    @apply pl-16 flex-grow;
-
     margin-top: 1.5vw;
   }
 
   .landing__project__title {
-    @apply mb-0;
-
     & h2 {
       font-size: 4vw;
       text-align: right;
