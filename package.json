@@ -1,7 +1,8 @@
 {
   "name": "namchee",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
     "generate": "nuxt generate",
     "start": "nuxt start",
     "postuninstall": "npm prune"
