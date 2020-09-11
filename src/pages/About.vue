@@ -1,9 +1,9 @@
 <script>
-import ArrowLink from './../assets/icons/arrow-link.svg';
+import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
 
 export default {
-  metaInfo: {
-    title: 'About Me',
+  head: {
+    title: 'About Me - Namchee',
     meta: [
       /* eslint-disable max-len */
       {
@@ -12,23 +12,23 @@ export default {
           'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
       },
       {
-        key: 'og:title',
+        hid: 'og:title',
         name: 'og:title',
         content: 'About Namchee',
       },
       {
-        key: 'og:description',
+        hid: 'og:description',
         name: 'og:description',
         content:
           'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
       },
       {
-        key: 'twitter:title',
+        hid: 'twitter:title',
         name: 'twitter:title',
         content: 'About Namchee',
       },
       {
-        key: 'twitter:description',
+        hid: 'twitter:description',
         name: 'twitter:description',
         content:
           'Namchee is an aspiring web developer who loves JavaScript technologies. Namchee strives to make the web a better place',
@@ -100,15 +100,22 @@ export default {
 
 <template>
   <!-- start: about page -->
-  <section class="about">
+  <section>
     <!-- start: introduction section -->
-    <article class="about__intro">
-      <h1 class="about__title">
+    <article class="py-6
+      md:flex md:flex-row-reverse
+      md:py-16">
+      <h1 class="tracking-wide
+        mb-6
+        lg:tracking-wider
+        about__title">
         <span>6C?</span>
       </h1>
 
-      <div class="about__intro__text">
-        <p>
+      <div class="leading-relaxed
+        lg:tracking-wide
+        about__intro__text">
+        <p class="mb-8">
           Hey,
           <span class="underline__reveal">Namchee</span> here.
           My full name is Cristopher.
@@ -118,7 +125,7 @@ export default {
             class="underline__reveal"
           >Chris</span> in my life.
         </p>
-        <p>
+        <p class="mb-8">
           The world of web has caught my interest since my high school days.
           Since then, I do most of my work using my current favorite
           language,
@@ -138,12 +145,19 @@ export default {
     <section class="flex flex-col lg:flex-row py-8 lg:py-12">
       <!-- start: tools of trade section -->
       <section class="w-full lg:w-7/12 lg:mr-2">
-        <h2 v-intersect.once class="about__subtitle title-accent">
+        <h2 v-intersect.once class="inline-block
+          mb-6
+          md:mb-8
+          lg:mb-10
+          lg:tracking-wide
+          about__subtitle title-accent">
           Tools of Trade
         </h2>
 
-        <ul v-intersect.once class="about__skills md:text-xl">
-          <li v-for="(skill, i) in skills" :key="i">
+        <ul v-intersect.once class="grid grid-cols-2 gap-2
+          md:text-xl
+          about__skills">
+          <li v-for="(skill, i) in skills" :key="i" class="overflow-hidden">
             <span>{{ skill }}</span>
           </li>
         </ul>
@@ -152,12 +166,23 @@ export default {
 
       <!-- start: education section -->
       <section class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
-        <h2 v-intersect.once class="about__subtitle title-accent">Education</h2>
+        <h2 v-intersect.once class="inline-block
+          mb-6
+          md:mb-8
+          lg:mb-10
+          lg:tracking-wide
+          about__subtitle title-accent">
+            Education
+        </h2>
 
-        <ul v-intersect.once class="about__education">
-          <li v-for="(edu, i) in education" :key="i" class="tracking-wide">
+        <ul v-intersect.once class="grid grid-cols-1 gap-2
+          about__education">
+          <li v-for="(edu, i) in education" :key="i"
+            class="overflow-hidden
+              tracking-wide
+              lg:mr-20">
             <span>
-              <span class="about__edu__timeline">
+              <span class="block uppercase text-sm">
                 {{ edu.yearStart }}
                 &mdash;
                 {{ edu.yearEnd || 'Present' }}
@@ -173,13 +198,25 @@ export default {
 
     <!-- start: contact list -->
     <section class="py-8 lg:py-12">
-      <h2 class="about__subtitle">
+      <h2 class="inline-block
+        mb-6
+        md:mb-8
+        lg:mb-10
+        lg:tracking-wide
+        about__subtitle">
         Let's be pals
         <span class="fist">👊</span>
       </h2>
 
-      <ul v-intersect.once class="about__contact">
-        <li v-for="link in links" :key="link.href">
+      <ul v-intersect.once class="font-normal
+        grid grid-cols-1
+        text-2xl
+        md:grid-cols-2
+        lg:flex lg:flex-row
+        about__contact">
+        <li v-for="link in links" :key="link.href" class="mb-2
+          overflow-hidden
+          lg:mr-6">
           <a target="_blank" :href="link.href" rel="noreferrer">
             {{ link.name }}
             <arrow-link class="inline-block" />
@@ -193,27 +230,11 @@ export default {
 </template>
 
 <style lang="postcss" scoped>
-.about__intro {
-  @apply py-6;
-}
-
 .about__title {
-  @apply tracking-wider mb-6;
-
   font-size: 13.5vw;
 }
 
-.about__intro__text {
-  @apply leading-relaxed tracking-wide;
-
-  & > p:not(:last-child) {
-    @apply mb-8;
-  }
-}
-
 .about__subtitle {
-  @apply tracking-wider inline-block mb-6;
-
   font-size: 10vw;
 }
 
@@ -265,17 +286,7 @@ export default {
   }
 }
 
-.about__edu__timeline {
-  @apply block uppercase text-sm;
-}
-
 .about__contact {
-  @apply font-normal grid grid-cols-1 text-2xl;
-
-  & > li {
-    @apply mb-2 overflow-hidden;
-  }
-
   & > li > a {
     position: relative;
     display: inline-block;
@@ -350,16 +361,10 @@ export default {
 
 .about__skills,
 .about__education {
-  @apply grid grid-cols-2 gap-2;
-
-  & > li {
-    @apply overflow-hidden;
-
-    & > span {
-      display: inline-block;
-      transform: translateY(101%);
-      opacity: 0.2;
-    }
+  & > li > span {
+    display: inline-block;
+    transform: translateY(101%);
+    opacity: 0.2;
   }
 
   &.in-view {
@@ -377,10 +382,6 @@ export default {
   }
 }
 
-.about__education {
-  @apply grid-cols-1;
-}
-
 .fist {
   display: inline-block;
   animation: broFist 3s infinite;
@@ -388,10 +389,6 @@ export default {
 }
 
 @screen md {
-  .about__intro {
-    @apply flex flex-row-reverse py-16;
-  }
-
   .about__title {
     position: relative;
     margin-bottom: 0;
@@ -429,17 +426,7 @@ export default {
   }
 
   .about__subtitle {
-    @apply mb-8;
-
     font-size: 7vw;
-  }
-
-  .about__contact {
-    @apply grid grid-cols-2;
-
-    & > li {
-      @apply mr-6;
-    }
   }
 
   .title-accent::after {
@@ -454,18 +441,10 @@ export default {
   }
 
   .about__contact {
-    @apply flex flex-row flex-wrap;
-
     font-size: 2vw;
-
-    & > li {
-      @apply mr-20;
-    }
   }
 
   .about__subtitle {
-    @apply mb-10;
-
     font-size: 3.5vw;
   }
 
