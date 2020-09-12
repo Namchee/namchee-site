@@ -8,6 +8,7 @@ module.exports = {
   },
   generate: {
     routes: ['/'],
+    fallback: true,
   },
   head: {
     htmlAttrs: {
