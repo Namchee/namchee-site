@@ -1,7 +1,7 @@
 {
   "name": "namchee",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "start": "nuxt start",
@@ -10,16 +10,12 @@
   "dependencies": {
     "@vue/composition-api": "^0.6.3",
     "intersection-observer": "^0.11.0",
-    "nuxt": "^2.14.4",
-    "vue": "^2.6.12",
-    "vue-router": "^3.4.3"
+    "nuxt": "^2.14.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
     "@nuxtjs/svg": "^0.1.12",
     "@tailwindcss/ui": "^0.6.0",
     "autoprefixer": "^9.8.6",
-    "core-js": "^3.6.5",
     "cssnano": "^4.1.10",
     "eslint": "^7.2.0",
     "eslint-config-google": "^0.14.0",
@@ -27,10 +23,7 @@
     "postcss-custom-properties": "^9.1.1",
     "postcss-for": "^2.1.1",
     "precss": "^4.0.0",
-    "tailwindcss": "^1.8.6",
-    "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.44.1"
+    "tailwindcss": "^1.8.6"
   },
   "repository": {
     "type": "git",
