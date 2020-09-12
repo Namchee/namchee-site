@@ -1,7 +1,6 @@
 module.exports = {
   srcDir: 'src/',
   target: 'static',
-  mode: 'universal',
   pageTransition: 'fade-page',
   server: {
     port: '3000',
