@@ -13,9 +13,14 @@ module.exports = {
       'mono': 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     },
     extend: {
+      letterSpacing: {
+        manrope: 'calc(-.02333em + .36667px)',
+      },
+
       colors: {
         accent: 'var(--accent)',
         'accent-trans': 'var(--accent-trans)',
+        'dark': '#151516',
 
         background: {
           primary: 'var(--bg-background-primary)',

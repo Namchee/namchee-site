@@ -9,6 +9,16 @@ module.exports = {
   generate: {
     fallback: true,
   },
+  env: {
+    'UNDER_CONSTRUCTION': true, // set this accordingly!
+  },
+  vue: {
+    config: {
+      ignoredElements: [
+        'lottie-player', // ignore lottie player
+      ],
+    },
+  },
   head: {
     htmlAttrs: {
       lang: 'en',
@@ -90,6 +100,7 @@ module.exports = {
     },
     {
       rel: 'icon',
+      type: 'image/png',
       sizes: '192x192',
       href: '/android-chrome-192x192.png',
     },
@@ -128,5 +139,6 @@ module.exports = {
   ],
   router: {
     linkExactActiveClass: 'active--exact',
+    middleware: 'under-construction',
   },
 };
