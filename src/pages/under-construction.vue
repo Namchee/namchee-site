@@ -42,7 +42,7 @@ export default {
         />
       </div>
 
-      <section class="disclaimer tracking-manrope px-16 py-8 md:p-0">
+      <section class="disclaimer tracking-manrope px-6 py-8 md:p-0">
         <h1 class="font-semibold
           head
           mb-8
@@ -98,7 +98,7 @@ export default {
 
 .body {
   font-size: 1.125rem;
-  line-height: 2rem;
+  line-height: 1.75rem;
 }
 
 @screen md {
