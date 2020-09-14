@@ -8,7 +8,9 @@
     "postuninstall": "npm prune"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^0.5.1",
     "@vue/composition-api": "^0.6.3",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
     "intersection-observer": "^0.11.0",
     "nuxt": "^2.14.5"
   },
