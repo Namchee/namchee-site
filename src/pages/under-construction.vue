@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <main class="screen
+  <section class="screen
     bg-dark
     flex flex-col items-center justify-center
     font-medium
@@ -42,7 +42,7 @@ export default {
         />
       </div>
 
-      <section class="disclaimer tracking-manrope px-6 py-8 md:p-0">
+      <article class="disclaimer px-6 py-8 md:p-0">
         <h1 class="font-semibold
           head
           mb-8
@@ -73,8 +73,8 @@ export default {
             Feeling adventurous yet?
           </a>
         </div>
-      </section>
-  </main>
+      </article>
+  </section>
 </template>
 
 <style lang="postcss" scoped>

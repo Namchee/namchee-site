@@ -29,7 +29,9 @@ export default {
 </script>
 
 <template>
-  <nuxt />
+  <main class="tracking-manrope">
+    <nuxt />
+  </main>
 </template>
 
 <style scoped></style>

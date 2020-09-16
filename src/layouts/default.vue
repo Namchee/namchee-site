@@ -53,7 +53,9 @@ export default {
   <div
     class="flex flex-col
     bg-background-primary
-    text-copy antialiased
+    text-copy
+    antialiased
+    tracking-manrope
     app"
     :class="`theme-${theme}`"
   >
