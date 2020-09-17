@@ -10,7 +10,7 @@ module.exports = {
     fallback: true,
   },
   env: {
-    'UNDER_CONSTRUCTION': true, // set this accordingly!
+    'UNDER_CONSTRUCTION': false, // set this accordingly!
   },
   vue: {
     config: {

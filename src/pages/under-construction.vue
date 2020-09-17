@@ -27,7 +27,7 @@ export default {
 
 <template>
   <section class="screen
-    bg-dark
+    bg-dark-grey
     flex flex-col items-center justify-center
     font-medium
     text-gray-300
@@ -44,11 +44,13 @@ export default {
 
       <article class="disclaimer px-6 py-8 md:p-0">
         <h1 class="font-semibold
+          font-heading
           head
           mb-8
           leading-tight
+          tracking-normal
           text-center
-          text-orange-400
+          text-primary
           lg:text-left
           lg:mb-12">
           Site Under Construction

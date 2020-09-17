@@ -89,8 +89,8 @@ export default {
 <template>
   <header
     class="flex justify-between items-center
-      bg-navigation-bg
-      border-b border-navigation-border
+      bg-nav
+      border-b border-thinline
       fixed
       w-full h-18
       z-10
@@ -208,7 +208,7 @@ export default {
 .header {
   backdrop-filter: blur(5px);
   transform: translateY(0);
-  transition: transform 300ms cubic-bezier(0.45, 0, 0.55, 1),
+  transition: transform 600ms cubic-bezier(0.45, 0, 0.55, 1),
     background-color 200ms cubic-bezier(0.61, 1, 0.88, 1);
 
   &.nav--top {
@@ -231,8 +231,8 @@ export default {
     animation: fill 1s ease-out forwards 1.6s;
 
     & path {
-      stroke: #E0E0E0; /* IE 11 Fallback */
-      stroke: var(--text-copy);
+      stroke: #EDEDF0; /* IE 11 Fallback */
+      stroke: var(--copy);
       stroke-width: .65px;
       stroke-dasharray: 140;
       stroke-dashoffset: 140;
@@ -247,8 +247,8 @@ export default {
   &::after {
     @apply absolute left-0 w-full;
 
-    background-color: #E0E0E0; /* IE 11 Fallback */
-    background-color: var(--text-copy);
+    background-color: #EDEDF0; /* IE 11 Fallback */
+    background-color: var(--copy);
     content: "";
     bottom: -5px;
     height: 2px;
@@ -267,13 +267,13 @@ export default {
   & span {
     @apply z-10 rounded-full origin-right;
 
-    background-color: #E0E0E0; /* IE 11 Fallback */
-    background-color: var(--text-copy);
+    background-color: #EDEDF0; /* IE 11 Fallback */
+    background-color: var(--copy);
     content: "";
     width: 1.65rem;
-    border-color: #E0E0E0; /* IE 11 Fallback */
-    border: 1.65px solid var(--text-copy);
-    transition: transform 300ms ease-out;
+    border-color: #EDEDF0; /* IE 11 Fallback */
+    border: 1.65px solid var(--copy);
+    transition: transform 250ms ease-out;
 
     &:first-child {
       transform: scaleX(.85);
@@ -287,7 +287,7 @@ export default {
       top: 2.3rem;
       position: absolute;
       transform-origin: center;
-      transition: transform 300ms ease-out 200ms;
+      transition: transform 250ms ease-out 200ms;
     }
 
     &:nth-child(4) {
@@ -312,8 +312,8 @@ export default {
 
 @media screen and (max-width: 1023px) {
   .nav__elem {
-    background-color: #143246; /* IE 11 Fallback */
-    background-color: var(--accent);
+    background-color: #313131; /* IE 11 Fallback */
+    background-color: var(--raised);
 
     clip-path: polygon(100% 0, 100% 0, 0% 100%, 0% 100%);
     transition: clip-path 750ms cubic-bezier(0.76, 0, 0.24, 1);
@@ -427,8 +427,8 @@ export default {
   }
 
   100% {
-    fill: #E0E0E0; /* IE 11 Fallback */
-    fill: var(--text-copy);
+    fill: #EDEDF0; /* IE 11 Fallback */
+    fill: var(--copy);
   }
 }
 </style>

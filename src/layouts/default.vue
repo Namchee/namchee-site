@@ -52,10 +52,11 @@ export default {
 <template>
   <div
     class="flex flex-col
-    bg-background-primary
+    bg-surface
     text-copy
     antialiased
     tracking-manrope
+    font-body
     app"
     :class="`theme-${theme}`"
   >

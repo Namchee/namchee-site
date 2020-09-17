@@ -266,8 +266,8 @@ export default {
       width: 100%;
       height: 100%;
       transform: translateX(-101%);
-      background-color: #E0E0E0; /* IE 11 fallback */
-      background-color: var(--text-copy);
+      background-color: #EDEDF0; /* IE 11 fallback */
+      background-color: var(--copy);
       animation: slideLeft 1200ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
     }
 
@@ -303,8 +303,8 @@ export default {
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: #E0E0E0; /* IE 11 fallback */
-    background-color: var(--text-copy);
+    background-color: #EDEDF0; /* IE 11 fallback */
+    background-color: var(--copy);
     transition: transform 350ms cubic-bezier(0.25, 1, 0.5, 1);
     transform-origin: right;
     transform: scaleX(0);

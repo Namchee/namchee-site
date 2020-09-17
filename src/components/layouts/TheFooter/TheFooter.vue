@@ -14,7 +14,7 @@ export default {
   <footer class="w-full
     flex flex-col items-center
     py-6 px-6
-    border-t border-navigation-border
+    border-t border-thinline
     text-sm
     md:text-base md:flex-row md:justify-between md:px-12
     footer">
@@ -22,7 +22,7 @@ export default {
     <!-- start: disclaimer banner -->
     <div class="font-medium mb-4 md:mb-0">
       <p class="text-center md:text-left">
-        Made in 2020 with ❤️ by Namchee
+        Made in 2020 by Namchee
       </p>
       <p class="text-center md:text-left">
         Source codes are
@@ -72,18 +72,20 @@ export default {
   transition: background-color 250ms ease-out;
 
   & svg {
-    fill: rgba(255, 255, 255, .4); /* IE 11 Fallback */
-    fill: var(--logo);
+    fill: rgba(255, 250, 250, .4); /* IE 11 Fallback */
+    fill: var(--icon);
     transition: fill 250ms ease-out;
   }
 
   &:hover, &:focus, &:active {
     & svg {
-      fill: #E0E0E0; /* IE 11 Fallback */
-      fill: var(--text-copy);
+      @apply bg-opacity-100;
+
+      fill: #EDEDF0; /* IE 11 Fallback */
+      fill: var(--copy);
 
       &.twitter {
-        fill: #1DA1F2;
+        fill: #1DA1F2; /* Twitter Brand Color */
       }
     }
   }
@@ -94,6 +96,8 @@ export default {
   }
 
   &:active {
+    @apply bg-opacity-20;
+
     background-color: rgba(255, 255, 255, .15); /* IE 11 Fallback */
     background-color: var(--icon-bg-click);
   }

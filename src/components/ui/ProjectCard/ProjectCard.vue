@@ -51,7 +51,7 @@ export default {};
     width: 100%;
     height: 1.5px;
     background-color: #E0E0E0; /* IE 11 Fallback */
-    background-color: var(--text-copy);
+    background-color: var(--copy);
   }
 
   &::before {
@@ -64,7 +64,7 @@ export default {};
 }
 
 .project__card__info {
-  @apply uppercase tracking-widest text-sm;
+  @apply uppercase tracking-wider text-sm;
 
   grid-column: 1 / 2;
   grid-row: 1 / 2;

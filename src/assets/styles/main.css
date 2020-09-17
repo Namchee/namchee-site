@@ -17,39 +17,41 @@ html, body {
 }
 
 :root {
-  --link: #2f89fc;
+  --link: #707BDE;
 
-  --bg-background-primary: #121212;
-  --bg-background-secondary: #212121;
+  --surface: #151516;
+  --raised: #313131;
 
-  --navigation-bg: rgba(20, 20, 20, .75);
-  --navigation-border: rgba(255, 255, 255, .05);
+  --nav: rgba(21, 21, 22, .8);
+  --border: rgba(255, 250, 250, .05);
 
-  --logo: rgba(255, 255, 255, .4);
-  --icon-bg: rgba(255, 255, 255, .1);
-  --icon-bg-click: rgba(255, 255, 255, 0.15);
+  --icon: rgba(255, 250, 250, .4);
+  --icon-bg: rgba(255, 250, 250, .1);
+  --icon-bg-click: rgba(255, 250, 250, 0.15);
 
-  --text-copy: #E0E0E0;
+  --copy: #EDEDF0;
 
-  --accent: #143246;
+  --primary: #FFB443;
+  --secondary: #00AAF9;
 }
 
 .theme-light {
-  --link: #1b6ca8;
+  --link: #4856D4;
 
-  --bg-background-primary: #FFFAFA;
-  --bg-background-secondary: #FFFFFF;
+  --surface: #FFFAFA;
+  --raised: #E3E3E3;
 
-  --navigation-bg: rgba(255, 250, 250, 0.8);
-  --navigation-border: rgba(54, 54, 54, 0.1);
+  --nav: rgba(255, 250, 250, 0.8);
+  --border: rgba(49, 49, 49, 0.1);
 
-  --logo: rgba(54, 54, 54, .4);
-  --icon-bg: rgba(54, 54, 54, .1);
-  --icon-bg-click: rgba(54, 54, 54, 0.2);
+  --icon: rgba(49, 49, 49, .4);
+  --icon-bg: rgba(49, 49, 49, .1);
+  --icon-bg-click: rgba(49, 49, 49, 0.2);
 
-  --text-copy: #121212;
+  --copy: #121212;
 
-  --accent: #42A6E8;
+  --primary: #FF9F0F;
+  --secondary: #24BAFF;
 }
 
 @supports (font-variation-settings: normal) {
@@ -60,15 +62,6 @@ html, body {
     font-style: oblique 0deg 10deg;
     font-display: swap;
   }
-}
-
-@font-face {
-  font-family: 'Manrope';
-  src: url('./../fonts/manrope-regular.woff2') format('woff2'),
-    url('./../fonts/manrope-regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -85,6 +78,24 @@ html, body {
   src: url('./../fonts/manrope-semi.woff2') format('woff2'),
     url('./../fonts/manrope-semi.woff') format('woff');
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('./../fonts/hkgrotesk-semi.woff2') format('woff2'),
+    url('./../fonts/hkgrotesk-semi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('./../fonts/hkgrotesk-bold.woff2') format('woff2'),
+    url('./../fonts/hkgrotesk-bold.woff') format('woff');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
