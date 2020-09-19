@@ -79,10 +79,8 @@ export default {
 
   &:hover, &:focus, &:active {
     & svg {
-      @apply bg-opacity-100;
-
       fill: #EDEDF0; /* IE 11 Fallback */
-      fill: var(--copy);
+      fill: var(--copy-primary);
 
       &.twitter {
         fill: #1DA1F2; /* Twitter Brand Color */

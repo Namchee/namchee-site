@@ -232,7 +232,7 @@ export default {
 
     & path {
       stroke: #EDEDF0; /* IE 11 Fallback */
-      stroke: var(--copy);
+      stroke: var(--copy-primary);
       stroke-width: .65px;
       stroke-dasharray: 140;
       stroke-dashoffset: 140;
@@ -248,7 +248,7 @@ export default {
     @apply absolute left-0 w-full;
 
     background-color: #EDEDF0; /* IE 11 Fallback */
-    background-color: var(--copy);
+    background-color: var(--copy-primary);
     content: "";
     bottom: -5px;
     height: 2px;
@@ -268,11 +268,11 @@ export default {
     @apply z-10 rounded-full origin-right;
 
     background-color: #EDEDF0; /* IE 11 Fallback */
-    background-color: var(--copy);
+    background-color: var(--copy-primary);
     content: "";
     width: 1.65rem;
     border-color: #EDEDF0; /* IE 11 Fallback */
-    border: 1.65px solid var(--copy);
+    border: 1.65px solid var(--copy-primary);
     transition: transform 250ms ease-out;
 
     &:first-child {
@@ -428,7 +428,7 @@ export default {
 
   100% {
     fill: #EDEDF0; /* IE 11 Fallback */
-    fill: var(--copy);
+    fill: var(--copy-primary);
   }
 }
 </style>

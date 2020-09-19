@@ -53,10 +53,10 @@ export default {
   <div
     class="flex flex-col
     bg-surface
-    text-copy
+    text-copy-primary
     antialiased
     tracking-manrope
-    font-body
+    font-copy
     app"
     :class="`theme-${theme}`"
   >

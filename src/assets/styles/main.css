@@ -29,7 +29,8 @@ html, body {
   --icon-bg: rgba(255, 250, 250, .1);
   --icon-bg-click: rgba(255, 250, 250, 0.15);
 
-  --copy: #EDEDF0;
+  --copy-primary: #EDEDF0;
+  --copy-secondary: #C9C9D2;
 
   --primary: #FFB443;
   --secondary: #00AAF9;
@@ -48,7 +49,8 @@ html, body {
   --icon-bg: rgba(49, 49, 49, .1);
   --icon-bg-click: rgba(49, 49, 49, 0.2);
 
-  --copy: #121212;
+  --copy-primary: #121212;
+  --copy-secondary: #565656;
 
   --primary: #FF9F0F;
   --secondary: #24BAFF;
@@ -78,24 +80,6 @@ html, body {
   src: url('./../fonts/manrope-semi.woff2') format('woff2'),
     url('./../fonts/manrope-semi.woff') format('woff');
   font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'HK Grotesk';
-  src: url('./../fonts/hkgrotesk-semi.woff2') format('woff2'),
-    url('./../fonts/hkgrotesk-semi.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'HK Grotesk';
-  src: url('./../fonts/hkgrotesk-bold.woff2') format('woff2'),
-    url('./../fonts/hkgrotesk-bold.woff') format('woff');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }

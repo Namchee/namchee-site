@@ -9,8 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: '"HK Grotesk", "Helvetica Neue", Roboto, Arial, sans-serif',
-        body: '"Manrope Var", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+        copy: '"Manrope Var", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
       },
 
       letterSpacing: {
@@ -20,6 +19,8 @@ module.exports = {
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
+        'copy-primary': 'var(--copy-primary)',
+        'copy-secondary': 'var(--copy-secondary)',
 
         'dark-grey': '#151516',
         'light-grey': '#ededf0',
@@ -27,7 +28,6 @@ module.exports = {
 
         surface: 'var(--surface)',
         raised: 'var(--raised)',
-        copy: 'var(--copy)',
         link: 'var(--link)',
 
         nav: 'var(--nav)',

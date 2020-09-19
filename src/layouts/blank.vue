@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <main class="font-body tracking-manrope">
+  <main class="font-copy tracking-manrope">
     <nuxt />
   </main>
 </template>

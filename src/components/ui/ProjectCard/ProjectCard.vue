@@ -50,8 +50,8 @@ export default {};
     left: 0;
     width: 100%;
     height: 1.5px;
-    background-color: #E0E0E0; /* IE 11 Fallback */
-    background-color: var(--copy);
+    background-color: #EDEDF0; /* IE 11 Fallback */
+    background-color: var(--copy-primary);
   }
 
   &::before {

@@ -102,10 +102,12 @@ export default {
   <!-- start: about page -->
   <section>
     <!-- start: introduction section -->
+    <!--
     <article class="py-6
       md:flex md:flex-row-reverse
       md:py-16">
       <h1 class="tracking-wide
+        font-heading
         mb-6
         lg:tracking-wider
         about__title">
@@ -115,6 +117,42 @@ export default {
       <div class="leading-relaxed
         lg:tracking-wide
         about__intro__text">
+        <p class="mb-8">
+          Hey,
+          <span class="underline__reveal">Namchee</span> here.
+          My full name is Cristopher.
+          But, I prefer to be called Namchee since I'm
+          acquaintanced with too much
+          <span
+            class="underline__reveal"
+          >Chris</span> in my life.
+        </p>
+        <p class="mb-8">
+          The world of web has caught my interest since my high school days.
+          Since then, I do most of my work using my current favorite
+          language,
+          <span class="underline__reveal">JavaScript</span>.
+        </p>
+        <p>
+          Right now, I spend my time doing personal open source projects
+          with various topics and hanging around with fellow developers.
+          To this day, I'm still learning as much as I can
+          about the world of web as one of my passion.
+        </p>
+      </div>
+    </article>
+    -->
+
+    <article class="py-12 md:py-24">
+      <h1 class="font-bold
+        leading-tight
+        font-heading
+        mb-12
+        about__title">
+        Hey, It's Namchee
+      </h1>
+
+      <div class="about__intro__text flex-grow">
         <p class="mb-8">
           Hey,
           <span class="underline__reveal">Namchee</span> here.
@@ -231,7 +269,21 @@ export default {
 
 <style lang="postcss" scoped>
 .about__title {
-  font-size: 13.5vw;
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+
+  &::before {
+    @apply bg-raised;
+
+    display: block;
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+  }
 }
 
 .about__subtitle {
@@ -243,6 +295,7 @@ export default {
   display: inline-block;
   backface-visibility: hidden;
   z-index: 0;
+  padding: 0 .1rem;
 
   &::after,
   &::before {
@@ -262,7 +315,7 @@ export default {
   &::before {
     @supports (mix-blend-mode: difference) {
       background-color: #EDEDF0; /* IE 11 Fallback */
-      background-color: var(--copy);
+      background-color: var(--copy-primary);
       mix-blend-mode: difference;
     }
 
@@ -300,8 +353,8 @@ export default {
       width: 100%;
       height: 1px;
       background-color: #EDEDF0;
-      background-color: var(--copy);
-      transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
+      background-color: var(--copy-primary);
+      transition: transform 250ms cubic-bezier(0.25, 1, 0.5, 1);
       transform-origin: right;
       transform: scaleX(0);
     }
@@ -346,7 +399,7 @@ export default {
     top: calc(50% + 2px);
     left: calc(100% + 1rem);
     background-color: #EDEDF0;
-    background-color: var(--copy);
+    background-color: var(--copy-primary);
     transition: transform 750ms 100ms cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: left;
     transform: scaleX(0);
@@ -390,15 +443,7 @@ export default {
 
 @screen md {
   .about__title {
-    position: relative;
-    margin-bottom: 0;
-    font-size: 12.5vw;
-    writing-mode: vertical-lr;
-
-    & > span {
-      position: sticky;
-      top: 6rem;
-    }
+    font-size: 4rem;
   }
 
   .about__intro__text {
@@ -435,6 +480,10 @@ export default {
 }
 
 @screen lg {
+  .about__title {
+    font-size: clamp(5.5vw, 5rem, 5rem);
+  }
+
   .about__skills,
   .about__education {
     font-size: 1.55vw;

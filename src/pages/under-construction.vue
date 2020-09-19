@@ -68,7 +68,7 @@ export default {
           </p>
 
           <a
-            class="underline text-base font-normal"
+            class="underline text-sm md:text-base font-normal"
             href="#"
             rel="noreferrer"
             @click="adventure()">
@@ -95,17 +95,26 @@ export default {
 }
 
 .head {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .body {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 @screen md {
   .lottie__player {
     width: 480px;
+  }
+
+  .head {
+    font-size: 3rem;
+  }
+
+  .body {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
