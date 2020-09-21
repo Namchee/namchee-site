@@ -53,7 +53,7 @@ export default {
 
       const updateScrollbar = () => {
         hideMenu.value = currentScroll.value > lastScroll.value &&
-          currentScroll.value > 100;
+          currentScroll.value > 256;
 
         lastScroll.value = currentScroll.value;
 
@@ -96,6 +96,7 @@ export default {
       z-10
       box-border
       lg:h-20
+      lg:px-screen
       header"
     :class='{
       "nav--open": isOpen,
@@ -406,12 +407,6 @@ export default {
       content: counter(link-list, decimal-leading-zero);
       font-size: 1.15rem;
     }
-  }
-}
-
-@screen lg {
-  .header {
-    padding: 0 7.5vw;
   }
 }
 

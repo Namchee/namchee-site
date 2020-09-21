@@ -16,6 +16,10 @@ module.exports = {
         manrope: 'calc(-.02333em + .36667px)',
       },
 
+      padding: {
+        screen: '5vw',
+      },
+
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',

@@ -1,5 +1,6 @@
 <script>
 import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
+import AboutBlob from '~/assets/blob/about.svg?inline';
 
 export default {
   head: {
@@ -39,6 +40,7 @@ export default {
 
   components: {
     ArrowLink,
+    AboutBlob,
   },
 
   setup() {
@@ -102,85 +104,52 @@ export default {
   <!-- start: about page -->
   <section>
     <!-- start: introduction section -->
-    <!--
-    <article class="py-6
-      md:flex md:flex-row-reverse
-      md:py-16">
-      <h1 class="tracking-wide
-        font-heading
-        mb-6
-        lg:tracking-wider
-        about__title">
-        <span>6C?</span>
-      </h1>
+    <article
+      class="flex flex-col items-center py-16 md:py-28 px-6 md:px-12">
+      <div class="relative self-start lg:pl-32">
+        <about-blob class="about__blob" />
 
-      <div class="leading-relaxed
-        lg:tracking-wide
-        about__intro__text">
-        <p class="mb-8">
-          Hey,
-          <span class="underline__reveal">Namchee</span> here.
-          My full name is Cristopher.
-          But, I prefer to be called Namchee since I'm
-          acquaintanced with too much
-          <span
-            class="underline__reveal"
-          >Chris</span> in my life.
-        </p>
-        <p class="mb-8">
-          The world of web has caught my interest since my high school days.
-          Since then, I do most of my work using my current favorite
-          language,
-          <span class="underline__reveal">JavaScript</span>.
-        </p>
-        <p>
-          Right now, I spend my time doing personal open source projects
-          with various topics and hanging around with fellow developers.
-          To this day, I'm still learning as much as I can
-          about the world of web as one of my passion.
-        </p>
+        <h1
+          class="font-bold
+            leading-tight
+            mb-16
+            about__title">
+          Hey, It's <span class="text-primary">Namchee</span>
+        </h1>
       </div>
-    </article>
-    -->
 
-    <article class="py-12 md:py-24">
-      <h1 class="font-bold
-        leading-tight
-        font-heading
-        mb-12
-        about__title">
-        Hey, It's Namchee
-      </h1>
-
-      <div class="about__intro__text flex-grow">
-        <p class="mb-8">
-          Hey,
-          <span class="underline__reveal">Namchee</span> here.
-          My full name is Cristopher.
-          But, I prefer to be called Namchee since I'm
-          acquaintanced with too much
-          <span
-            class="underline__reveal"
-          >Chris</span> in my life.
+      <div class="max-w-6xl
+        text-lg
+        leading-7
+        md:leading-8
+        md:ml-32 md:mr-16
+        lg:ml-64 lg:mr-20
+        about__intro__text">
+        <p class="mb-8 lg:mb-12">
+          My full name is <span class="underline__reveal">Cristopher</span>.
+          But, I prefer to be called
+          <span class="underline__reveal">Namchee</span> since I'm
+          acquaintanced with too much Chris in my life.
         </p>
-        <p class="mb-8">
+        <p class="mb-8 lg:mb-12">
           The world of web has caught my interest since my high school days.
           Since then, I do most of my work using my current favorite
           language,
           <span class="underline__reveal">JavaScript</span>.
         </p>
         <p>
-          Right now, I spend my time doing personal open source projects
-          with various topics and hanging around with fellow developers.
+          Right now, I spend my time doing open source projects
+          and hanging around with fellow developers.
           To this day, I'm still learning as much as I can
-          about the world of web as one of my passion.
+          about the <span class="underline__reveal">world of web</span>
+          as one of my passion.
         </p>
       </div>
     </article>
     <!-- end: introduction section -->
 
     <!-- start: tools and education section -->
-    <section class="flex flex-col lg:flex-row py-8 lg:py-12">
+    <section class="flex flex-col lg:flex-row py-8 lg:px-screen lg:py-12 bg-raised">
       <!-- start: tools of trade section -->
       <section class="w-full lg:w-7/12 lg:mr-2">
         <h2 v-intersect.once class="inline-block
@@ -270,20 +239,18 @@ export default {
 <style lang="postcss" scoped>
 .about__title {
   position: relative;
+  font-size: 3.5rem;
   z-index: 1;
-  font-size: 3rem;
+}
 
-  &::before {
-    @apply bg-raised;
-
-    display: block;
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1rem;
-  }
+.about__blob {
+  fill: var(--raised);
+  position: absolute;
+  left: -2.5rem;
+  top: -2.5rem;
+  width: 15rem;
+  height: auto;
+  opacity: .5;
 }
 
 .about__subtitle {
@@ -307,7 +274,7 @@ export default {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    transform: scaleY(0.05);
+    transform: scaleY(0.075);
     transform-origin: bottom;
     transition: transform 200ms cubic-bezier(0.33, 1, 0.68, 1);
   }
@@ -443,26 +410,17 @@ export default {
 
 @screen md {
   .about__title {
-    font-size: 4rem;
+    font-size: 4.5rem;
+  }
+
+  .about__blob {
+    top: -5.5rem;
+    left: -3.5rem;
+    width: 17.5rem;
   }
 
   .about__intro__text {
     font-size: 2.75vw;
-    margin-right: 2vw;
-
-    & > p {
-      &:nth-child(2) {
-        margin-left: 10vw;
-      }
-
-      &:last-child {
-        margin-left: 3vw;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: 3rem;
-      }
-    }
   }
 
   .about__skills,
@@ -481,7 +439,13 @@ export default {
 
 @screen lg {
   .about__title {
-    font-size: clamp(5.5vw, 5rem, 5rem);
+    font-size: clamp(6.25vw, 5rem, 5rem);
+  }
+
+  .about__blob {
+    top: -6.5vw;
+    left: 2vmax;
+    width: 25vw;
   }
 
   .about__skills,
@@ -498,22 +462,10 @@ export default {
   }
 
   .about__intro__text {
-    font-size: 1.85vw;
-    margin-right: 2.25vw;
-
-    & > p {
-      &:nth-child(2) {
-        margin-left: 12.5vw;
-      }
-
-      &:last-child {
-        margin-left: 2vw;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: 4rem;
-      }
-    }
+    padding-left: 4vw;
+    padding-right: 1vw;
+    font-size: clamp(1.755vw, 1.65rem, 1.65rem);
+    line-height: clamp(3.25vw, 2.75rem, 2.75rem);
   }
 
   .about__edu__timeline {

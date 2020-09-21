@@ -17,6 +17,7 @@ export default {
     border-t border-thinline
     text-sm
     md:text-base md:flex-row md:justify-between md:px-12
+    lg:px-screen
     footer">
 
     <!-- start: disclaimer banner -->
@@ -104,13 +105,6 @@ export default {
 @variants focus, hover {
   .footer__icons {
     @apply outline-none;
-  }
-}
-
-@screen lg {
-  .footer {
-    padding-left: 7.5vw;
-    padding-right: 7.5vw;
   }
 }
 </style>

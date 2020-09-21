@@ -20,7 +20,7 @@ html, body {
   --link: #707BDE;
 
   --surface: #151516;
-  --raised: #313131;
+  --raised: #212121;
 
   --nav: rgba(21, 21, 22, .8);
   --border: rgba(255, 250, 250, .05);
@@ -39,10 +39,10 @@ html, body {
 .theme-light {
   --link: #4856D4;
 
-  --surface: #FFFAFA;
-  --raised: #E3E3E3;
+  --surface: #F5F0F0;
+  --raised: #E0E0E0;
 
-  --nav: rgba(255, 250, 250, 0.8);
+  --nav: rgba(245, 240, 240, 0.75);
   --border: rgba(49, 49, 49, 0.1);
 
   --icon: rgba(49, 49, 49, .4);

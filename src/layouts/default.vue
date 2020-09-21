@@ -63,8 +63,7 @@ export default {
     <the-navbar />
     <main class="flex flex-col flex-grow
       font-medium
-      pt-18 px-6
-      md:px-12
+      pt-18
       lg:pt-20 lg:text-lg
       body">
       <nuxt />
@@ -80,12 +79,5 @@ export default {
     fill 200ms ease-out,
     stroke 200ms ease-out,
     border-color 200ms ease-out;
-}
-
-@screen lg {
-  .body {
-    padding-left: 7.5vw;
-    padding-right: 7.5vw;
-  }
 }
 </style>
