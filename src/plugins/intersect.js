@@ -3,6 +3,7 @@ import Vue from 'vue';
 const intersect = (el, binding) => {
   if (process.client) {
     const { once } = binding.modifiers;
+    const threshold = Number(binding.expression) || .75;
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -18,6 +19,8 @@ const intersect = (el, binding) => {
           }
         }
       });
+    }, {
+      threshold,
     });
 
     observer.observe(el);
