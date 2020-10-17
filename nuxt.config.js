@@ -126,6 +126,9 @@ module.exports = {
       },
     },
   },
+  modules: [
+    '@nuxtjs/ngrok',
+  ],
   buildModules: [
     '@nuxtjs/svg',
   ],

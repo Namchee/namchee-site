@@ -105,16 +105,16 @@ export default {
   <section>
     <!-- start: introduction section -->
     <article
-      class="flex flex-col items-center py-16 md:py-28 px-6 md:px-12">
+      class="flex flex-col items-center py-16 md:py-32 px-6 md:px-12">
       <div class="relative self-start lg:pl-32">
-        <about-blob class="about__blob" />
+        <!-- <about-blob class="about__blob" /> -->
 
         <h1
           class="font-bold
             leading-tight
             mb-16
             about__title">
-          Hey, It's <span class="text-primary">Namchee</span>
+          Hey, I'm <span class="text-primary">Namchee</span>
         </h1>
       </div>
 
@@ -462,7 +462,7 @@ export default {
   }
 
   .about__intro__text {
-    padding-left: 4vw;
+    padding-left: 3vw;
     padding-right: 1vw;
     font-size: clamp(1.755vw, 1.65rem, 1.65rem);
     line-height: clamp(3.25vw, 2.75rem, 2.75rem);
