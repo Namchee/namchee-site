@@ -1,6 +1,6 @@
 <script>
 import { ref, onMounted, watchEffect } from '@vue/composition-api';
-import ThemeSwitcher from './ThemeSwitcher';
+import ThemeSwitcher from './theme-switcher';
 import Logo from '~/assets/images/logo.svg?inline';
 
 export default {
@@ -89,14 +89,11 @@ export default {
 <template>
   <header
     class="flex justify-between items-center
-      bg-nav
-      border-b border-thinline
-      fixed
-      w-full h-18
-      z-10
-      box-border
+      border-b
+      fixed z-10
+      w-full h-16
       lg:h-20
-      lg:px-screen
+      lg:px-layout
       header"
     :class='{
       "nav--open": isOpen,
@@ -112,7 +109,7 @@ export default {
         z-10
         transform
         scale-90
-        md:ml-10
+        md:ml-8
         lg:scale-100 lg:ml-0
         header__logo"
       aria-label="Namchee"
@@ -150,7 +147,7 @@ export default {
           text-5xl
           my-auto
           px-4
-          font-semibold
+          font-medium
           md:text-6xl
           lg:flex-row lg:items-center lg:text-base
           lg:px-0
@@ -208,12 +205,14 @@ export default {
 <style lang="postcss" scoped>
 .header {
   backdrop-filter: blur(5px);
+  border-color: var(--nav-border);
+  background-color: var(--nav);
   transform: translateY(0);
   transition: transform 600ms cubic-bezier(0.45, 0, 0.55, 1),
     background-color 200ms cubic-bezier(0.61, 1, 0.88, 1);
 
   &.nav--top {
-    @apply border-b-0 bg-transparent;
+    @apply border-b-0 border-transparent;
 
     backdrop-filter: blur(0px);
   }
@@ -232,8 +231,7 @@ export default {
     animation: fill 1s ease-out forwards 1.6s;
 
     & path {
-      stroke: #EDEDF0; /* IE 11 Fallback */
-      stroke: var(--copy-primary);
+      stroke: var(--copy);
       stroke-width: .65px;
       stroke-dasharray: 140;
       stroke-dashoffset: 140;
@@ -248,8 +246,7 @@ export default {
   &::after {
     @apply absolute left-0 w-full;
 
-    background-color: #EDEDF0; /* IE 11 Fallback */
-    background-color: var(--copy-primary);
+    background-color: var(--copy);
     content: "";
     bottom: -5px;
     height: 2px;
@@ -268,12 +265,10 @@ export default {
   & span {
     @apply z-10 rounded-full origin-right;
 
-    background-color: #EDEDF0; /* IE 11 Fallback */
-    background-color: var(--copy-primary);
+    background-color: var(--copy);
     content: "";
     width: 1.65rem;
-    border-color: #EDEDF0; /* IE 11 Fallback */
-    border: 1.65px solid var(--copy-primary);
+    border: 1.65px solid var(--copy);
     transition: transform 250ms ease-out;
 
     &:first-child {
@@ -285,7 +280,7 @@ export default {
     }
 
     &:nth-child(4), &:nth-child(5) {
-      top: 2.3rem;
+      top: 2rem;
       position: absolute;
       transform-origin: center;
       transition: transform 250ms ease-out 200ms;
@@ -313,7 +308,6 @@ export default {
 
 @media screen and (max-width: 1023px) {
   .nav__elem {
-    background-color: #313131; /* IE 11 Fallback */
     background-color: var(--raised);
 
     clip-path: polygon(100% 0, 100% 0, 0% 100%, 0% 100%);
@@ -422,8 +416,7 @@ export default {
   }
 
   100% {
-    fill: #EDEDF0; /* IE 11 Fallback */
-    fill: var(--copy-primary);
+    fill: var(--copy);
   }
 }
 </style>

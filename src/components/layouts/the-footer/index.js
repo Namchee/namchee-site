@@ -1,4 +1,4 @@
-import TheFooter from './TheFooter.vue';
+import TheFooter from './the-footer.vue';
 
 export default TheFooter;
 export { TheFooter };

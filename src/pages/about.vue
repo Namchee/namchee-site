@@ -1,6 +1,5 @@
 <script>
 import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
-import AboutBlob from '~/assets/blob/about.svg?inline';
 
 export default {
   head: {
@@ -40,7 +39,6 @@ export default {
 
   components: {
     ArrowLink,
-    AboutBlob,
   },
 
   setup() {
@@ -102,375 +100,35 @@ export default {
 
 <template>
   <!-- start: about page -->
-  <section>
-    <!-- start: introduction section -->
-    <article
-      class="flex flex-col items-center py-16 md:py-32 px-6 md:px-12">
-      <div class="relative self-start lg:pl-32">
-        <!-- <about-blob class="about__blob" /> -->
+  <section class="flex flex-col
+    px-6 py-20
+    max-w-6xl
+    sm:py-16
+    md:px-16
+    lg:px-screen">
+    <!-- start: About me -->
+    <article class="self-end max-w-md">
+      <h1 class="font-head text-copy-primary text-opacity-50 about__title">
+        About Me
+      </h1>
 
-        <h1
-          class="font-bold
-            leading-tight
-            mb-16
-            about__title">
-          Hey, I'm <span class="text-primary">Namchee</span>
-        </h1>
-      </div>
-
-      <div class="max-w-6xl
-        text-lg
-        leading-7
-        md:leading-8
-        md:ml-32 md:mr-16
-        lg:ml-64 lg:mr-20
-        about__intro__text">
-        <p class="mb-8 lg:mb-12">
-          My full name is <span class="underline__reveal">Cristopher</span>.
-          But, I prefer to be called
-          <span class="underline__reveal">Namchee</span> since I'm
-          acquaintanced with too much Chris in my life.
-        </p>
-        <p class="mb-8 lg:mb-12">
-          The world of web has caught my interest since my high school days.
-          Since then, I do most of my work using my current favorite
-          language,
-          <span class="underline__reveal">JavaScript</span>.
-        </p>
-        <p>
-          Right now, I spend my time doing open source projects
-          and hanging around with fellow developers.
-          To this day, I'm still learning as much as I can
-          about the <span class="underline__reveal">world of web</span>
-          as one of my passion.
-        </p>
-      </div>
+      <p class="text-copy-secondary paragraph">
+        My full name is
+      </p>
     </article>
-    <!-- end: introduction section -->
-
-    <!-- start: tools and education section -->
-    <section class="flex flex-col lg:flex-row py-8 lg:px-screen lg:py-12 bg-raised">
-      <!-- start: tools of trade section -->
-      <section class="w-full lg:w-7/12 lg:mr-2">
-        <h2 v-intersect.once class="inline-block
-          mb-6
-          md:mb-8
-          lg:mb-10
-          lg:tracking-wide
-          about__subtitle title-accent">
-          Tools of Trade
-        </h2>
-
-        <ul v-intersect.once class="grid grid-cols-2 gap-2
-          md:text-xl
-          about__skills">
-          <li v-for="(skill, i) in skills" :key="i" class="overflow-hidden">
-            <span>{{ skill }}</span>
-          </li>
-        </ul>
-      </section>
-      <!-- end: tools of trade section -->
-
-      <!-- start: education section -->
-      <section class="w-full mt-16 lg:mt-0 lg:w-5/12 lg:ml-2">
-        <h2 v-intersect.once class="inline-block
-          mb-6
-          md:mb-8
-          lg:mb-10
-          lg:tracking-wide
-          about__subtitle title-accent">
-            Education
-        </h2>
-
-        <ul v-intersect.once class="grid grid-cols-1 gap-2
-          about__education">
-          <li v-for="(edu, i) in education" :key="i"
-            class="overflow-hidden
-              tracking-wide
-              lg:mr-20">
-            <span>
-              <span class="block uppercase text-sm">
-                {{ edu.yearStart }}
-                &mdash;
-                {{ edu.yearEnd || 'Present' }}
-              </span>
-              <span>{{ edu.place }}</span>
-            </span>
-          </li>
-        </ul>
-      </section>
-      <!-- end: education section -->
-    </section>
-    <!-- end: tools and education section -->
-
-    <!-- start: contact list -->
-    <section class="py-8 lg:py-12">
-      <h2 class="inline-block
-        mb-6
-        md:mb-8
-        lg:mb-10
-        lg:tracking-wide
-        about__subtitle">
-        Let's be pals
-        <span class="fist">👊</span>
-      </h2>
-
-      <ul v-intersect.once class="font-normal
-        grid grid-cols-1
-        text-2xl
-        md:grid-cols-2
-        lg:flex lg:flex-row
-        about__contact">
-        <li v-for="link in links" :key="link.href" class="mb-2
-          overflow-hidden
-          lg:mr-6">
-          <a target="_blank" :href="link.href" rel="noreferrer">
-            {{ link.name }}
-            <arrow-link class="inline-block" />
-          </a>
-        </li>
-      </ul>
-    </section>
-    <!-- end: contact list -->
+    <!-- end: About me -->
   </section>
   <!-- end: about page -->
 </template>
 
 <style lang="postcss" scoped>
 .about__title {
-  position: relative;
-  font-size: 3.5rem;
-  z-index: 1;
+  font-size: clamp(2.5rem, 3.5vw, 6rem);
 }
 
-.about__blob {
-  fill: var(--raised);
-  position: absolute;
-  left: -2.5rem;
-  top: -2.5rem;
-  width: 15rem;
-  height: auto;
-  opacity: .5;
-}
-
-.about__subtitle {
-  font-size: 10vw;
-}
-
-.underline__reveal {
-  position: relative;
-  display: inline-block;
-  backface-visibility: hidden;
-  z-index: 0;
-  padding: 0 .1rem;
-
-  &::after,
-  &::before {
-    position: absolute;
-    display: block;
-    content: '';
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    transform: scaleY(0.075);
-    transform-origin: bottom;
-    transition: transform 200ms cubic-bezier(0.33, 1, 0.68, 1);
-  }
-
-  &::before {
-    @supports (mix-blend-mode: difference) {
-      background-color: #EDEDF0; /* IE 11 Fallback */
-      background-color: var(--copy-primary);
-      mix-blend-mode: difference;
-    }
-
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  &::after {
-    background-color: #151516; /* IE 11 Fallback */
-    background-color: var(--surface);
-    z-index: -1;
-  }
-
-  &:hover {
-    @supports (mix-blend-mode: difference) {
-      &::before,
-      &::after {
-        transform: scaleY(1);
-      }
-    }
-  }
-}
-
-.about__contact {
-  & > li > a {
-    position: relative;
-    display: inline-block;
-    transform: translateY(200%) rotateZ(30deg);
-
-    &::after {
-      position: absolute;
-      content: '';
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #EDEDF0;
-      background-color: var(--copy-primary);
-      transition: transform 250ms cubic-bezier(0.25, 1, 0.5, 1);
-      transform-origin: right;
-      transform: scaleX(0);
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      &::after {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-    }
-  }
-
-  &.in-view {
-    & > li {
-      & > a {
-        animation: skewReveal 0.6s cubic-bezier(0.61, 1, 0.88, 1) forwards;
-      }
-
-      @for $i from 1 to 99 {
-        &:nth-child($(i)) > a {
-          animation-delay: calc($(i) * 50ms);
-        }
-      }
-    }
-  }
-}
-
-.title-accent {
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-
-  &::after {
-    display: block;
-    position: absolute;
-    content: '';
-    z-index: -1;
-    height: 2px;
-    width: 2rem;
-    top: calc(50% + 2px);
-    left: calc(100% + 1rem);
-    background-color: #EDEDF0;
-    background-color: var(--copy-primary);
-    transition: transform 750ms 100ms cubic-bezier(0.22, 1, 0.36, 1);
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-
-  &.in-view {
-    &::after {
-      transform: scaleX(1);
-    }
-  }
-}
-
-.about__skills,
-.about__education {
-  & > li > span {
-    display: inline-block;
-    transform: translateY(101%);
-    opacity: 0.2;
-  }
-
-  &.in-view {
-    & > li {
-      & > span {
-        animation: yReveal 350ms cubic-bezier(0.61, 1, 0.88, 1) forwards;
-      }
-
-      @for $i from 1 to 99 {
-        &:nth-child($(i)) > span {
-          animation-delay: calc($(i) * 50ms);
-        }
-      }
-    }
-  }
-}
-
-.fist {
-  display: inline-block;
-  animation: broFist 3s infinite;
-  transform: perspective(10px) translateZ(0);
-}
-
-@screen md {
-  .about__title {
-    font-size: 4.5rem;
-  }
-
-  .about__blob {
-    top: -5.5rem;
-    left: -3.5rem;
-    width: 17.5rem;
-  }
-
-  .about__intro__text {
-    font-size: 2.75vw;
-  }
-
-  .about__skills,
-  .about__contact {
-    gap: 0.5rem 2rem;
-  }
-
-  .about__subtitle {
-    font-size: 7vw;
-  }
-
-  .title-accent::after {
-    width: 2em;
-  }
-}
-
-@screen lg {
-  .about__title {
-    font-size: clamp(6.25vw, 5rem, 5rem);
-  }
-
-  .about__blob {
-    top: -6.5vw;
-    left: 2vmax;
-    width: 25vw;
-  }
-
-  .about__skills,
-  .about__education {
-    font-size: 1.55vw;
-  }
-
-  .about__contact {
-    font-size: 2vw;
-  }
-
-  .about__subtitle {
-    font-size: 3.5vw;
-  }
-
-  .about__intro__text {
-    padding-left: 3vw;
-    padding-right: 1vw;
-    font-size: clamp(1.755vw, 1.65rem, 1.65rem);
-    line-height: clamp(3.25vw, 2.75rem, 2.75rem);
-  }
-
-  .about__edu__timeline {
-    font-size: 1vw;
-  }
+.paragraph {
+  --text-opacity: 0.75;
+  color: var(--text-copy-secondary);
 }
 
 @keyframes broFist {
@@ -488,28 +146,6 @@ export default {
 
   22.5% {
     transform: perspective(10px) translateZ(0);
-  }
-}
-
-@keyframes skewReveal {
-  0% {
-    transform: translateY(200%) rotateZ(30deg);
-  }
-
-  100% {
-    transform: translateY(0%) rotateZ(0deg);
-  }
-}
-
-@keyframes yReveal {
-  0% {
-    opacity: 0.2;
-    transform: translateY(101%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
   }
 }
 </style>

@@ -1,4 +1,4 @@
-import Pill from './Pill.vue';
+import Pill from './pill.vue';
 
 export default Pill;
 export { Pill };

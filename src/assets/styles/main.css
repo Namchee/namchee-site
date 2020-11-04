@@ -16,46 +16,6 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-:root {
-  --link: #707BDE;
-
-  --surface: #151516;
-  --raised: #212121;
-
-  --nav: rgba(21, 21, 22, .8);
-  --border: rgba(255, 250, 250, .05);
-
-  --icon: rgba(255, 250, 250, .4);
-  --icon-bg: rgba(255, 250, 250, .1);
-  --icon-bg-click: rgba(255, 250, 250, 0.15);
-
-  --copy-primary: #EDEDF0;
-  --copy-secondary: #C9C9D2;
-
-  --primary: #FFB443;
-  --secondary: #00AAF9;
-}
-
-.theme-light {
-  --link: #4856D4;
-
-  --surface: #F5F0F0;
-  --raised: #E0E0E0;
-
-  --nav: rgba(245, 240, 240, 0.75);
-  --border: rgba(49, 49, 49, 0.1);
-
-  --icon: rgba(49, 49, 49, .4);
-  --icon-bg: rgba(49, 49, 49, .1);
-  --icon-bg-click: rgba(49, 49, 49, 0.2);
-
-  --copy-primary: #121212;
-  --copy-secondary: #565656;
-
-  --primary: #FF9F0F;
-  --secondary: #24BAFF;
-}
-
 @supports (font-variation-settings: normal) {
   @font-face {
     font-family: 'Manrope Var';
@@ -64,6 +24,57 @@ html, body {
     font-style: oblique 0deg 10deg;
     font-display: swap;
   }
+
+  @font-face {
+    font-family: 'Space Grotesk Var';
+    src: url('./../fonts/space-grotesk-var.woff2') format('woff2-variations');
+    font-weight: 1 999;
+    font-style: oblique 0deg 10deg;
+    font-display: swap;
+  }
+
+  .font-head {
+    font-feature-settings: 'ss04', 'ss05';
+  }
+
+  .font-copy {
+    font-feature-settings: 'liga', 'clig';
+  }
+}
+
+:root {
+  --surface: #121212;
+  --ground: #000000;
+
+  --line: #FFFAFA;
+
+  --copy-primary: #E0E0E0;
+  --copy-secondary: rgba(224, 224, 224, 0.5);
+
+  --link: #707BDE;
+
+  --nav: rgba(21, 21, 22, 0.8);
+  --nav-border: rgba(255, 250, 250, 0.25);
+
+  --primary: #FB9700;
+  --secondary: #009EE8;
+}
+
+.theme-light {
+  --surface: #F2F2F2;
+  --ground: #E0E0E0;
+
+  --border: #313131;
+
+  --copy-primary: #121212;
+  --copy-secondary: rgba(18, 18, 18, 0.5);
+  --link: #4856D4;
+
+  --nav: rgba(255, 250, 250, 0.75);
+  --nav-border: rgba(21, 21, 22, 0.1);
+
+  --primary: #FF9F0F;
+  --secondary: #24BAFF;
 }
 
 @font-face {
@@ -80,6 +91,24 @@ html, body {
   src: url('./../fonts/manrope-semi.woff2') format('woff2'),
     url('./../fonts/manrope-semi.woff') format('woff');
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./../fonts/space-grotesk.woff2') format('woff2'),
+    url('./../fonts/space-grotesk.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./../fonts/space-grotesk-medium.woff2') format('woff2'),
+    url('./../fonts/space-grotesk-medium.woff') format('woff');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }

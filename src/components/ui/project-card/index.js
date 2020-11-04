@@ -1,4 +1,4 @@
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from './project-card.vue';
 
 export default ProjectCard;
 export { ProjectCard };

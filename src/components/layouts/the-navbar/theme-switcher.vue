@@ -3,7 +3,7 @@ import Dark from '~/assets/icons/dark.svg?inline';
 import Light from '~/assets/icons/light.svg?inline';
 
 import { inject, onMounted } from '@vue/composition-api';
-import { THEME, TOGGLE_THEME } from '~/common/symbols';
+import { THEME, TOGGLE_THEME } from '~/common';
 
 export default {
   components: {

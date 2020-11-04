@@ -1,12 +1,16 @@
 <script>
 import { ref, onMounted, computed, provide } from '@vue/composition-api';
-import TheNavbar from '~/components/layouts/TheNavbar';
-import TheFooter from '~/components/layouts/TheFooter';
+import TheNavbar from '~/components/layouts/the-navbar';
+import TheFooter from '~/components/layouts/the-footer';
+import AltFooter from '~/components/layouts/the-footer/alt-footer';
+import AltNavbar from '~/components/layouts/the-navbar/alt-navbar';
 
-import { THEME, TOGGLE_THEME } from '~/common/symbols';
+import { THEME, TOGGLE_THEME } from '~/common';
 
 export default {
   components: {
+    AltNavbar,
+    AltFooter,
     TheNavbar,
     TheFooter,
   },
@@ -54,26 +58,28 @@ export default {
     class="flex flex-col
     bg-surface
     text-copy-primary
-    antialiased
-    tracking-manrope
     font-copy
-    app"
+    antialiased
+    leading-relaxed
+    font-medium
+    site"
     :class="`theme-${theme}`"
   >
-    <the-navbar />
-    <main class="flex flex-col flex-grow
-      font-medium
-      pt-18
-      lg:pt-20 lg:text-lg
-      body">
+    <alt-navbar />
+    <main
+      class="flex flex-col flex-grow
+        pt-16
+        lg:pt-20 lg:text-lg
+        body">
       <nuxt />
     </main>
-    <the-footer />
+    <alt-footer />
   </div>
 </template>
 
 <style lang="postcss" scoped>
-.app {
+.site {
+  min-height: 100vh;
   transition: color 200ms ease-out,
     background-color 200ms ease-out,
     fill 200ms ease-out,

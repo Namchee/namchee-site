@@ -1,49 +1,47 @@
-/* eslint-disable max-len, quote-props */
+/* eslint-disable max-len */
 
 module.exports = {
-  purge: [
-    './src/**/*.vue',
-    './src/**/*.html',
-    './src/**/*.jsx',
-  ],
+  purge: {
+    content: [
+      './src/**/*.vue',
+      './src/**/*.html',
+      './src/**/*.jsx',
+    ],
+  },
   theme: {
     extend: {
       fontFamily: {
-        copy: '"Manrope Var", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+        copy: '"Manrope Var", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+        head: '"Space Grotesk Var", "Space Grotesk", Arial, sans-serif',
       },
 
-      letterSpacing: {
-        manrope: 'calc(-.02333em + .36667px)',
+      maxWidth: {
+        '2xs': '16rem',
       },
 
-      padding: {
-        screen: '5vw',
+      spacing: {
+        18: '4.5rem',
+        container: '1280px',
       },
 
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
-        'copy-primary': 'var(--copy-primary)',
-        'copy-secondary': 'var(--copy-secondary)',
 
-        'dark-grey': '#151516',
-        'light-grey': '#ededf0',
-        grey: '#b1b1b3',
+        copy: {
+          primary: 'var(--copy-primary)',
+          secondary: 'var(--copy-secondary)',
+        },
 
-        surface: 'var(--surface)',
-        raised: 'var(--raised)',
         link: 'var(--link)',
 
-        nav: 'var(--nav)',
-        thinline: 'var(--border)',
+        surface: 'var(--surface)',
+        ground: 'var(--ground)',
+
+        line: 'var(--line)',
       },
 
-      spacing: {
-        18: '4.5rem',
-        28: '7rem',
-      },
-
-      backgroundOpacity: {
+      opacity: {
         10: '0.1',
         20: '0.2',
         30: '0.3',

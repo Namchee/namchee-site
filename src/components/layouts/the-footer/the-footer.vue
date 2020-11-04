@@ -11,14 +11,15 @@ export default {
 </script>
 
 <template>
+  <!-- start: footer -->
   <footer class="w-full
     flex flex-col items-center
     py-6 px-6
-    border-t border-thinline
+    bg-raised
     text-sm
-    md:text-base md:flex-row md:justify-between md:px-12
-    lg:px-screen
-    footer">
+    md:flex-row md:justify-between md:px-12
+    lg:py-24
+    lg:px-layout">
 
     <!-- start: disclaimer banner -->
     <div class="font-medium mb-4 md:mb-0">
@@ -64,6 +65,7 @@ export default {
     <!-- end: quick contact links -->
 
   </footer>
+  <!-- end: footer -->
 </template>
 
 <style lang="postcss" scoped>

@@ -1,6 +1,6 @@
 <script>
 import { ref, computed, onMounted, provide } from '@vue/composition-api';
-import { THEME } from '~/common/symbols';
+import { THEME } from '~/common';
 
 export default {
   setup() {

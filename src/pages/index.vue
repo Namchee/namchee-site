@@ -1,7 +1,7 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
 import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
-import { ProjectCard } from '~/components/ui/ProjectCard';
+import { ProjectCard } from '~/components/ui/project-card';
 
 export default {
   components: {
