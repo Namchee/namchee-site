@@ -51,24 +51,23 @@ html, body {
   --copy-primary: #E0E0E0;
   --copy-secondary: rgba(224, 224, 224, 0.5);
 
-  --link: #707BDE;
-
   --nav: rgba(21, 21, 22, 0.8);
   --nav-border: rgba(255, 250, 250, 0.25);
 
-  --primary: #FB9700;
-  --secondary: #009EE8;
+  --primary: #D68100;
+  --secondary: #2079FF;
+
+  --dark: #121212;
 }
 
 .theme-light {
-  --surface: #F2F2F2;
+  --surface: #FAFAFA;
   --ground: #E0E0E0;
 
   --border: #313131;
 
   --copy-primary: #121212;
   --copy-secondary: rgba(18, 18, 18, 0.5);
-  --link: #4856D4;
 
   --nav: rgba(255, 250, 250, 0.75);
   --nav-border: rgba(21, 21, 22, 0.1);

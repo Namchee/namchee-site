@@ -79,11 +79,12 @@ export default {
         <!-- start: navigation overlay -->
         <div class="fixed
           flex flex-col justify-center items-start
-          text-5xl
+          text-5xl text-dark
+          font-semibold
           h-screen w-screen
-          bg-ground
+          bg-primary
           top-0 left-0
-          p-6
+          p-5
           pointer-events-none
           md:relative
           md:flex-row md:justify-evenly md:items-center
@@ -92,11 +93,11 @@ export default {
           md:p-0
           md:bg-transparent
           md:pointer-events-auto
+          md:text-copy-primary
           nav__items">
           <ul
             class="flex flex-col
               md:flex-row
-              md:font-semibold
               nav__menu">
             <li
               class="nav__item__wrapper"
@@ -105,7 +106,7 @@ export default {
               @click="isOpen = false">
               <nuxt-link
                 :to="link.href"
-                class="relative flex justify-center items-center nav__link">
+                class="relative flex items-center nav__link">
                 {{ link.name }}
               </nuxt-link>
             </li>
@@ -215,9 +216,9 @@ export default {
 
 @media screen and (max-width: 767px) {
   .nav__items {
-    z-index: -1;
     clip-path: polygon(100% 0, 100% 0, 0% 100%, 0% 100%);
     transition: clip-path 750ms cubic-bezier(0.76, 0, 0.24, 1);
+    font-size: 3.25rem;
   }
 
   .nav__menu {
@@ -225,7 +226,7 @@ export default {
   }
 
   .nav__item__wrapper {
-    @apply my-2 ml-6;
+    @apply ml-5;
   }
 
   .nav__link {
@@ -234,7 +235,7 @@ export default {
     &::before {
       position: absolute;
       top: .85rem;
-      left: -1.5rem;
+      left: -1.25rem;
       counter-increment: link-list;
       content: counter(link-list, decimal-leading-zero);
       font-size: 1rem;

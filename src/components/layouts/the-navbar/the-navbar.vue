@@ -87,13 +87,12 @@ export default {
 </script>
 
 <template>
-  <header
-    class="flex justify-between items-center
-      border-b
+  <div
+    class="border-b border-line-light dark:border-line-dark
+      bg-surface-light dark:bg-surface-dark bg-opacity-80
       fixed z-10
       w-full h-16
       lg:h-20
-      lg:px-layout
       header"
     :class='{
       "nav--open": isOpen,
@@ -101,22 +100,25 @@ export default {
       "nav--hide": hideMenu,
     }'
   >
-    <!-- start: banner logo -->
-    <nuxt-link
-      id="logo"
-      to="/"
-      class="ml-4
-        z-10
-        transform
-        scale-90
-        md:ml-8
-        lg:scale-100 lg:ml-0
-        header__logo"
-      aria-label="Namchee"
-    >
-      <logo alt="Namchee" role="banner" />
-    </nuxt-link>
-    <!-- end: banner logo -->
+    <div class="flex justify-center items-center
+      h-full
+      mx-auto
+      nav__container">
+      <!-- start: banner logo -->
+      <nuxt-link
+        id="logo"
+        to="/"
+        class="z-10
+          transform
+          scale-75
+          mdl:scale-90
+          md:ml-8
+          lg:scale-100 lg:ml-0
+          header__logo"
+        aria-label="Namchee">
+        <logo alt="Namchee" role="banner" />
+      </nuxt-link>
+      <!-- end: banner logo -->
 
     <nav
       id="nav"
@@ -199,14 +201,14 @@ export default {
       </button>
       <!-- end: mobile navigation burger -->
     </nav>
-  </header>
+    </div>
+
+  </div>
 </template>
 
 <style lang="postcss" scoped>
 .header {
   backdrop-filter: blur(5px);
-  border-color: var(--nav-border);
-  background-color: var(--nav);
   transform: translateY(0);
   transition: transform 600ms cubic-bezier(0.45, 0, 0.55, 1),
     background-color 200ms cubic-bezier(0.61, 1, 0.88, 1);
@@ -231,7 +233,8 @@ export default {
     animation: fill 1s ease-out forwards 1.6s;
 
     & path {
-      stroke: var(--copy);
+      @apply stroke-current;
+
       stroke-width: .65px;
       stroke-dasharray: 140;
       stroke-dashoffset: 140;
@@ -404,6 +407,12 @@ export default {
   }
 }
 
+@screen lg {
+  .nav__container {
+    width: clamp(56rem, 85vw, 1280px);
+  }
+}
+
 @keyframes line {
   to {
     stroke-dashoffset: 0;
@@ -416,7 +425,7 @@ export default {
   }
 
   100% {
-    fill: var(--copy);
+    @apply fill-current;
   }
 }
 </style>

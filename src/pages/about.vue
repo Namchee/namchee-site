@@ -1,5 +1,5 @@
 <script>
-import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
+// import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
 
 export default {
   head: {
@@ -38,7 +38,7 @@ export default {
   },
 
   components: {
-    ArrowLink,
+    // ArrowLink,
   },
 
   setup() {

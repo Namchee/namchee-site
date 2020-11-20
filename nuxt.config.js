@@ -117,12 +117,12 @@ module.exports = {
   build: {
     postcss: {
       plugins: {
-        'precss': {},
-        'tailwindcss': {},
-        'postcss-for': {},
+        'postcss-preset-env': {},
+        'postcss-advanced-variables': {},
+        'postcss-nested': {},
         'postcss-custom-properties': {},
+        'tailwindcss': {},
         'autoprefixer': {},
-        'cssnano': {},
       },
     },
   },
@@ -130,6 +130,7 @@ module.exports = {
     '@nuxtjs/ngrok',
   ],
   buildModules: [
+    'nuxt-esbuild',
     '@nuxtjs/svg',
   ],
   css: [

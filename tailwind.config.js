@@ -1,13 +1,11 @@
 /* eslint-disable max-len */
-
 module.exports = {
-  purge: {
-    content: [
-      './src/**/*.vue',
-      './src/**/*.html',
-      './src/**/*.jsx',
-    ],
-  },
+  purge: [
+    './src/**/*.js',
+    './src/**/*.vue',
+    './src/**/*.html',
+  ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
@@ -15,46 +13,41 @@ module.exports = {
         head: '"Space Grotesk Var", "Space Grotesk", Arial, sans-serif',
       },
 
-      maxWidth: {
-        '2xs': '16rem',
-      },
-
       spacing: {
         18: '4.5rem',
-        container: '1280px',
       },
 
       colors: {
-        primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
-
-        copy: {
-          primary: 'var(--copy-primary)',
-          secondary: 'var(--copy-secondary)',
+        primary: {
+          400: '#FB9700',
+          600: '#D68100',
         },
 
-        link: 'var(--link)',
+        secondary: {
+          400: '#2079FF',
+          600: '#3284FF',
+        },
 
-        surface: 'var(--surface)',
-        ground: 'var(--ground)',
+        copy: {
+          light: '#121212',
+          dark: '#E0E0E0',
+          secondary: '#737373',
+        },
 
-        line: 'var(--line)',
-      },
+        surface: {
+          light: '#F2F2F2',
+          dark: '#161616',
+        },
 
-      opacity: {
-        10: '0.1',
-        20: '0.2',
-        30: '0.3',
-        40: '0.4',
-        60: '0.6',
-        70: '0.7',
-        80: '0.8',
-        90: '0.9',
+        line: {
+          light: '#D1D5DB',
+          dark: '#313131',
+        },
       },
     },
   },
-  variants: {},
-  plugins: [
-    '@tailwindcss/ui',
-  ],
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 };

@@ -9,4 +9,8 @@ export const LINKS = [
     name: 'About',
     href: '/about',
   },
+  {
+    name: 'Blog',
+    href: '/blog',
+  },
 ];

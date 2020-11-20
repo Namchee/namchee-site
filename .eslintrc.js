@@ -22,7 +22,7 @@ module.exports = {
     ],
     'linebreak-style': [
       'warn',
-      'windows',
+      'unix',
     ],
     'object-curly-spacing': [
       'error',

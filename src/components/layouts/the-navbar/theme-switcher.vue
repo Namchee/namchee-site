@@ -46,7 +46,7 @@ export default {
       theme__switcher"
     @click="toggleTheme()"
   >
-    <component :is="theme" class="theme__switcher__icon" />
+    <component :is="theme ? 'dark' : 'light'" class="theme__switcher__icon" />
   </button>
 </template>
 

@@ -1,23 +1,18 @@
 <script>
-import { ref, onMounted, computed, provide } from '@vue/composition-api';
+import { ref, onMounted, watchEffect, provide } from '@vue/composition-api';
 import TheNavbar from '~/components/layouts/the-navbar';
 import TheFooter from '~/components/layouts/the-footer';
-import AltFooter from '~/components/layouts/the-footer/alt-footer';
 import AltNavbar from '~/components/layouts/the-navbar/alt-navbar';
-
 import { THEME, TOGGLE_THEME } from '~/common';
 
 export default {
   components: {
-    AltNavbar,
-    AltFooter,
     TheNavbar,
     TheFooter,
   },
 
   setup() {
     const darkMode = ref(true);
-    const theme = computed(() => darkMode.value ? 'dark' : 'light');
 
     const toggleTheme = () => {
       darkMode.value = !darkMode.value;
@@ -31,13 +26,25 @@ export default {
       }
     };
 
-    provide(THEME, theme);
+    provide(THEME, darkMode);
     provide(TOGGLE_THEME, toggleTheme);
+
+    watchEffect(() => {
+      if (process.client) {
+        if (darkMode.value) {
+          document.querySelector('html').classList.add('dark');
+        } else {
+          document.querySelector('html').classList.remove('dark');
+        }
+      }
+    });
 
     onMounted(() => {
       const systemTheme = window.matchMedia ?
         window.matchMedia('(prefers-color-scheme: dark)').matches :
         true;
+
+      console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
       darkMode.value = systemTheme;
 
@@ -45,10 +52,6 @@ export default {
         darkMode.value = localStorage.getItem('theme') === 'true';
       }
     });
-
-    return {
-      theme,
-    };
   },
 };
 </script>
@@ -56,16 +59,15 @@ export default {
 <template>
   <div
     class="flex flex-col
-    bg-surface
-    text-copy-primary
+    bg-surface-light dark:bg-surface-dark
+    text-copy-light dark:text-copy-dark
     font-copy
     antialiased
     leading-relaxed
     font-medium
     site"
-    :class="`theme-${theme}`"
   >
-    <alt-navbar />
+    <the-navbar />
     <main
       class="flex flex-col flex-grow
         pt-16
@@ -73,7 +75,7 @@ export default {
         body">
       <nuxt />
     </main>
-    <alt-footer />
+    <the-footer />
   </div>
 </template>
 

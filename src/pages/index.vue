@@ -1,16 +1,16 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
-import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
+// import ArrowLink from '~/assets/icons/arrow-link.svg?inline';
 import { ProjectCard } from '~/components/ui/project-card';
 
 export default {
   components: {
     ProjectCard,
-    ArrowLink,
+    // ArrowLink,
   },
 
   head: {
-    title: 'Welcome! - Namchee',
+    title: 'Home - Namchee',
     meta: [
       /* eslint-disable max-len */
       {
@@ -159,8 +159,7 @@ export default {
               rel="noreferrer"
               class="project__link"
               href="https://github.com/Namchee/COVID-19-LINE-Bot">
-              GitHub
-              <arrow-link class="inline-block" />
+              GitHub &nearr;
             </a>
           </template>
         </project-card>
@@ -188,8 +187,7 @@ export default {
 
           <template v-slot:link>
             <a class="project__link" href="https://github.com/Namchee/wombatik" rel="noreferrer">
-              GitHub
-              <arrow-link class="inline-block" />
+              GitHub &nearr;
             </a>
           </template>
         </project-card>
@@ -221,8 +219,7 @@ export default {
 
           <template v-slot:link>
             <a class="project__link" href="https://github.com/Namchee/absentor" rel="noreferrer">
-              GitHub
-              <arrow-link class="inline-block" />
+              GitHub &nearr;
             </a>
           </template>
         </project-card>
