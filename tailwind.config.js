@@ -29,9 +29,15 @@ module.exports = {
         },
 
         copy: {
-          light: '#121212',
-          dark: '#E0E0E0',
-          secondary: '#737373',
+          light: {
+            primary: '#121212',
+            secondary: '#717171',
+          },
+
+          dark: {
+            primary: '#E0E0E0',
+            secondary: '#919191',
+          },
         },
 
         surface: {

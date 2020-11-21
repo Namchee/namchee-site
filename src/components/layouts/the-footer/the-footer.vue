@@ -46,7 +46,7 @@ export default {
     <div class="py-8 lg:py-12">
       <p class="text-sm
         font-head
-        text-copy-secondary
+      text-copy-light-secondary dark:text-copy-dark-secondary
         mb-2
         font-normal
         md:text-base
@@ -84,7 +84,7 @@ export default {
           <p
             class="text-sm
               font-head
-              text-copy-secondary
+            text-copy-light-secondary dark:text-copy-dark-secondary
               font-normal
               mb-2
               md:text-base
@@ -104,7 +104,7 @@ export default {
         <div class="md:col-start-1 lg:col-start-auto">
           <p class="text-sm
             font-head
-            text-copy-secondary
+            text-copy-light-secondary dark:text-copy-dark-secondary
             font-normal
             mb-2
             md:text-base
@@ -134,7 +134,7 @@ export default {
         <div>
           <p class="text-sm
             font-head
-            text-copy-secondary
+            text-copy-light-secondary dark:text-copy-dark-secondary
             font-normal
             mb-2
             md:text-base
@@ -166,7 +166,7 @@ export default {
     <div class="border-t border-line-light dark:border-line-dark
       py-4
       font-medium
-      text-copy-secondary
+      text-copy-light-secondary dark:text-copy-dark-secondary
       flex justify-between items-center
       lg:py-6">
 
@@ -183,7 +183,10 @@ export default {
           focus:outline-none
           btt__button secondary">
         <span class="mr-2">Back To Top</span>
-        <arrow-up class="w-10 h-10 stroke-current text-copy-secondary" />
+        <arrow-up
+          class="w-10 h-10
+            stroke-current
+            text-copy-light-secondary dark:text-copy-dark-secondary" />
       </button>
       <!-- end: back to top button -->
     </div>
@@ -197,7 +200,7 @@ export default {
   position: relative;
 
   &::after {
-    @apply bg-copy-light dark:bg-copy-dark;
+    @apply bg-copy-light-primary dark:bg-copy-dark-primary;
 
     content: '';
     position: absolute;
@@ -226,7 +229,7 @@ export default {
 
 .secondary {
   & span::after {
-    @apply bg-copy-secondary;
+    @apply bg-copy-light-primary dark:bg-copy-dark-primary;
   }
 }
 
@@ -237,16 +240,16 @@ export default {
 }
 
 .nav__links {
-  @apply text-copy-secondary;
+  @apply text-copy-light-secondary dark:text-copy-dark-secondary;
 
   transition: color 300ms ease-out;
 
   &.active--exact {
-    @apply text-copy-light dark:text-copy-dark font-semibold;
+    @apply text-copy-light-primary dark:text-copy-dark-primary font-semibold;
   }
 
   &:hover {
-    @apply text-copy-light dark:text-copy-dark;
+    @apply text-copy-light-primary dark:text-copy-dark-primary;
   }
 }
 
@@ -267,7 +270,7 @@ export default {
   }
 
   &::before {
-    @apply bg-copy-dark;
+    @apply bg-copy-dark-primary;
 
     mix-blend-mode: difference;
     z-index: 1;
@@ -294,7 +297,7 @@ export default {
       display: inline-block;
 
       &::after {
-        @apply bg-copy-secondary;
+        @apply bg-copy-light-secondary dark:bg-copy-dark-secondary;
 
         content: '';
         position: absolute;

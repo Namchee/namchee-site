@@ -2,7 +2,6 @@
 import { ref, onMounted, watchEffect, provide } from '@vue/composition-api';
 import TheNavbar from '~/components/layouts/the-navbar';
 import TheFooter from '~/components/layouts/the-footer';
-import AltNavbar from '~/components/layouts/the-navbar/alt-navbar';
 import { THEME, TOGGLE_THEME } from '~/common';
 
 export default {
@@ -60,7 +59,7 @@ export default {
   <div
     class="flex flex-col
     bg-surface-light dark:bg-surface-dark
-    text-copy-light dark:text-copy-dark
+    text-copy-light-primary dark:text-copy-dark-primary
     font-copy
     antialiased
     leading-relaxed
