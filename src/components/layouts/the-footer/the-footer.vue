@@ -226,7 +226,7 @@ export default {
 
 .secondary {
   & span::after {
-    background: #737373;
+    @apply bg-copy-secondary;
   }
 }
 
@@ -237,8 +237,8 @@ export default {
 }
 
 .nav__links {
-  color: #737373;
-  font-weight: 500;
+  @apply text-copy-secondary;
+
   transition: color 300ms ease-out;
 
   &.active--exact {
@@ -267,14 +267,16 @@ export default {
   }
 
   &::before {
-    background-color: var(--copy-primary);
+    @apply bg-copy-dark;
+
     mix-blend-mode: difference;
     z-index: 1;
     pointer-events: none;
   }
 
   &::after {
-    background-color: var(--surface);
+    @apply bg-surface-dark;
+
     z-index: -1;
   }
 
