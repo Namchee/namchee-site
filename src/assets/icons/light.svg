@@ -1,3 +1,13 @@
-<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="none" stroke="currentColor" viewBox="0 0 256 256">
+  <title>Light Mode</title>
+  <rect width="256" height="256" fill="none" stroke="none"></rect>
+  <circle cx="128" cy="128" r="60" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle>
+  <line x1="128" y1="36" x2="128" y2="16" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="62.94618" y1="62.94618" x2="48.80404" y2="48.80404" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="36" y1="128" x2="16" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="62.94618" y1="193.05382" x2="48.80404" y2="207.19596" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="128" y1="220" x2="128" y2="240" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="193.05382" y1="193.05382" x2="207.19596" y2="207.19596" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="220" y1="128" x2="240" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+  <line x1="193.05382" y1="62.94618" x2="207.19596" y2="48.80404" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
 </svg>

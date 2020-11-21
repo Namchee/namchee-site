@@ -1,3 +1,5 @@
-<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="none" stroke="currentColor" viewBox="0 0 256 256">
+  <title>Dark Mode</title>
+  <rect width="256" height="256" fill="none" stroke="none"></rect>
+  <path d="M223.532,137.53892A96.00374,96.00374,0,1,1,118.449,32.46915l.00005.00075a80.03385,80.03385,0,0,0,105.08326,105.069Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></path>
 </svg>

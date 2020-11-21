@@ -1,5 +1,4 @@
-export const THEME = Symbol('THEME');
-export const TOGGLE_THEME = Symbol('TOGGLE_THEME');
+export const THEME = Symbol('theme');
 export const LINKS = [
   {
     name: 'Home',

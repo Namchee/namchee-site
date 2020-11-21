@@ -1,5 +1,6 @@
 <script>
 import { ref, onMounted, watchEffect } from '@vue/composition-api';
+import ThemeSwitcherEvo from './theme-switcher-evo';
 import ThemeSwitcher from './theme-switcher';
 import Logo from '~/assets/images/logo.svg?inline';
 
@@ -7,6 +8,7 @@ export default {
   components: {
     Logo,
     ThemeSwitcher,
+    ThemeSwitcherEvo,
   },
 
   setup(props, { root }) {
@@ -149,7 +151,7 @@ export default {
           text-5xl
           my-auto
           px-4
-          font-medium
+          font-semibold
           md:text-6xl
           lg:flex-row lg:items-center lg:text-base
           lg:px-0
@@ -175,7 +177,7 @@ export default {
       <!-- end: navigation elements -->
 
       <!-- start: theme switcher -->
-      <theme-switcher class="z-10
+      <theme-switcher-evo class="z-10
         md:mr-4
         lg:mr-0 lg:ml-4" />
       <!-- end: theme switcher -->
@@ -211,7 +213,8 @@ export default {
   backdrop-filter: blur(5px);
   transform: translateY(0);
   transition: transform 600ms cubic-bezier(0.45, 0, 0.55, 1),
-    background-color 200ms cubic-bezier(0.61, 1, 0.88, 1);
+    background-color 250ms cubic-bezier(0.61, 1, 0.88, 1),
+    height 250ms ease-out;
 
   &.nav--top {
     @apply border-b-0 border-transparent;
@@ -220,7 +223,7 @@ export default {
   }
 
   &.nav--hide {
-    transform: translateY(-102%);
+    transform: translateY(-101%);
   }
 
   &:focus-within {
@@ -266,12 +269,15 @@ export default {
 
 .nav__burger {
   & span {
-    @apply z-10 rounded-full origin-right;
+    @apply z-10
+      rounded-full
+      origin-right
+      bg-copy-light-primary dark:bg-copy-dark-primary
+      border-copy-light-primary dark:border-copy-dark-primary;
 
-    background-color: var(--copy);
     content: "";
     width: 1.65rem;
-    border: 1.65px solid var(--copy);
+    border: 1.65px solid;
     transition: transform 250ms ease-out;
 
     &:first-child {
@@ -311,7 +317,7 @@ export default {
 
 @media screen and (max-width: 1023px) {
   .nav__elem {
-    background-color: var(--raised);
+    @apply bg-primary-400 dark:bg-primary-600;
 
     clip-path: polygon(100% 0, 100% 0, 0% 100%, 0% 100%);
     transition: clip-path 750ms cubic-bezier(0.76, 0, 0.24, 1);

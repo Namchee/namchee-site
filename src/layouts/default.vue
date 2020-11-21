@@ -2,7 +2,7 @@
 import { ref, onMounted, watchEffect, provide } from '@vue/composition-api';
 import TheNavbar from '~/components/layouts/the-navbar';
 import TheFooter from '~/components/layouts/the-footer';
-import { THEME, TOGGLE_THEME } from '~/common';
+import { THEME } from '~/common';
 
 export default {
   components: {
@@ -13,20 +13,7 @@ export default {
   setup() {
     const darkMode = ref(true);
 
-    const toggleTheme = () => {
-      darkMode.value = !darkMode.value;
-
-      if (
-        process.client &&
-        window.localStorage &&
-        process.env.NODE_ENV === 'production'
-      ) {
-        localStorage.setItem('theme', darkMode.value);
-      }
-    };
-
     provide(THEME, darkMode);
-    provide(TOGGLE_THEME, toggleTheme);
 
     watchEffect(() => {
       if (process.client) {
@@ -34,6 +21,10 @@ export default {
           document.querySelector('html').classList.add('dark');
         } else {
           document.querySelector('html').classList.remove('dark');
+        }
+
+        if (window.localStorage && process.env.NODE_ENV === 'production') {
+          localStorage.setItem(THEME.description, darkMode.value);
         }
       }
     });
@@ -43,12 +34,10 @@ export default {
         window.matchMedia('(prefers-color-scheme: dark)').matches :
         true;
 
-      console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
-
       darkMode.value = systemTheme;
 
       if (window.localStorage && localStorage.getItem('theme') !== null) {
-        darkMode.value = localStorage.getItem('theme') === 'true';
+        darkMode.value = localStorage.getItem(THEME.description) === 'true';
       }
     });
   },
