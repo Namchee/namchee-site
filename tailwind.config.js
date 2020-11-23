@@ -46,8 +46,13 @@ module.exports = {
         },
 
         material: {
-          light: '#E5E5E5',
+          light: '#E0E0E0',
           dark: '#363636',
+        },
+
+        nav: {
+          light: '#C4C4C4',
+          dark: '#000000',
         },
 
         line: {
@@ -60,6 +65,8 @@ module.exports = {
   variants: {
     extend: {
       ringOpacity: ['dark'],
+      backgroundOpacity: ['dark'],
+      opacity: ['dark'],
     },
   },
   plugins: [],

@@ -57,7 +57,7 @@ export default {
   >
     <the-navbar />
     <main
-      class="flex flex-col flex-grow
+      class="flex flex-col flex-1
         pt-16
         lg:pt-20 lg:text-lg
         body">
@@ -70,6 +70,7 @@ export default {
 <style lang="postcss" scoped>
 .site {
   min-height: 100vh;
+
   transition: color 200ms ease-out,
     background-color 200ms ease-out,
     fill 200ms ease-out,

@@ -1,6 +1,7 @@
 <script>
-import { ref, onMounted, watchEffect } from '@vue/composition-api';
-import ThemeSwitcherEvo from './theme-switcher-evo';
+import { ref, onMounted, watch } from '@vue/composition-api';
+import { gsap } from 'gsap';
+import { LINKS } from '~/common';
 import ThemeSwitcher from './theme-switcher';
 import Logo from '~/assets/images/logo.svg?inline';
 
@@ -8,7 +9,6 @@ export default {
   components: {
     Logo,
     ThemeSwitcher,
-    ThemeSwitcherEvo,
   },
 
   setup(props, { root }) {
@@ -28,17 +28,6 @@ export default {
     const currentScroll = ref(0);
     const tick = ref(false);
 
-    const links = [
-      {
-        name: 'Home',
-        href: '/',
-      },
-      {
-        name: 'About',
-        href: '/about',
-      },
-    ];
-
     onMounted(() => {
       const handleScroll = () => {
         currentScroll.value = window.pageYOffset;
@@ -55,22 +44,57 @@ export default {
 
       const updateScrollbar = () => {
         hideMenu.value = currentScroll.value > lastScroll.value &&
-          currentScroll.value > 256;
+          currentScroll.value > (window.innerHeight / 2);
 
         lastScroll.value = currentScroll.value;
 
         tick.value = false;
       };
 
-      watchEffect(() => {
-        const open = isOpen.value;
-
+      watch(isOpen, (open) => {
         if (open) {
           document.body.style.height = '100vh';
           document.body.style.overflowY = 'hidden';
+
+          const tl = gsap.timeline();
+          tl.to('.nav__elem', {
+            clipPath: 'polygon(0% 0, 200% 0, 100% 100%, -100% 100%)',
+            pointerEvents: 'all',
+            duration: 0.15,
+            ease: 'power4.out',
+          });
+          tl.to('.nav__menu__link > span', {
+            translateY: '0%',
+            duration: 0.75,
+            stagger: 0.15,
+            ease: 'power4.out',
+          }, '+=0.35');
+          tl.to('.theme-switcher', {
+            translateX: '0',
+            duration: 0.5,
+            ease: 'power4.out',
+          }, '-=0.875');
         } else {
           document.body.style.height = 'auto';
           document.body.style.overflowY = 'unset';
+
+          const tl = gsap.timeline();
+          tl.to('.nav__menu__link > span', {
+            translateY: '100%',
+            duration: 1.25,
+            stagger: 0.15,
+            ease: 'power4.out',
+          });
+          tl.to('.nav__elem', {
+            clipPath: 'polygon(100% 0, 100% 0, 0% 100%, 0% 100%)',
+            duration: 0.15,
+            ease: 'power4.out',
+          }, '-=1.525');
+          tl.to('.theme-switcher', {
+            translateX: '-165px',
+            duration: 1.25,
+            ease: 'power4.out',
+          }, '-=1.5');
         }
       });
 
@@ -82,7 +106,7 @@ export default {
       hideMenu,
       isOpen,
       isMobile,
-      links,
+      links: LINKS,
     };
   },
 };
@@ -91,9 +115,11 @@ export default {
 <template>
   <div
     class="border-b border-line-light dark:border-line-dark
-      bg-surface-light dark:bg-surface-dark bg-opacity-80
+      bg-surface-light dark:bg-surface-dark
+      bg-opacity-80 dark:bg-opacity-80
       fixed z-10
       w-full h-16
+      md:h-18
       lg:h-20
       header"
     :class='{
@@ -105,6 +131,8 @@ export default {
     <div class="flex justify-center items-center
       h-full
       mx-auto
+      md:pl-8 md:pr-4
+      lg:p-0
       nav__container">
       <!-- start: banner logo -->
       <nuxt-link
@@ -113,8 +141,7 @@ export default {
         class="z-10
           transform
           scale-75
-          mdl:scale-90
-          md:ml-8
+          md:scale-90
           lg:scale-100 lg:ml-0
           header__logo"
         aria-label="Namchee">
@@ -133,17 +160,17 @@ export default {
       <!-- start: navigation elements -->
       <div
         class="fixed
-          flex flex-col justify-between
+          flex flex-col justify-between items-start
           h-screen w-screen
           top-0 left-0
-          p-8
+          px-2 py-20
           pointer-events-none
-          lg:relative
-          lg:flex-row lg:justify-evenly lg:items-center
-          lg:w-auto lg:h-auto
-          lg:p-0
-          lg:bg-transparent
-          lg:pointer-events-auto
+          md:relative
+          md:flex-row md:justify-evenly md:items-center
+          md:w-auto md:h-auto
+          md:p-0
+          md:bg-transparent
+          md:pointer-events-auto
           nav__elem"
       >
         <!-- start: navigation links -->
@@ -152,42 +179,43 @@ export default {
           my-auto
           px-4
           font-semibold
-          md:text-6xl
-          lg:flex-row lg:items-center lg:text-base
-          lg:px-0
+          md:text-base
+          md:flex-row md:items-center
+          md:px-0
           nav__menu">
           <li
-            class="nav__menu__item"
+            class="w-full md:w-auto nav__menu__item"
             v-for="link in links"
             :key="link.href"
-            @click="isOpen = false"
-          >
+            @click="isOpen = false">
             <nuxt-link
               :to="link.href"
               class="relative
+                md:mx-6
                 lg:mx-8
-                nav__menu__link"
-            >
-              {{ link.name }}
+                nav__menu__link">
+              <span>{{ link.name }}</span>
             </nuxt-link>
           </li>
         </ul>
         <!-- end: navigation links -->
+
+        <!-- start: theme switcher -->
+        <theme-switcher class="z-10
+          ml-4
+          md:mx-4
+          lg:mr-0
+          theme-switcher" />
+        <!-- end: theme switcher -->
       </div>
       <!-- end: navigation elements -->
-
-      <!-- start: theme switcher -->
-      <theme-switcher-evo class="z-10
-        md:mr-4
-        lg:mr-0 lg:ml-4" />
-      <!-- end: theme switcher -->
 
       <!-- start: mobile navigation burger -->
       <button
         class="flex flex-col justify-center items-center
           w-16 h-full
-          md:mr-2
-          lg:hidden
+          md:hidden
+          focus:outline-none active:outline-none
           nav__burger"
         aria-label="Menu"
         aria-controls="nav"
@@ -210,20 +238,20 @@ export default {
 
 <style lang="postcss" scoped>
 .header {
-  backdrop-filter: blur(5px);
   transform: translateY(0);
   transition: transform 600ms cubic-bezier(0.45, 0, 0.55, 1),
     background-color 250ms cubic-bezier(0.61, 1, 0.88, 1),
     height 250ms ease-out;
+  backdrop-filter: blur(7.5px);
 
   &.nav--top {
-    @apply border-b-0 border-transparent;
+    @apply border-b-0 border-transparent h-18;
 
     backdrop-filter: blur(0px);
   }
 
   &.nav--hide {
-    transform: translateY(-101%);
+    transform: translateY(-100%);
   }
 
   &:focus-within {
@@ -246,25 +274,8 @@ export default {
   }
 }
 
-.nav__menu__link {
-  @apply relative;
-
-  &::after {
-    @apply absolute left-0 w-full;
-
-    background-color: var(--copy);
-    content: "";
-    bottom: -5px;
-    height: 2px;
-    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
-    transform: scaleX(0);
-  }
-
-  &:hover, &:focus, &:active, &.active--exact {
-    &::after {
-      transform: scaleX(1.05);
-    }
-  }
+.theme-switcher {
+  transform: translateX(-175px);
 }
 
 .nav__burger {
@@ -278,7 +289,9 @@ export default {
     content: "";
     width: 1.65rem;
     border: 1.65px solid;
-    transition: transform 250ms ease-out;
+    transition: transform 250ms ease-out,
+      background-color 200ms ease-out,
+      border-color 200ms ease;
 
     &:first-child {
       transform: scaleX(.85);
@@ -315,105 +328,128 @@ export default {
   }
 }
 
-@media screen and (max-width: 1023px) {
-  .nav__elem {
-    @apply bg-primary-400 dark:bg-primary-600;
+.nav__elem {
+  @apply bg-nav-light dark:bg-nav-dark;
 
-    clip-path: polygon(100% 0, 100% 0, 0% 100%, 0% 100%);
-    transition: clip-path 750ms cubic-bezier(0.76, 0, 0.24, 1);
+  clip-path: polygon(100% 0, 100% 0, 0% 100%, 0% 100%);
+  transition: clip-path 750ms cubic-bezier(0.76, 0, 0.24, 1),
+    background-color 200ms ease-out;
+}
+
+.nav__menu {
+  counter-reset: link-list;
+}
+
+.nav__menu__item {
+  @apply leading-normal block relative;
+
+  &::before {
+    @apply leading-none
+      text-copy-light-secondary dark:text-copy-dark-secondary;
+
+    transition: color 200ms ease-out;
+
+    position: absolute;
+    left: 1.5px;
+    top: -3.5px;
+    counter-increment: link-list;
+    content: counter(link-list, decimal-leading-zero);
+    font-size: 1rem;
+  }
+}
+
+.nav__menu__link {
+  @apply text-copy-light-primary dark:text-copy-dark-primary
+    opacity-40 dark:opacity-40
+    relative overflow-y-hidden
+    inline-block;
+
+  transition: color 200ms ease-out;
+
+  &.active--exact {
+    @apply opacity-100;
   }
 
-  .nav__menu {
-    counter-reset: link-list;
+  & span {
+    display: inline-block;
+    transform: translateY(100%);
   }
+}
 
-  .nav__menu__item {
-    @apply my-2 block relative;
+.nav__burger {
+  @apply z-50;
+}
 
-    &::before {
-      position: absolute;
-      top: .85rem;
-      left: -1.5rem;
-      counter-increment: link-list;
-      content: counter(link-list, decimal-leading-zero);
-      font-size: 1rem;
-    }
-  }
-
-  .nav__menu__link {
-    &::after {
-      @apply bottom-0 origin-left;
-
-      height: 3px;
+.nav--open {
+  & .nav__burger {
+    & :nth-child(1), :nth-child(2), :nth-child(3) {
+      transform: scaleX(0);
     }
 
-    &:hover, &:focus, &:active, &.active--exact {
-      &::after {
-        transform: scaleX(1.1);
-      }
-    }
-  }
-
-  .nav__burger {
-    @apply z-50;
-  }
-
-  .nav--open {
-    & .nav__burger {
-      & :nth-child(1), :nth-child(2), :nth-child(3) {
-        transform: scaleX(0);
-      }
-
-      & :nth-child(4) {
-        transform: rotate(45deg) scaleX(1);
-      }
-
-      & :nth-child(5) {
-        transform: rotate(-45deg) scaleX(1);
-      }
+    & :nth-child(4) {
+      transform: rotate(45deg) scaleX(1);
     }
 
-    & .nav__elem {
-      clip-path: polygon(0% 0, 200% 0, 100% 100%, -100% 100%);
-      pointer-events: all;
-    }
-
-    & .nav__menu__item {
-      &::after {
-        @apply origin-left;
-      }
-
-      &:hover, &:focus, &.is-active {
-        &::after {
-          transform: scaleX(1.15);
-        }
-      }
+    & :nth-child(5) {
+      transform: rotate(-45deg) scaleX(1);
     }
   }
 }
 
-@media screen and (min-width: 640px) and (max-width: 1023px) {
-  .nav__menu {
-    @apply text-6xl px-6;
+@screen md {
+  .header.nav--top {
+    @apply h-20;
+  }
+
+  .nav__elem {
+    @apply bg-transparent dark:bg-transparent;
+
+    clip-path: none;
   }
 
   .nav__menu__item {
-    @apply my-2;
-
-    left: 1rem;
-
     &::before {
-      position: absolute;
-      top: 1.25rem;
-      left: -1.65rem;
-      counter-increment: link-list;
-      content: counter(link-list, decimal-leading-zero);
-      font-size: 1.15rem;
+      display: none;
+    }
+  }
+
+  .theme-switcher {
+    transform: translateX(0);
+  }
+
+  .nav__menu__link {
+    @apply relative opacity-100 dark:opacity-100 overflow-y-visible;
+
+    & span {
+      transform: translateY(0);
+    }
+
+    &::after {
+      @apply absolute left-0 w-full
+      bg-copy-light-primary dark:bg-copy-dark-primary;
+
+      content: "";
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+      transform-origin: center;
+      transform: scaleX(0);
+    }
+
+    &:hover, &:focus, &:active, &.active--exact {
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 }
 
 @screen lg {
+  .header.nav--top {
+    @apply h-24;
+  }
+
   .nav__container {
     width: clamp(56rem, 85vw, 1280px);
   }
